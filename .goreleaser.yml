@@ -1,0 +1,74 @@
+project_name: chant
+
+# Build
+before:
+  hooks:
+    - go mod download
+
+builds:
+  - main: ./cmd/app
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+
+archives:
+  - replacements:
+      darwin:  Darwin
+      linux:   Linux
+      windows: Windows
+      386:     i386
+      amd64:   x86_64
+    format: binary
+
+checksum:
+  name_template: 'checksums.txt'
+
+source:
+  # Whether this pipe is enabled or not.
+  # Defaults to `false`
+  enabled: true
+  # Format of the archive.
+  # Any format git-archive supports, this supports too.
+  # Defaults to `tar.gz`
+  format:  'zip'
+
+# Details
+gomod:
+  # Proxy a module from proxy.golang.org, making the builds verifiable.
+  # This will only be effective if running against a tag. Snapshots will ignore this setting.
+  # Notice: for this to work your `build.main` must be a package, not a `.go` file.
+  #
+  # Default is false.
+  proxy: true
+
+changelog:
+  # Set it to true if you wish to skip the changelog generation.
+  # This may result in an empty release notes on GitHub/GitLab/Gitea.
+  skip: true
+
+# Github
+release:
+  # If set to true, will not auto-publish the release.
+  # Default is false.
+  draft:                    true
+
+  # If set, will create a release discussion in the category specified.
+  # Default is empty.
+  discussion_category_name: Announcements
+
+  # If set to auto, will mark the release as not ready for production
+  # in case there is an indicator for this in the tag e.g. v1.0.0-rc1
+  # If set to true, will mark the release as not ready for production.
+  # Default is false.
+  prerelease:               auto
+
+milestones:
+  # You can have multiple milestone configs
+  - # Whether to close the milestone
+    # Default is false
+    close:         true
+
+    # Fail release on errors, such as missing milestone on close
+    # Default is false
+    fail_on_error: true
