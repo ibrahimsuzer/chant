@@ -71,4 +71,4 @@ milestones:
 
     # Fail release on errors, such as missing milestone on close
     # Default is false
-    fail_on_error: true
+    fail_on_error: false
