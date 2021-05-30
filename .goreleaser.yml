@@ -51,7 +51,7 @@ changelog:
 release:
   # If set to true, will not auto-publish the release.
   # Default is false.
-  draft:                    true
+  draft:                    false
 
   # If set, will create a release discussion in the category specified.
   # Default is empty.
