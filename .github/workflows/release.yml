@@ -1,0 +1,63 @@
+name: goreleaser
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  changelog:
+    name:    Create Changelog
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - id:   tagger
+        uses: jimschubert/query-tag-action@v1
+        with:
+          include:        'v*'
+          commit-ish:     'HEAD~'
+          skip-unshallow: 'true'
+      - uses: ruby/setup-ruby@v1
+      - run: gem install github_changelog_generator -v 1.16.3
+      - run: |
+             github_changelog_generator -u ${{ github.repository_owner }} -p ${{ github.event.repository.name }} \
+               --release-url "https://github.com/${{ github.repository }}/releases/tag/%s" \
+               --release-branch actions-goreleaser \
+               --no-compare-link \
+               --usernames-as-github-logins \
+               --header-label "---" \
+               --since-tag ${{ steps.tagger.outputs.tag }}
+        env:
+          CHANGELOG_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/upload-artifact@v2
+        with:
+          name: changelog
+          path: CHANGELOG.md
+
+  goreleaser:
+    name:    Release Binaries
+    runs-on: ubuntu-latest
+    needs: [ changelog ]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.16
+      - uses: actions/download-artifact@v2
+        with:
+          name: changelog
+      - name: Run GoReleaser
+        uses: goreleaser/goreleaser-action@v2
+        with:
+          distribution: goreleaser
+          # version:      latest
+          args:         release --rm-dist --release-notes=CHANGELOG.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
