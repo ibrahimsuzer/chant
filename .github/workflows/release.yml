@@ -1,8 +1,9 @@
 name: goreleaser
 
-on:   push
-#tags:
-#  - '*'
+on:
+  push:
+    tags:
+      - '*'
 
 jobs:
   test:
@@ -20,6 +21,8 @@ jobs:
                --release-branch actions-goreleaser \
                --no-compare-link \
                --include-tags-regex ${GITHUB_REF#refs/*/}
+        env:
+          CHANGELOG_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/upload-artifact@v2
         with:
           name: changelog
