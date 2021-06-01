@@ -28,6 +28,7 @@ jobs:
                --release-branch actions-goreleaser \
                --no-compare-link \
                --usernames-as-github-logins \
+               --header-label " " \
                --since-tag ${{ steps.tagger.outputs.tag }}
         env:
           CHANGELOG_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
