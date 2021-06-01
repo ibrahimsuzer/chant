@@ -16,8 +16,9 @@ jobs:
       - id:   tagger
         uses: jimschubert/query-tag-action@v1
         with:
-          include:    'v*'
-          commit-ish: 'HEAD~'
+          include:        'v*'
+          commit-ish:     'HEAD~'
+          skip-unshallow: 'true'
       - uses: ruby/setup-ruby@v1
       - run: gem install github_changelog_generator -v 1.16.3
       - run: |
