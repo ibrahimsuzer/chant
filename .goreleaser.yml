@@ -42,6 +42,7 @@ gomod:
   # Default is false.
   proxy: true
 
+
 changelog:
   # Set it to true if you wish to skip the changelog generation.
   # This may result in an empty release notes on GitHub/GitLab/Gitea.
@@ -51,7 +52,7 @@ changelog:
 release:
   # If set to true, will not auto-publish the release.
   # Default is false.
-  draft:                    false
+  draft:      false
 
   # If set, will create a release discussion in the category specified.
   # Default is empty.
@@ -61,7 +62,7 @@ release:
   # in case there is an indicator for this in the tag e.g. v1.0.0-rc1
   # If set to true, will mark the release as not ready for production.
   # Default is false.
-  prerelease:               true
+  prerelease: true
 
 milestones:
   # You can have multiple milestone configs
