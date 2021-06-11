@@ -1,5 +1,6 @@
 app
 CHANGELOG.md
+coverage.txt
 
 # goreleaser
 dist/
