@@ -1,0 +1,29 @@
+name: Go
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-go@v2
+        with:
+          go-version: '1.16'
+      - name: Build
+        run:  go build -v ./...
+      - name: Test
+        run:  go test -v -race -coverprofile=coverage.txt -covermode=atomic ./...
+      - name: Codecov
+        uses: codecov/codecov-action@v1
+        with:
+          token:            ${{ secrets.CODECOV_TOKEN }}
+          files:            ./coverage.txt
+          flags:            unittests
+          name:             go-unit-tests
+          fail_ci_if_error: true
+          verbose:          false

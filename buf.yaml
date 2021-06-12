@@ -1,0 +1,23 @@
+version: v1beta1
+lint:
+  use:
+    - DEFAULT
+    - COMMENT_ONEOF
+    - COMMENT_RPC
+    - COMMENT_SERVICE
+  except:
+  ignore:
+    - google
+    - github.com
+  ignore_only:
+breaking:
+  use:
+    - PACKAGE
+  ignore:
+    - google
+    - github.com
+build:
+  roots:
+    - proto
+  excludes:
+    

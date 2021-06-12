@@ -12,7 +12,7 @@ import (
 )
 
 var version = "v0.0.0"
-var commit = "00000000"
+var commit = "00000000" //nolint:gochecknoglobals
 
 func main() {
 	// VERSION

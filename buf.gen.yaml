@@ -1,0 +1,26 @@
+version: v1beta1
+plugins:
+  # Documentation
+  - name: openapiv2
+    out:  docs
+    opt:  logtostderr=true
+  - name:     doc
+    out:      docs
+    opt:      html,index.html
+    strategy: all
+  - name:     doc
+    out:      docs
+    opt:      markdown,README.md
+    strategy: all
+  # Golang
+  - name: go-grpc
+    opt:  module=github.com/ibrahimsuzer/chant/api
+    out:  api
+  - name: go
+    opt:  module=github.com/ibrahimsuzer/chant/api
+    out:  api
+  - name: grpc-gateway
+    out:  api
+    opt:
+      - module=github.com/ibrahimsuzer/chant/api
+      - logtostderr=true
