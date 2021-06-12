@@ -42,4 +42,5 @@ endif
 		-show-compositions \
 		-show-implementations \
 		-show-options-as-note \
-		-ignore $(shell find * -type f \( -path "*.pb.go" -o -path "*_mock.go" \) -printf '%h\n' | sort | uniq | paste -sd, -) -output diagram.puml .
+		-ignore $(shell find * -type f \( -path "*.pb.go" -o -path "*_mock.go" \) | xargs -n1 dirname | sort | uniq | paste -sd, -) \
+		-output diagram.puml .
