@@ -27,3 +27,8 @@ jobs:
           name:             go-unit-tests
           fail_ci_if_error: true
           verbose:          false
+      - name: FOSSA
+        uses: fossas/fossa-action@v1
+        with:
+          api-key:   ${{secrets.FOSSA_API_KEY}}
+          run-tests: false
