@@ -19,6 +19,7 @@ func NewUlidGenerator(timeNow func() time.Time, entropy io.Reader) *ulidGenerato
 
 func (u *ulidGenerator) Generate() (string, error) {
 	t := u.now()
+	
 	id, err := ulid.New(ulid.Timestamp(t), u.entropy)
 	if err != nil {
 		return "", fmt.Errorf("failed to generate ulid: %w", err)

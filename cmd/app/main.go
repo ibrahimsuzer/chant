@@ -2,13 +2,16 @@ package main
 
 import (
 	"context"
+	"crypto/rand"
 	"database/sql"
 	"flag"
 	"fmt"
 	"log"
 	"os"
+	"time"
 
 	_ "github.com/genjidb/genji/sql/driver"
+	"github.com/ibrahimsuzer/chant/internal/storage"
 	"github.com/peterbourgon/ff/v3"
 	"github.com/peterbourgon/ff/v3/ffcli"
 )
@@ -20,16 +23,10 @@ func main() {
 
 	options := []ff.Option{ff.WithEnvVarPrefix("CHANT")}
 
-	// Create a sql/database DB instance
-	db, err := sql.Open("genji", ":memory:")
-	if err != nil {
-		log.Fatal(err)
-	}
-	
-
 	// MANAGE
-	add := &ffcli.Command{
-		Name:        "manage",
+
+	list := &ffcli.Command{
+		Name:        "list",
 		ShortUsage:  "",
 		ShortHelp:   "",
 		LongHelp:    "",
@@ -37,11 +34,34 @@ func main() {
 		FlagSet:     nil,
 		Options:     options,
 		Subcommands: nil,
+	}
+
+	manage := &ffcli.Command{
+		Name:        "manage",
+		ShortUsage:  "",
+		ShortHelp:   "",
+		LongHelp:    "",
+		UsageFunc:   nil,
+		FlagSet:     nil,
+		Options:     options,
+		Subcommands: []*ffcli.Command{list},
 		Exec: func(ctx context.Context, args []string) error {
-			
-			
-			
-			
+
+			// Create a sql/database DB instance
+			db, err := sql.Open("genji", ":memory:")
+			if err != nil {
+				log.Fatal(err)
+			}
+
+			ulidGenerator := storage.NewUlidGenerator(time.Now, rand.Reader)
+			configFileRepo := storage.NewConfigFileRepo(db, ulidGenerator)
+			list, err := configFileRepo.List(ctx)
+			if err != nil {
+				return err
+			}
+
+			fmt.Printf("%v", list)
+
 			return nil
 		},
 	}
@@ -76,7 +96,7 @@ func main() {
 		UsageFunc:   nil,
 		FlagSet:     rootFs,
 		Options:     options,
-		Subcommands: []*ffcli.Command{version},
+		Subcommands: []*ffcli.Command{version, manage},
 		Exec: func(ctx context.Context, args []string) error {
 			fmt.Printf("verbose %v\n", *verbose)
 			return nil
