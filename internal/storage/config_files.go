@@ -44,7 +44,7 @@ type configFileRepo struct {
 
 func (s *configFileRepo) Add(ctx context.Context, files ...*manage.ConfigFile) error {
 
-	tx, err := s.db.Begin()
+	tx, err := s.db.BeginTx(ctx, nil)
 	if err != nil {
 		return fmt.Errorf("failed to start transaction: %w", err)
 	}
@@ -74,13 +74,11 @@ func (s *configFileRepo) Add(ctx context.Context, files ...*manage.ConfigFile) e
 
 func (s *configFileRepo) List(ctx context.Context) ([]*manage.ConfigFile, error) {
 
-	// Query some documents
 	stream, err := s.db.QueryContext(ctx, "SELECT * FROM config_files")
 	if err != nil {
 		return []*manage.ConfigFile{}, fmt.Errorf("failed to list configs: %w", err)
 
 	}
-	// always close the result when you're done with it
 	defer stream.Close()
 
 	var files []*manage.ConfigFile
