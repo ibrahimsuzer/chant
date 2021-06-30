@@ -20,6 +20,8 @@ install:
 	go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.1.0
 	go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.26.0
 	go install github.com/grpc-ecosystem/grpc-health-probe@v0.4.2
+	go install github.com/genjidb/genji/cmd/genji@v0.12.0
+
 
 lint:
 	buf lint
