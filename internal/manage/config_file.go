@@ -1,11 +1,11 @@
 package manage
 
-type FileFormat int64
+type FileFormat string
 
 const (
-	YAML FileFormat = iota + 1
-	XML
-	ENV
+	YAML FileFormat = "YAML"
+	XML  FileFormat = "XML"
+	ENV  FileFormat = "ENV"
 )
 
 type ConfigFile struct {

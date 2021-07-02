@@ -1,0 +1,28 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:storage.db"
+}
+
+generator client {
+  provider = "prisma-client-go"
+}
+
+model ConfigFile {
+  id          String   @id @default(cuid())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  name        String
+  description String
+  location    String
+  format      Format   @relation(fields: [formatId], references: [id])
+  formatId    Int
+}
+
+model Format {
+  id          Int          @id @default(autoincrement())
+  name        String       @unique
+  configFiles ConfigFile[]
+}

@@ -2,15 +2,12 @@ package main
 
 import (
 	"context"
-	"crypto/rand"
-	"database/sql"
 	"flag"
 	"fmt"
 	"log"
 	"os"
-	"time"
 
-	_ "github.com/genjidb/genji/sql/driver"
+	"github.com/ibrahimsuzer/chant/db"
 	"github.com/ibrahimsuzer/chant/internal/storage"
 	"github.com/peterbourgon/ff/v3"
 	"github.com/peterbourgon/ff/v3/ffcli"
@@ -25,17 +22,6 @@ func main() {
 
 	// MANAGE
 
-	list := &ffcli.Command{
-		Name:        "list",
-		ShortUsage:  "",
-		ShortHelp:   "",
-		LongHelp:    "",
-		UsageFunc:   nil,
-		FlagSet:     nil,
-		Options:     options,
-		Subcommands: nil,
-	}
-
 	manage := &ffcli.Command{
 		Name:        "manage",
 		ShortUsage:  "",
@@ -44,18 +30,22 @@ func main() {
 		UsageFunc:   nil,
 		FlagSet:     nil,
 		Options:     options,
-		Subcommands: []*ffcli.Command{list},
+		Subcommands: []*ffcli.Command{},
 		Exec: func(ctx context.Context, args []string) error {
 
-			// Create a sql/database DB instance
-			db, err := sql.Open("genji", ":memory:")
-			if err != nil {
+			dbClient := db.NewClient()
+			if err := dbClient.Prisma.Connect(); err != nil {
 				log.Fatal(err)
 			}
 
-			ulidGenerator := storage.NewUlidGenerator(time.Now, rand.Reader)
-			configFileRepo := storage.NewConfigFileRepo(db, ulidGenerator)
-			list, err := configFileRepo.List(ctx)
+			defer func() {
+				if err := dbClient.Prisma.Disconnect(); err != nil {
+					panic(err)
+				}
+			}()
+			
+			configFileRepo := storage.NewConfigFileRepo(dbClient)
+			list, err := configFileRepo.List(ctx, 0, 10)
 			if err != nil {
 				return err
 			}

@@ -2,46 +2,38 @@ package storage
 
 import (
 	"context"
-	"database/sql"
 	"fmt"
 
-	"github.com/genjidb/genji/sql/driver"
+	"github.com/ibrahimsuzer/chant/db"
 	"github.com/ibrahimsuzer/chant/internal/manage"
+	"github.com/prisma/prisma-client-go/runtime/transaction"
 )
 
-
 type configFileRepo struct {
-	db          *sql.DB
-	idGenerator *ulidGenerator
+	dbClient *db.PrismaClient
 }
 
-func NewConfigFileRepo(db *sql.DB, idGenerator *ulidGenerator) *configFileRepo {
-	return &configFileRepo{db: db, idGenerator: idGenerator}
+func NewConfigFileRepo(db *db.PrismaClient) *configFileRepo {
+	return &configFileRepo{dbClient: db}
 }
 
 func (s *configFileRepo) Add(ctx context.Context, files ...*manage.ConfigFile) error {
 
-	tx, err := s.db.BeginTx(ctx, nil)
-	if err != nil {
-		return fmt.Errorf("failed to start transaction: %w", err)
-	}
-
-	defer tx.Rollback()
+	queries := make([]transaction.Param, 0, len(files))
 
 	for _, file := range files {
-		id, err := s.idGenerator.Generate()
-		if err != nil {
-			return fmt.Errorf("failed to insert: %w", err)
-		}
 
-		configFile := NewConfigFile(file, id)
-		_, err = tx.ExecContext(ctx, `INSERT INTO config_files VALUES ?`, &configFile)
-		if err != nil {
-			return fmt.Errorf("failed to insert: %w", err)
-		}
+		createConfigFile := s.dbClient.ConfigFile.CreateOne(
+			db.ConfigFile.Name.Set(file.Name),
+			db.ConfigFile.Description.Set(file.Description),
+			db.ConfigFile.Location.Set(file.Location),
+			db.ConfigFile.Format.Link(db.Format.Name.Equals(string(file.Format))),
+		).Tx()
+
+		queries = append(queries, createConfigFile)
 	}
 
-	err = tx.Commit()
+	err := s.dbClient.Prisma.Transaction(queries...).Exec(ctx)
 	if err != nil {
 		return fmt.Errorf("failed to commit: %w", err)
 	}
@@ -49,30 +41,28 @@ func (s *configFileRepo) Add(ctx context.Context, files ...*manage.ConfigFile) e
 	return nil
 }
 
-func (s *configFileRepo) List(ctx context.Context) ([]*manage.ConfigFile, error) {
+func (s *configFileRepo) List(ctx context.Context, page, count int) ([]*manage.ConfigFile, error) {
 
-	stream, err := s.db.QueryContext(ctx, "SELECT * FROM config_files")
+	configFileModels, err := s.dbClient.ConfigFile.FindMany().Take(count).Skip(page * count).Exec(ctx)
 	if err != nil {
-		return []*manage.ConfigFile{}, fmt.Errorf("failed to list configs: %w", err)
-
+		return nil, fmt.Errorf("query failed: %w", err)
 	}
-	defer stream.Close()
 
-	var files []*manage.ConfigFile
+	result := make([]*manage.ConfigFile, 0, count)
 
-	for stream.Next() {
-		var u configFile
+	for _, configFileModel := range configFileModels {
 
-		err := stream.Scan(driver.Scanner(&u))
-		if err != nil {
-			return []*manage.ConfigFile{}, fmt.Errorf("failed to scan: %w", err)
+		configFile := manage.ConfigFile{
+			Id:          configFileModel.ID,
+			Name:        configFileModel.Name,
+			Description: configFileModel.Description,
+			Location:    configFileModel.Location,
+			Format:      manage.FileFormat(configFileModel.Format().Name),
 		}
 
-		files = append(files, u.Convert())
-	}
-	if err = stream.Err(); err != nil {
-		return []*manage.ConfigFile{}, fmt.Errorf("failed to read from db: %w", err)
+		result = append(result, &configFile)
 	}
 
-	return files, nil
+	return result, nil
+
 }
