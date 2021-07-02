@@ -1,13 +1,10 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
+generator client {
+  provider = "prisma-client-go"
+}
 
 datasource db {
   provider = "sqlite"
   url      = "file:storage.db"
-}
-
-generator client {
-  provider = "prisma-client-go"
 }
 
 model ConfigFile {
@@ -17,8 +14,8 @@ model ConfigFile {
   name        String
   description String
   location    String
-  format      Format   @relation(fields: [formatId], references: [id])
   formatId    Int
+  format      Format   @relation(fields: [formatId], references: [id])
 }
 
 model Format {
