@@ -8,18 +8,20 @@ datasource db {
 }
 
 model ConfigFile {
-  id          String   @id @default(cuid())
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  name        String
-  description String
-  location    String
-  formatId    Int
-  format      Format   @relation(fields: [formatId], references: [id])
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  name      String
+  path      String
+  extension String
+  mimeType  String
+  language  String
 }
 
-model Format {
-  id          Int          @id @default(autoincrement())
-  name        String       @unique
-  configFiles ConfigFile[]
+model ConfigDir {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  name      String
+  path      String
 }

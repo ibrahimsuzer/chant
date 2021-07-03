@@ -1,17 +1,17 @@
 package manage
 
-type FileFormat string
-
-const (
-	YAML FileFormat = "YAML"
-	XML  FileFormat = "XML"
-	ENV  FileFormat = "ENV"
-)
 
 type ConfigFile struct {
-	Id          string
-	Name        string
-	Description string
-	Location    string
-	Format      FileFormat
+	Id           string
+	Name         string
+	Path         string
+	Extension    string
+	MimeType     string
+	Language     string
+}
+
+type ConfigDir struct {
+	Id   string
+	Name string
+	Path string
 }
