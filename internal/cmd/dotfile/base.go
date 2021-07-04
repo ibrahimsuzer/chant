@@ -1,32 +1,38 @@
-package manage
+package dotfile
 
 import (
+	"context"
 	"fmt"
 
 	"github.com/ibrahimsuzer/chant/db"
-	"github.com/ibrahimsuzer/chant/internal/storage"
+	"github.com/ibrahimsuzer/chant/internal/dotfiles"
 	"github.com/spf13/cobra"
 )
 
-type manageCommand struct {
-	dbClient *db.PrismaClient
+type dotfileManager interface {
+	Add(ctx context.Context, files ...*dotfiles.Dotfile) error
+	List(ctx context.Context) ([]*dotfiles.Dotfile, error)
 }
 
-func NewManageFactory(dbClient *db.PrismaClient) *manageCommand {
-	return &manageCommand{dbClient: dbClient}
+type dotfileCommand struct {
+	dbClient       *db.PrismaClient
+	dotfileManager dotfileManager
 }
 
-func (f *manageCommand) CreateCommand() (*cobra.Command, error) {
+func NewDotfileCommandFactory(dbClient *db.PrismaClient, manage dotfileManager) *dotfileCommand {
+	return &dotfileCommand{dbClient: dbClient, dotfileManager: manage}
+}
+
+func (f *dotfileCommand) CreateCommand() (*cobra.Command, error) {
 	manageCmd := &cobra.Command{
-		Use:     "manage",
+		Use:     "dotfile",
 		Short:   "",
-		Aliases: []string{"m"},
+		Aliases: []string{"d"},
 
 		RunE: func(cmd *cobra.Command, args []string) error {
-			configFileRepo := storage.NewConfigFileRepo(f.dbClient)
-			list, err := configFileRepo.List(cmd.Context(), 0, 10)
+			list, err := f.dotfileManager.List(cmd.Context())
 			if err != nil {
-				return fmt.Errorf("failed to list config files: %w", err)
+				return fmt.Errorf("failed to list dotfiles: %w", err)
 			}
 
 			fmt.Printf("%v", list)

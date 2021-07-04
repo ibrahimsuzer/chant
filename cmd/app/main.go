@@ -5,7 +5,9 @@ import (
 
 	"github.com/ibrahimsuzer/chant/db"
 	"github.com/ibrahimsuzer/chant/internal/cmd"
-	"github.com/ibrahimsuzer/chant/internal/cmd/manage"
+	"github.com/ibrahimsuzer/chant/internal/cmd/dotfile"
+	"github.com/ibrahimsuzer/chant/internal/dotfiles"
+	"github.com/ibrahimsuzer/chant/internal/storage"
 	"github.com/spf13/viper"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
@@ -45,21 +47,23 @@ func main() {
 
 	// Manage Command
 	dbClient := db.NewClient()
-	manageFactory := manage.NewManageFactory(dbClient)
-	manageCmd, err := manageFactory.CreateCommand()
+	dotFileRepo := storage.NewDotFileRepo(dbClient)
+	dotfileManager := dotfiles.NewDotfileManager(dotFileRepo)
+	dotfileCommandFactory := dotfile.NewDotfileCommandFactory(dbClient, dotfileManager)
+	dotfileCmd, err := dotfileCommandFactory.CreateCommand()
 	if err != nil {
 		log.Fatalf("failed to create command: %v", err)
 	}
 
 	// Manage Add
-	manageListFactory := manage.NewManageAddFactory(dbClient)
-	manageListCmd, err := manageListFactory.CreateCommand()
+	dotfileAddFactory := dotfile.NewDotfileAddFactory(dbClient)
+	dotfileAddCmd, err := dotfileAddFactory.CreateCommand()
 	if err != nil {
 		log.Fatalf("failed to create command: %v", err)
 	}
 
-	manageCmd.AddCommand(manageListCmd)
-	rootCmd.AddCommand(manageCmd)
+	dotfileCmd.AddCommand(dotfileAddCmd)
+	rootCmd.AddCommand(dotfileCmd)
 	err = rootCmd.Execute()
 	if err != nil {
 		log.Fatalf("failed to run: %v", err)

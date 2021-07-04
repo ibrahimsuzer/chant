@@ -1,4 +1,4 @@
-package manage
+package dotfile
 
 import (
 	"errors"
@@ -9,7 +9,7 @@ import (
 
 	"github.com/go-enry/go-enry/v2"
 	"github.com/ibrahimsuzer/chant/db"
-	"github.com/ibrahimsuzer/chant/internal/manage"
+	"github.com/ibrahimsuzer/chant/internal/dotfiles"
 	"github.com/ibrahimsuzer/chant/internal/storage"
 	"github.com/spf13/cobra"
 )
@@ -18,7 +18,7 @@ type manageAddCommand struct {
 	dbClient *db.PrismaClient
 }
 
-func NewManageAddFactory(dbClient *db.PrismaClient) *manageAddCommand {
+func NewDotfileAddFactory(dbClient *db.PrismaClient) *manageAddCommand {
 	return &manageAddCommand{dbClient: dbClient}
 }
 
@@ -30,9 +30,9 @@ func (f *manageAddCommand) CreateCommand() (*cobra.Command, error) {
 
 			ctx := cmd.Context()
 
-			configFileRepo := storage.NewConfigFileRepo(f.dbClient)
+			dotFileRepo := storage.NewDotFileRepo(f.dbClient)
 
-			configFiles := make([]*manage.ConfigFile, 0, len(args))
+			dotFiles := make([]*dotfiles.Dotfile, 0, len(args))
 
 			for _, path := range args {
 
@@ -61,7 +61,7 @@ func (f *manageAddCommand) CreateCommand() (*cobra.Command, error) {
 				language := enry.GetLanguage(path, content)
 				mimeType := enry.GetMIMEType(path, language)
 
-				configFiles = append(configFiles, &manage.ConfigFile{
+				dotFiles = append(dotFiles, &dotfiles.Dotfile{
 					Name:      "",
 					Path:      path,
 					Extension: filepath.Ext(path),
@@ -70,7 +70,7 @@ func (f *manageAddCommand) CreateCommand() (*cobra.Command, error) {
 				})
 			}
 
-			err := configFileRepo.Add(ctx, configFiles...)
+			err := dotFileRepo.Add(ctx, dotFiles...)
 			if err != nil {
 				return fmt.Errorf("failed to write to storage: %w", err)
 			}

@@ -1,7 +1,7 @@
-package manage
+package dotfiles
 
 
-type ConfigFile struct {
+type Dotfile struct {
 	Id           string
 	Name         string
 	Path         string
@@ -10,7 +10,7 @@ type ConfigFile struct {
 	Language     string
 }
 
-type ConfigDir struct {
+type DotfileDir struct {
 	Id   string
 	Name string
 	Path string
