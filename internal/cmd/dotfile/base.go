@@ -10,7 +10,7 @@ import (
 )
 
 type dotfileManager interface {
-	Add(ctx context.Context, files ...*dotfiles.Dotfile) error
+	Add(ctx context.Context, files ...string) error
 	List(ctx context.Context) ([]*dotfiles.Dotfile, error)
 }
 
@@ -24,7 +24,7 @@ func NewDotfileCommandFactory(dbClient *db.PrismaClient, manage dotfileManager) 
 }
 
 func (f *dotfileCommand) CreateCommand() (*cobra.Command, error) {
-	manageCmd := &cobra.Command{
+	dotfileCmd := &cobra.Command{
 		Use:     "dotfile",
 		Short:   "",
 		Aliases: []string{"d"},
@@ -51,5 +51,5 @@ func (f *dotfileCommand) CreateCommand() (*cobra.Command, error) {
 			return nil
 		},
 	}
-	return manageCmd, nil
+	return dotfileCmd, nil
 }
