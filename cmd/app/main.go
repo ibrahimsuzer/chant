@@ -1,7 +1,7 @@
 package main
 
 import (
-	"os"
+	"log"
 
 	"github.com/ibrahimsuzer/chant/db"
 	"github.com/ibrahimsuzer/chant/internal/cmd"
@@ -9,8 +9,6 @@ import (
 	"github.com/ibrahimsuzer/chant/internal/dotfiles"
 	"github.com/ibrahimsuzer/chant/internal/storage"
 	"github.com/spf13/viper"
-	"go.uber.org/zap"
-	"go.uber.org/zap/zapcore"
 )
 
 var version = "v0.0.0"
@@ -23,23 +21,10 @@ func main() {
 
 	// printer := pterm.BasicTextPrinter{}
 
-	// Logger
-	logEncoder := zapcore.EncoderConfig{
-		MessageKey:     "msg",
-		LevelKey:       "level",
-		TimeKey:        "T",
-		NameKey:        "logger",
-		EncodeLevel:    zapcore.CapitalColorLevelEncoder,
-		EncodeDuration: zapcore.StringDurationEncoder,
-	}
-	baseLogger := zap.New(zapcore.NewCore(zapcore.NewConsoleEncoder(logEncoder), os.Stdout, zap.InfoLevel))
-	defer baseLogger.Sync() // flushes buffer, if any
-	log := baseLogger.Sugar()
-
 	// Initialize Root Command and Configuration
 	v := viper.New()
 	cfg := cmd.NewConfiguration(v)
-	rootFactory := cmd.NewRootFactory(log, cfg, version, commit)
+	rootFactory := cmd.NewRootFactory(cfg, version, commit)
 	rootCmd, err := rootFactory.CreateCommand()
 	if err != nil {
 		log.Fatalf("failed to create command: %v", err)

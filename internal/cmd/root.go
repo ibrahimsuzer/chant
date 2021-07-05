@@ -9,21 +9,13 @@ import (
 	"github.com/spf13/viper"
 )
 
-type logger interface {
-	Infof(template string, args ...interface{})
-	Warnf(template string, args ...interface{})
-	Errorf(template string, args ...interface{})
-	Fatalf(template string, args ...interface{})
-}
-
 type rootCommand struct {
 	version, commit string
 	cfg             *configuration
-	log             logger
 }
 
-func NewRootFactory(log logger, cfg *configuration, version string, commit string) *rootCommand {
-	return &rootCommand{version: version, commit: commit, cfg: cfg, log: log}
+func NewRootFactory(cfg *configuration, version string, commit string) *rootCommand {
+	return &rootCommand{version: version, commit: commit, cfg: cfg}
 }
 
 func (f *rootCommand) CreateCommand() (*cobra.Command, error) {
@@ -32,7 +24,7 @@ func (f *rootCommand) CreateCommand() (*cobra.Command, error) {
 		Short: "Chant: Local environment manager for dotfiles and project binaries",
 		Long:  "",
 		Run: func(cmd *cobra.Command, args []string) {
-			f.log.Infof("verbose enabled %t", f.cfg.App.Verbose)
+			fmt.Printf("verbose enabled %t", f.cfg.App.Verbose)
 		},
 		PersistentPreRunE: func(cmd *cobra.Command, args []string) error {
 			f.cfg.Configure()
