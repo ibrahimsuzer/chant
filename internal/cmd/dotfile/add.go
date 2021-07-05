@@ -28,18 +28,6 @@ func (f *dotfileAddCommand) CreateCommand() (*cobra.Command, error) {
 
 			return nil
 		},
-		PersistentPreRunE: func(cmd *cobra.Command, args []string) error {
-			if err := f.dbClient.Prisma.Connect(); err != nil {
-				return fmt.Errorf("failed to connect to storage: %w", err)
-			}
-			return nil
-		},
-		PersistentPostRunE: func(cmd *cobra.Command, args []string) error {
-			if err := f.dbClient.Prisma.Disconnect(); err != nil {
-				return fmt.Errorf("failed to disconnect from storage: %w", err)
-			}
-			return nil
-		},
 	}
 	return dotfileListCmd, nil
 }

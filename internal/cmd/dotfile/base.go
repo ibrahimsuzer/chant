@@ -28,16 +28,6 @@ func (f *dotfileCommand) CreateCommand() (*cobra.Command, error) {
 		Use:     "dotfile",
 		Short:   "",
 		Aliases: []string{"d"},
-
-		RunE: func(cmd *cobra.Command, args []string) error {
-			list, err := f.dotfileManager.List(cmd.Context())
-			if err != nil {
-				return fmt.Errorf("failed to list dotfiles: %w", err)
-			}
-
-			fmt.Printf("%v", list)
-			return nil
-		},
 		PersistentPreRunE: func(cmd *cobra.Command, args []string) error {
 			if err := f.dbClient.Prisma.Connect(); err != nil {
 				return fmt.Errorf("failed to connect to storage: %w", err)
