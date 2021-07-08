@@ -18,6 +18,7 @@ import (
 
 	// no-op import for go modules
 	_ "github.com/iancoleman/strcase"
+	_ "github.com/joho/godotenv"
 	_ "github.com/shopspring/decimal"
 	_ "github.com/takuoki/gocase"
 )
@@ -1489,8 +1490,8 @@ func (r dotfileCreateOne) Exec(ctx context.Context) (*DotfileModel, error) {
 	return &v, nil
 }
 
-func (r dotfileCreateOne) Tx() dotfileTxResult {
-	v := NewdotfileTxResult()
+func (r dotfileCreateOne) Tx() dotfileUniqueTxResult {
+	v := NewdotfileUniqueTxResult()
 	v.query = r.query
 	v.query.TxResult = make(chan []byte, 1)
 	return v
@@ -1559,8 +1560,8 @@ func (r dotfileDirCreateOne) Exec(ctx context.Context) (*DotfileDirModel, error)
 	return &v, nil
 }
 
-func (r dotfileDirCreateOne) Tx() dotfileDirTxResult {
-	v := NewdotfileDirTxResult()
+func (r dotfileDirCreateOne) Tx() dotfileDirUniqueTxResult {
+	v := NewdotfileDirUniqueTxResult()
 	v.query = r.query
 	v.query.TxResult = make(chan []byte, 1)
 	return v
@@ -1703,8 +1704,8 @@ func (r dotfileUpdateUnique) Exec(ctx context.Context) (*DotfileModel, error) {
 	return &v, nil
 }
 
-func (r dotfileUpdateUnique) Tx() dotfileTxResult {
-	v := NewdotfileTxResult()
+func (r dotfileUpdateUnique) Tx() dotfileUniqueTxResult {
+	v := NewdotfileUniqueTxResult()
 	v.query = r.query
 	v.query.TxResult = make(chan []byte, 1)
 	return v
@@ -1738,8 +1739,8 @@ func (r dotfileDeleteUnique) Exec(ctx context.Context) (*DotfileModel, error) {
 	return &v, nil
 }
 
-func (r dotfileDeleteUnique) Tx() dotfileTxResult {
-	v := NewdotfileTxResult()
+func (r dotfileDeleteUnique) Tx() dotfileUniqueTxResult {
+	v := NewdotfileUniqueTxResult()
 	v.query = r.query
 	v.query.TxResult = make(chan []byte, 1)
 	return v
@@ -2085,8 +2086,8 @@ func (r dotfileUpdateMany) Exec(ctx context.Context) (*BatchResult, error) {
 	return &v, nil
 }
 
-func (r dotfileUpdateMany) Tx() dotfileTxResult {
-	v := NewdotfileTxResult()
+func (r dotfileUpdateMany) Tx() dotfileManyTxResult {
+	v := NewdotfileManyTxResult()
 	v.query = r.query
 	v.query.TxResult = make(chan []byte, 1)
 	return v
@@ -2122,8 +2123,8 @@ func (r dotfileDeleteMany) Exec(ctx context.Context) (*BatchResult, error) {
 	return &v, nil
 }
 
-func (r dotfileDeleteMany) Tx() dotfileTxResult {
-	v := NewdotfileTxResult()
+func (r dotfileDeleteMany) Tx() dotfileManyTxResult {
+	v := NewdotfileManyTxResult()
 	v.query = r.query
 	v.query.TxResult = make(chan []byte, 1)
 	return v
@@ -2264,8 +2265,8 @@ func (r dotfileDirUpdateUnique) Exec(ctx context.Context) (*DotfileDirModel, err
 	return &v, nil
 }
 
-func (r dotfileDirUpdateUnique) Tx() dotfileDirTxResult {
-	v := NewdotfileDirTxResult()
+func (r dotfileDirUpdateUnique) Tx() dotfileDirUniqueTxResult {
+	v := NewdotfileDirUniqueTxResult()
 	v.query = r.query
 	v.query.TxResult = make(chan []byte, 1)
 	return v
@@ -2299,8 +2300,8 @@ func (r dotfileDirDeleteUnique) Exec(ctx context.Context) (*DotfileDirModel, err
 	return &v, nil
 }
 
-func (r dotfileDirDeleteUnique) Tx() dotfileDirTxResult {
-	v := NewdotfileDirTxResult()
+func (r dotfileDirDeleteUnique) Tx() dotfileDirUniqueTxResult {
+	v := NewdotfileDirUniqueTxResult()
 	v.query = r.query
 	v.query.TxResult = make(chan []byte, 1)
 	return v
@@ -2646,8 +2647,8 @@ func (r dotfileDirUpdateMany) Exec(ctx context.Context) (*BatchResult, error) {
 	return &v, nil
 }
 
-func (r dotfileDirUpdateMany) Tx() dotfileDirTxResult {
-	v := NewdotfileDirTxResult()
+func (r dotfileDirUpdateMany) Tx() dotfileDirManyTxResult {
+	v := NewdotfileDirManyTxResult()
 	v.query = r.query
 	v.query.TxResult = make(chan []byte, 1)
 	return v
@@ -2683,8 +2684,8 @@ func (r dotfileDirDeleteMany) Exec(ctx context.Context) (*BatchResult, error) {
 	return &v, nil
 }
 
-func (r dotfileDirDeleteMany) Tx() dotfileDirTxResult {
-	v := NewdotfileDirTxResult()
+func (r dotfileDirDeleteMany) Tx() dotfileDirManyTxResult {
+	v := NewdotfileDirManyTxResult()
 	v.query = r.query
 	v.query.TxResult = make(chan []byte, 1)
 	return v
@@ -2692,50 +2693,96 @@ func (r dotfileDirDeleteMany) Tx() dotfileDirTxResult {
 
 // --- template transaction.gotpl ---
 
-func NewdotfileTxResult() dotfileTxResult {
-	return dotfileTxResult{
+func NewdotfileUniqueTxResult() dotfileUniqueTxResult {
+	return dotfileUniqueTxResult{
 		result: &transaction.Result{},
 	}
 }
 
-type dotfileTxResult struct {
+type dotfileUniqueTxResult struct {
 	query  builder.Query
 	result *transaction.Result
 }
 
-func (p dotfileTxResult) ExtractQuery() builder.Query {
+func (p dotfileUniqueTxResult) ExtractQuery() builder.Query {
 	return p.query
 }
 
-func (p dotfileTxResult) IsTx() {}
+func (p dotfileUniqueTxResult) IsTx() {}
 
-func (r dotfileTxResult) Result() *DotfileModel {
-	var v *DotfileModel
+func (r dotfileUniqueTxResult) Result() (v *DotfileModel) {
 	if err := r.result.Get(r.query.TxResult, &v); err != nil {
 		panic(err)
 	}
 	return v
 }
 
-func NewdotfileDirTxResult() dotfileDirTxResult {
-	return dotfileDirTxResult{
+func NewdotfileManyTxResult() dotfileManyTxResult {
+	return dotfileManyTxResult{
 		result: &transaction.Result{},
 	}
 }
 
-type dotfileDirTxResult struct {
+type dotfileManyTxResult struct {
 	query  builder.Query
 	result *transaction.Result
 }
 
-func (p dotfileDirTxResult) ExtractQuery() builder.Query {
+func (p dotfileManyTxResult) ExtractQuery() builder.Query {
 	return p.query
 }
 
-func (p dotfileDirTxResult) IsTx() {}
+func (p dotfileManyTxResult) IsTx() {}
 
-func (r dotfileDirTxResult) Result() *DotfileDirModel {
-	var v *DotfileDirModel
+func (r dotfileManyTxResult) Result() (v *BatchResult) {
+	if err := r.result.Get(r.query.TxResult, &v); err != nil {
+		panic(err)
+	}
+	return v
+}
+
+func NewdotfileDirUniqueTxResult() dotfileDirUniqueTxResult {
+	return dotfileDirUniqueTxResult{
+		result: &transaction.Result{},
+	}
+}
+
+type dotfileDirUniqueTxResult struct {
+	query  builder.Query
+	result *transaction.Result
+}
+
+func (p dotfileDirUniqueTxResult) ExtractQuery() builder.Query {
+	return p.query
+}
+
+func (p dotfileDirUniqueTxResult) IsTx() {}
+
+func (r dotfileDirUniqueTxResult) Result() (v *DotfileDirModel) {
+	if err := r.result.Get(r.query.TxResult, &v); err != nil {
+		panic(err)
+	}
+	return v
+}
+
+func NewdotfileDirManyTxResult() dotfileDirManyTxResult {
+	return dotfileDirManyTxResult{
+		result: &transaction.Result{},
+	}
+}
+
+type dotfileDirManyTxResult struct {
+	query  builder.Query
+	result *transaction.Result
+}
+
+func (p dotfileDirManyTxResult) ExtractQuery() builder.Query {
+	return p.query
+}
+
+func (p dotfileDirManyTxResult) IsTx() {}
+
+func (r dotfileDirManyTxResult) Result() (v *BatchResult) {
 	if err := r.result.Get(r.query.TxResult, &v); err != nil {
 		panic(err)
 	}
@@ -2855,8 +2902,8 @@ func (r dotfileUpsertOne) Exec(ctx context.Context) (*DotfileModel, error) {
 	return &v, nil
 }
 
-func (r dotfileUpsertOne) Tx() dotfileTxResult {
-	v := NewdotfileTxResult()
+func (r dotfileUpsertOne) Tx() dotfileUniqueTxResult {
+	v := NewdotfileUniqueTxResult()
 	v.query = r.query
 	v.query.TxResult = make(chan []byte, 1)
 	return v
@@ -2967,8 +3014,8 @@ func (r dotfileDirUpsertOne) Exec(ctx context.Context) (*DotfileDirModel, error)
 	return &v, nil
 }
 
-func (r dotfileDirUpsertOne) Tx() dotfileDirTxResult {
-	v := NewdotfileDirTxResult()
+func (r dotfileDirUpsertOne) Tx() dotfileDirUniqueTxResult {
+	v := NewdotfileDirUniqueTxResult()
 	v.query = r.query
 	v.query.TxResult = make(chan []byte, 1)
 	return v
