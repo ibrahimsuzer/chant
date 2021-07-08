@@ -16,17 +16,22 @@ type dotfileRepo interface {
 	List(ctx context.Context, page, count int) ([]*Dotfile, error)
 }
 
-type dotfileManager struct {
-	dotfiles dotfileRepo
+type dotfilePrinter interface {
+	Dotfiles(dotfiles ...*Dotfile)
 }
 
-func NewDotfileManager(dotfileRepo dotfileRepo) *dotfileManager {
-	return &dotfileManager{dotfiles: dotfileRepo}
+type dotfileManager struct {
+	dotfiles dotfileRepo
+	printer  dotfilePrinter
+}
+
+func NewDotfileManager(dotfileRepo dotfileRepo, printer dotfilePrinter) *dotfileManager {
+	return &dotfileManager{dotfiles: dotfileRepo, printer: printer}
 }
 
 func (m *dotfileManager) Add(ctx context.Context, paths ...string) error {
 
-	dotFiles := make([]*Dotfile, 0, len(paths))
+	dotfiles := make([]*Dotfile, 0, len(paths))
 
 	for _, path := range paths {
 
@@ -55,7 +60,7 @@ func (m *dotfileManager) Add(ctx context.Context, paths ...string) error {
 		language := enry.GetLanguage(path, content)
 		mimeType := enry.GetMIMEType(path, language)
 
-		dotFiles = append(dotFiles, &Dotfile{
+		dotfiles = append(dotfiles, &Dotfile{
 			Name:      "",
 			Path:      path,
 			Extension: filepath.Ext(path),
@@ -64,17 +69,20 @@ func (m *dotfileManager) Add(ctx context.Context, paths ...string) error {
 		})
 	}
 
-	err := m.dotfiles.Add(ctx, dotFiles...)
+	err := m.dotfiles.Add(ctx, dotfiles...)
 	if err != nil {
 		return fmt.Errorf("failed to add config files: %w", err)
 	}
 	return nil
 }
 
-func (m *dotfileManager) List(ctx context.Context) ([]*Dotfile, error) {
-	list, err := m.dotfiles.List(ctx, 0, 10)
+func (m *dotfileManager) List(ctx context.Context) error {
+	list, err := m.dotfiles.List(ctx, 0, 0)
 	if err != nil {
-		return []*Dotfile{}, fmt.Errorf("failed to list config files: %w", err)
+		return fmt.Errorf("failed to list config files: %w", err)
 	}
-	return list, nil
+
+	m.printer.Dotfiles(list...)
+
+	return nil
 }

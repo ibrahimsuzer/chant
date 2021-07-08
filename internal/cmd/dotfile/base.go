@@ -5,13 +5,12 @@ import (
 	"fmt"
 
 	"github.com/ibrahimsuzer/chant/db"
-	"github.com/ibrahimsuzer/chant/internal/dotfiles"
 	"github.com/spf13/cobra"
 )
 
 type dotfileManager interface {
 	Add(ctx context.Context, files ...string) error
-	List(ctx context.Context) ([]*dotfiles.Dotfile, error)
+	List(ctx context.Context) error
 }
 
 type dotfileCommand struct {

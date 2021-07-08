@@ -3,10 +3,12 @@ package main
 import (
 	"log"
 
+	"github.com/fatih/color"
 	"github.com/ibrahimsuzer/chant/db"
 	"github.com/ibrahimsuzer/chant/internal/cmd"
 	"github.com/ibrahimsuzer/chant/internal/cmd/dotfile"
 	"github.com/ibrahimsuzer/chant/internal/dotfiles"
+	"github.com/ibrahimsuzer/chant/internal/printer"
 	"github.com/ibrahimsuzer/chant/internal/storage"
 	"github.com/spf13/viper"
 )
@@ -32,8 +34,9 @@ func main() {
 
 	// Manage Command
 	dbClient := db.NewClient()
-	dotFileRepo := storage.NewDotFileRepo(dbClient)
-	dotfileManager := dotfiles.NewDotfileManager(dotFileRepo)
+	dotfileRepo := storage.NewDotFileRepo(dbClient)
+	dotfilePrinter := printer.NewPrinter(color.New(color.Reset))
+	dotfileManager := dotfiles.NewDotfileManager(dotfileRepo, dotfilePrinter)
 	dotfileCommandFactory := dotfile.NewDotfileCommandFactory(dbClient, dotfileManager)
 	dotfileCmd, err := dotfileCommandFactory.CreateCommand()
 	if err != nil {

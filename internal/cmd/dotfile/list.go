@@ -18,15 +18,13 @@ func NewDotfileListFactory(dbClient *db.PrismaClient, manage dotfileManager) *do
 
 func (f *dotfileListCommand) CreateCommand() (*cobra.Command, error) {
 	dotfileCmd := &cobra.Command{
-		Use:     "list",
-		Short:   "",
+		Use:   "list",
+		Short: "",
 		RunE: func(cmd *cobra.Command, args []string) error {
-			list, err := f.dotfileManager.List(cmd.Context())
+			err := f.dotfileManager.List(cmd.Context())
 			if err != nil {
 				return fmt.Errorf("failed to list dotfiles: %w", err)
 			}
-
-			fmt.Printf("%v", list)
 			return nil
 		},
 	}

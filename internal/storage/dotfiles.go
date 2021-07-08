@@ -9,15 +9,15 @@ import (
 	"github.com/prisma/prisma-client-go/runtime/transaction"
 )
 
-type dotFileRepo struct {
+type dotfileRepo struct {
 	dbClient *db.PrismaClient
 }
 
-func NewDotFileRepo(db *db.PrismaClient) *dotFileRepo {
-	return &dotFileRepo{dbClient: db}
+func NewDotFileRepo(db *db.PrismaClient) *dotfileRepo {
+	return &dotfileRepo{dbClient: db}
 }
 
-func (s *dotFileRepo) Add(ctx context.Context, files ...*dotfiles.Dotfile) error {
+func (s *dotfileRepo) Add(ctx context.Context, files ...*dotfiles.Dotfile) error {
 
 	queries := make([]transaction.Param, 0, len(files))
 
@@ -43,7 +43,7 @@ func (s *dotFileRepo) Add(ctx context.Context, files ...*dotfiles.Dotfile) error
 	return nil
 }
 
-func (s *dotFileRepo) List(ctx context.Context, page, count int) ([]*dotfiles.Dotfile, error) {
+func (s *dotfileRepo) List(ctx context.Context, page, count int) ([]*dotfiles.Dotfile, error) {
 
 	// Base query
 	query := s.dbClient.Dotfile.FindMany()
