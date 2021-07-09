@@ -23,11 +23,12 @@ func (f *dotfileAddCommand) CreateCommand() (*cobra.Command, error) {
 		RunE: func(cmd *cobra.Command, args []string) error {
 			err := f.dotfileManager.Add(cmd.Context(), args...)
 			if err != nil {
-				return fmt.Errorf("failed to list dotfiles: %w", err)
+				return fmt.Errorf("failed to add dotfiles: %w", err)
 			}
 
 			return nil
 		},
 	}
+	
 	return dotfileListCmd, nil
 }

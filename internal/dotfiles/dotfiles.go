@@ -11,21 +11,16 @@ import (
 	"github.com/go-enry/go-enry/v2"
 )
 
-type dotfileRepo interface {
-	Add(ctx context.Context, files ...*Dotfile) error
-	List(ctx context.Context, page, count int) ([]*Dotfile, error)
-}
-
 type dotfilePrinter interface {
 	Dotfiles(dotfiles ...*Dotfile)
 }
 
 type dotfileManager struct {
-	dotfiles dotfileRepo
+	dotfiles *dotfileRepo
 	printer  dotfilePrinter
 }
 
-func NewDotfileManager(dotfileRepo dotfileRepo, printer dotfilePrinter) *dotfileManager {
+func NewDotfileManager(dotfileRepo *dotfileRepo, printer dotfilePrinter) *dotfileManager {
 	return &dotfileManager{dotfiles: dotfileRepo, printer: printer}
 }
 
@@ -35,45 +30,72 @@ func (m *dotfileManager) Add(ctx context.Context, paths ...string) error {
 
 	for _, path := range paths {
 
-		// Check path
-		stat, err := os.Stat(path)
-		if errors.Is(err, os.ErrNotExist) {
-			fmt.Printf("path doesn't exist: %s", path)
-			continue
-		} else if err != nil {
+		absolutePath, err := getAbsolutePath(path)
+		if err != nil {
 			fmt.Printf("failed to read path: %s", err)
-			continue
-		}
 
-		if stat.IsDir() {
-			fmt.Printf("cannot process directories: %s", path)
 			continue
 		}
 
 		// Check details
-		content, err := ioutil.ReadFile(path)
+		content, err := ioutil.ReadFile(absolutePath)
 		if err != nil {
-			fmt.Printf("failed to read path: %s", err)
+			fmt.Printf("failed to read file: %s", err)
+
 			continue
 		}
 
-		language := enry.GetLanguage(path, content)
-		mimeType := enry.GetMIMEType(path, language)
+		language := enry.GetLanguage(absolutePath, content)
+		mimeType := enry.GetMIMEType(absolutePath, language)
 
 		dotfiles = append(dotfiles, &Dotfile{
+			Id:        "",
 			Name:      "",
-			Path:      path,
-			Extension: filepath.Ext(path),
+			Path:      absolutePath,
+			Extension: filepath.Ext(absolutePath),
 			MimeType:  mimeType,
 			Language:  language,
 		})
+
 	}
 
 	err := m.dotfiles.Add(ctx, dotfiles...)
-	if err != nil {
+	if errors.Is(err, ErrUniqueConstraintViolation) {
+		fmt.Printf("file already exists")
+	} else if err != nil {
 		return fmt.Errorf("failed to add config files: %w", err)
 	}
+
 	return nil
+}
+
+func getAbsolutePath(path string) (string, error) {
+	// Check path
+	stat, err := os.Stat(path)
+	if errors.Is(err, os.ErrNotExist) {
+		return "", fmt.Errorf("path doesn't exist: %s", path)
+	} else if err != nil {
+		return "", fmt.Errorf("failed to read path: %s", err)
+	}
+
+	// Reject directories
+	if stat.IsDir() {
+		return "", fmt.Errorf("cannot process directories: %s", path)
+	}
+
+	// Get absolute path
+	evaluatedPath, err := filepath.EvalSymlinks(path)
+	if err != nil {
+		return "", fmt.Errorf("cannot evaluate path: %s", path)
+	}
+
+	absolutePath, err := filepath.Abs(evaluatedPath)
+	if err != nil {
+		return "", fmt.Errorf("cannot find absolute path: %s", path)
+	}
+
+	return absolutePath, nil
+
 }
 
 func (m *dotfileManager) List(ctx context.Context) error {

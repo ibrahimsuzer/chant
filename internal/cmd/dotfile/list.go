@@ -25,8 +25,10 @@ func (f *dotfileListCommand) CreateCommand() (*cobra.Command, error) {
 			if err != nil {
 				return fmt.Errorf("failed to list dotfiles: %w", err)
 			}
+			
 			return nil
 		},
 	}
+	
 	return dotfileCmd, nil
 }

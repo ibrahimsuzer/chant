@@ -12,16 +12,8 @@ model Dotfile {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   name      String
-  path      String
+  path      String   @unique
   extension String
   mimeType  String
   language  String
-}
-
-model DotfileDir {
-  id        String   @id @default(cuid())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  name      String
-  path      String
 }

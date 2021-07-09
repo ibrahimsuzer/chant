@@ -3,6 +3,7 @@ CHANGELOG.md
 coverage.txt
 db/*_gen.go
 db/.gitignore
+storage.db*
 
 # goreleaser
 dist/
