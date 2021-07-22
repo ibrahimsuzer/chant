@@ -9,18 +9,24 @@ import (
 	"path/filepath"
 
 	"github.com/go-enry/go-enry/v2"
+	storage_errors "github.com/ibrahimsuzer/chant/internal/storage/errors"
 )
 
 type dotfilePrinter interface {
 	Dotfiles(dotfiles ...*Dotfile)
 }
 
+type dotfileRepo interface {
+	Add(ctx context.Context, files ...*Dotfile) error
+	List(ctx context.Context, page, count int) ([]*Dotfile, error)
+}
+
 type dotfileManager struct {
-	dotfiles *dotfileRepo
+	dotfiles dotfileRepo
 	printer  dotfilePrinter
 }
 
-func NewDotfileManager(dotfileRepo *dotfileRepo, printer dotfilePrinter) *dotfileManager {
+func NewDotfileManager(dotfileRepo dotfileRepo, printer dotfilePrinter) *dotfileManager {
 	return &dotfileManager{dotfiles: dotfileRepo, printer: printer}
 }
 
@@ -32,7 +38,7 @@ func (m *dotfileManager) Add(ctx context.Context, paths ...string) error {
 
 		absolutePath, err := getAbsolutePath(path)
 		if err != nil {
-			fmt.Printf("failed to read path: %s", err)
+			fmt.Printf("failed to read path: %s\n", err)
 
 			continue
 		}
@@ -40,7 +46,7 @@ func (m *dotfileManager) Add(ctx context.Context, paths ...string) error {
 		// Check details
 		content, err := ioutil.ReadFile(absolutePath)
 		if err != nil {
-			fmt.Printf("failed to read file: %s", err)
+			fmt.Printf("failed to read file: %s\n", err)
 
 			continue
 		}
@@ -60,8 +66,8 @@ func (m *dotfileManager) Add(ctx context.Context, paths ...string) error {
 	}
 
 	err := m.dotfiles.Add(ctx, dotfiles...)
-	if errors.Is(err, ErrUniqueConstraintViolation) {
-		fmt.Printf("file already exists")
+	if errors.Is(err, storage_errors.ErrUniqueConstraintViolation) {
+		fmt.Printf("file already exists\n")
 	} else if err != nil {
 		return fmt.Errorf("failed to add config files: %w", err)
 	}

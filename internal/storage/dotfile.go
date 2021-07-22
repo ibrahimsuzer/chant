@@ -1,21 +1,18 @@
-package dotfiles
+package storage
 
 import (
 	"context"
-	"errors"
 	"fmt"
 	"strings"
 
 	"github.com/ibrahimsuzer/chant/db"
+	"github.com/ibrahimsuzer/chant/internal/dotfiles"
+	storage_errors "github.com/ibrahimsuzer/chant/internal/storage/errors"
 	"github.com/prisma/prisma-client-go/runtime/transaction"
 )
 
 const (
 	uniqueConstraintViolation = "UniqueConstraintViolation"
-)
-
-var (
-	ErrUniqueConstraintViolation = errors.New("unique violation constraint")
 )
 
 type dotfileRepo struct {
@@ -26,7 +23,7 @@ func NewDotFileRepo(db *db.PrismaClient) *dotfileRepo {
 	return &dotfileRepo{dbClient: db}
 }
 
-func (s *dotfileRepo) Add(ctx context.Context, files ...*Dotfile) error {
+func (s *dotfileRepo) Add(ctx context.Context, files ...*dotfiles.Dotfile) error {
 
 	queries := make([]transaction.Param, 0, len(files))
 
@@ -47,16 +44,16 @@ func (s *dotfileRepo) Add(ctx context.Context, files ...*Dotfile) error {
 	err := s.dbClient.Prisma.Transaction(queries...).Exec(ctx)
 	if err != nil {
 		if strings.Contains(err.Error(), uniqueConstraintViolation) {
-			return ErrUniqueConstraintViolation
+			return storage_errors.ErrUniqueConstraintViolation
 		}
-		
+
 		return fmt.Errorf("failed to commit: %w", err)
 	}
 
 	return nil
 }
 
-func (s *dotfileRepo) List(ctx context.Context, page, count int) ([]*Dotfile, error) {
+func (s *dotfileRepo) List(ctx context.Context, page, count int) ([]*dotfiles.Dotfile, error) {
 
 	// Base query
 	query := s.dbClient.Dotfile.FindMany()
@@ -71,10 +68,10 @@ func (s *dotfileRepo) List(ctx context.Context, page, count int) ([]*Dotfile, er
 		return nil, fmt.Errorf("query failed: %w", err)
 	}
 
-	result := make([]*Dotfile, 0, count)
+	result := make([]*dotfiles.Dotfile, 0, count)
 	for _, dotfileModel := range dotfileModels {
 
-		dotfile := Dotfile{
+		dotfile := dotfiles.Dotfile{
 			Id:        dotfileModel.ID,
 			Name:      dotfileModel.Name,
 			Path:      dotfileModel.Path,

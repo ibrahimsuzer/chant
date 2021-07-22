@@ -9,6 +9,7 @@ import (
 	"github.com/ibrahimsuzer/chant/internal/cmd/dotfile"
 	"github.com/ibrahimsuzer/chant/internal/dotfiles"
 	"github.com/ibrahimsuzer/chant/internal/printer"
+	"github.com/ibrahimsuzer/chant/internal/storage"
 	"github.com/spf13/viper"
 )
 
@@ -33,7 +34,7 @@ func main() {
 
 	// Manage Command
 	dbClient := db.NewClient()
-	dotfileRepo := dotfiles.NewDotFileRepo(dbClient)
+	dotfileRepo := storage.NewDotFileRepo(dbClient)
 	dotfilePrinter := printer.NewPrinter(color.New(color.Reset))
 	dotfileManager := dotfiles.NewDotfileManager(dotfileRepo, dotfilePrinter)
 	dotfileCommandFactory := dotfile.NewDotfileCommandFactory(dbClient, dotfileManager)
