@@ -19,6 +19,8 @@ type dotfilePrinter interface {
 type dotfileRepo interface {
 	Add(ctx context.Context, files ...*Dotfile) error
 	List(ctx context.Context, page, count int) ([]*Dotfile, error)
+	Remove(ctx context.Context, ids ...string) error
+	Find(ctx context.Context, ids ...string) ([]*Dotfile, error)
 }
 
 type dotfileManager struct {
@@ -75,6 +77,29 @@ func (m *dotfileManager) Add(ctx context.Context, paths ...string) error {
 	return nil
 }
 
+func (m *dotfileManager) List(ctx context.Context) error {
+	list, err := m.dotfiles.List(ctx, 0, 0)
+	if err != nil {
+		return fmt.Errorf("failed to list config files: %w", err)
+	}
+
+	m.printer.Dotfiles(list...)
+
+	return nil
+}
+
+func (m *dotfileManager) Remove(ctx context.Context, ids ...string) error {
+
+	err := m.dotfiles.Remove(ctx, ids...)
+	if err != nil {
+		return fmt.Errorf("failed to remove config files: %w", err)
+	}
+
+	return nil
+}
+
+// Utils
+
 func getAbsolutePath(path string) (string, error) {
 	// Check path
 	stat, err := os.Stat(path)
@@ -102,15 +127,4 @@ func getAbsolutePath(path string) (string, error) {
 
 	return absolutePath, nil
 
-}
-
-func (m *dotfileManager) List(ctx context.Context) error {
-	list, err := m.dotfiles.List(ctx, 0, 0)
-	if err != nil {
-		return fmt.Errorf("failed to list config files: %w", err)
-	}
-
-	m.printer.Dotfiles(list...)
-
-	return nil
 }

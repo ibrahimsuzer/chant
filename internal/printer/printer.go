@@ -15,6 +15,6 @@ func NewPrinter(base *color.Color) *printer {
 
 func (p *printer) Dotfiles(dotfiles ...*dotfiles.Dotfile) {
 	for _, dotfile := range dotfiles {
-		p.colorBasic.Printf("%s: %s %s\n", dotfile.Id, dotfile.Name, dotfile.Path)
+		p.colorBasic.Printf("%s %s %s\n", dotfile.Id, dotfile.Name, dotfile.Path)
 	}
 }

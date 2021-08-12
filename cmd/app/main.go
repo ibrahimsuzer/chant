@@ -50,15 +50,23 @@ func main() {
 		log.Fatalf("failed to create command: %v", err)
 	}
 
-	// Manage Add
+	// Manage List
 	dotfileListFactory := dotfile.NewDotfileListFactory(dbClient, dotfileManager)
 	dotfileListCmd, err := dotfileListFactory.CreateCommand()
 	if err != nil {
 		log.Fatalf("failed to create command: %v", err)
 	}
 
+	// Manage Remove
+	dotfileRemoveFactory := dotfile.NewDotfileRemoveFactory(dbClient, dotfileManager)
+	dotfileRemoveCmd, err := dotfileRemoveFactory.CreateCommand()
+	if err != nil {
+		log.Fatalf("failed to create command: %v", err)
+	}
+
 	dotfileCmd.AddCommand(dotfileAddCmd)
 	dotfileCmd.AddCommand(dotfileListCmd)
+	dotfileCmd.AddCommand(dotfileRemoveCmd)
 	rootCmd.AddCommand(dotfileCmd)
 	err = rootCmd.Execute()
 	if err != nil {

@@ -35,7 +35,6 @@ func (s *dotfileRepo) Add(ctx context.Context, files ...*dotfiles.Dotfile) error
 			db.Dotfile.Extension.Set(file.Extension),
 			db.Dotfile.MimeType.Set(file.MimeType),
 			db.Dotfile.Language.Set(file.Language),
-
 		).Tx()
 
 		queries = append(queries, createDotfile)
@@ -68,7 +67,36 @@ func (s *dotfileRepo) List(ctx context.Context, page, count int) ([]*dotfiles.Do
 		return nil, fmt.Errorf("query failed: %w", err)
 	}
 
-	result := make([]*dotfiles.Dotfile, 0, count)
+	result := mapModelsToDotfile(dotfileModels)
+
+	return result, nil
+
+}
+
+func (s *dotfileRepo) Remove(ctx context.Context, ids ...string) error {
+
+	_, err := s.dbClient.Dotfile.FindMany(db.Dotfile.ID.In(ids)).Delete().Exec(ctx)
+	if err != nil {
+		return fmt.Errorf("query failed: %w", err)
+	}
+
+	return nil
+}
+
+func (s *dotfileRepo) Find(ctx context.Context, ids ...string) ([]*dotfiles.Dotfile, error) {
+
+	found, err := s.dbClient.Dotfile.FindMany(db.Dotfile.ID.In(ids)).Exec(ctx)
+	if err != nil {
+		return []*dotfiles.Dotfile{}, fmt.Errorf("query failed: %w", err)
+	}
+
+	result := mapModelsToDotfile(found)
+
+	return result, nil
+}
+
+func mapModelsToDotfile(dotfileModels []db.DotfileModel) []*dotfiles.Dotfile {
+	result := make([]*dotfiles.Dotfile, 0, len(dotfileModels))
 	for _, dotfileModel := range dotfileModels {
 
 		dotfile := dotfiles.Dotfile{
@@ -82,7 +110,5 @@ func (s *dotfileRepo) List(ctx context.Context, page, count int) ([]*dotfiles.Do
 
 		result = append(result, &dotfile)
 	}
-
-	return result, nil
-
+	return result
 }

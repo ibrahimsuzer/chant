@@ -11,6 +11,7 @@ import (
 type dotfileManager interface {
 	Add(ctx context.Context, files ...string) error
 	List(ctx context.Context) error
+	Remove(ctx context.Context, ids ...string) error
 }
 
 type dotfileCommand struct {

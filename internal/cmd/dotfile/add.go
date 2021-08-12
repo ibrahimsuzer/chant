@@ -17,7 +17,7 @@ func NewDotfileAddFactory(dbClient *db.PrismaClient, manage dotfileManager) *dot
 }
 
 func (f *dotfileAddCommand) CreateCommand() (*cobra.Command, error) {
-	dotfileListCmd := &cobra.Command{
+	dotfileListCmd := &cobra.Command{ //nolint:exhaustivestruct
 		Use:   "add",
 		Short: "",
 		RunE: func(cmd *cobra.Command, args []string) error {
@@ -29,6 +29,6 @@ func (f *dotfileAddCommand) CreateCommand() (*cobra.Command, error) {
 			return nil
 		},
 	}
-	
+
 	return dotfileListCmd, nil
 }
