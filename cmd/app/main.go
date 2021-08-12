@@ -1,59 +1,76 @@
 package main
 
 import (
-	"context"
-	"flag"
-	"fmt"
 	"log"
-	"os"
 
-	"github.com/peterbourgon/ff/v3"
-	"github.com/peterbourgon/ff/v3/ffcli"
+	"github.com/fatih/color"
+	"github.com/ibrahimsuzer/chant/db"
+	"github.com/ibrahimsuzer/chant/internal/cmd"
+	"github.com/ibrahimsuzer/chant/internal/cmd/dotfile"
+	"github.com/ibrahimsuzer/chant/internal/dotfiles"
+	"github.com/ibrahimsuzer/chant/internal/printer"
+	"github.com/ibrahimsuzer/chant/internal/storage"
+	"github.com/spf13/viper"
 )
 
 var version = "v0.0.0"
-var commit = "00000000" //nolint:gochecknoglobals
+var commit = "" //nolint:gochecknoglobals
 
 func main() {
-	// VERSION
-	version := &ffcli.Command{
-		Name:        "version",
-		ShortUsage:  "",
-		ShortHelp:   "",
-		LongHelp:    "",
-		UsageFunc:   nil,
-		FlagSet:     nil,
-		Options:     []ff.Option{ff.WithEnvVarPrefix("CHANT")},
-		Subcommands: nil,
-		Exec: func(ctx context.Context, args []string) error {
-			fmt.Printf("Chant %v (%v)", version, commit)
-			return nil
-		},
+
+	// TODO: Replace logger with colored output
+	// TODO: Add structure for managinc config files and creator method for cobra command
+
+	// printer := pterm.BasicTextPrinter{}
+
+	// Initialize Root Command and Configuration
+	v := viper.New()
+	cfg := cmd.NewConfiguration(v)
+	rootFactory := cmd.NewRootFactory(cfg, version, commit)
+	rootCmd, err := rootFactory.CreateCommand()
+	if err != nil {
+		log.Fatalf("failed to create command: %v", err)
 	}
 
-	// ROOT
-	rootFs := flag.NewFlagSet("chant", flag.ExitOnError)
-	var (
-		verbose = rootFs.Bool("verbose", false, "increase log verbosity")
-	)
-
-	root := &ffcli.Command{
-		Name:        "chant",
-		ShortUsage:  "chant [-version] [-help] [-autocomplete-(un)install] <command> [args]",
-		ShortHelp:   "Chant: Local environment manager for dotfiles and project binaries",
-		LongHelp:    "",
-		UsageFunc:   nil,
-		FlagSet:     rootFs,
-		Options:     []ff.Option{ff.WithEnvVarPrefix("CHANT")},
-		Subcommands: []*ffcli.Command{version},
-		Exec: func(ctx context.Context, args []string) error {
-			fmt.Printf("verbose %v\n", *verbose)
-			return nil
-		},
+	// Manage Command
+	dbClient := db.NewClient()
+	dotfileRepo := storage.NewDotFileRepo(dbClient)
+	dotfilePrinter := printer.NewPrinter(color.New(color.Reset))
+	dotfileManager := dotfiles.NewDotfileManager(dotfileRepo, dotfilePrinter)
+	dotfileCommandFactory := dotfile.NewDotfileCommandFactory(dbClient, dotfileManager)
+	dotfileCmd, err := dotfileCommandFactory.CreateCommand()
+	if err != nil {
+		log.Fatalf("failed to create command: %v", err)
 	}
 
-	// RUN
-	if err := root.ParseAndRun(context.Background(), os.Args[1:]); err != nil {
-		log.Fatal(err)
+	// Manage Add
+	dotfileAddFactory := dotfile.NewDotfileAddFactory(dbClient, dotfileManager)
+	dotfileAddCmd, err := dotfileAddFactory.CreateCommand()
+	if err != nil {
+		log.Fatalf("failed to create command: %v", err)
 	}
+
+	// Manage List
+	dotfileListFactory := dotfile.NewDotfileListFactory(dbClient, dotfileManager)
+	dotfileListCmd, err := dotfileListFactory.CreateCommand()
+	if err != nil {
+		log.Fatalf("failed to create command: %v", err)
+	}
+
+	// Manage Remove
+	dotfileRemoveFactory := dotfile.NewDotfileRemoveFactory(dbClient, dotfileManager)
+	dotfileRemoveCmd, err := dotfileRemoveFactory.CreateCommand()
+	if err != nil {
+		log.Fatalf("failed to create command: %v", err)
+	}
+
+	dotfileCmd.AddCommand(dotfileAddCmd)
+	dotfileCmd.AddCommand(dotfileListCmd)
+	dotfileCmd.AddCommand(dotfileRemoveCmd)
+	rootCmd.AddCommand(dotfileCmd)
+	err = rootCmd.Execute()
+	if err != nil {
+		log.Fatalf("failed to run: %v", err)
+	}
+
 }

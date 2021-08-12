@@ -1,0 +1,19 @@
+generator client {
+  provider = "prisma-client-go"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:storage.db"
+}
+
+model Dotfile {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  name      String
+  path      String   @unique
+  extension String
+  mimeType  String
+  language  String
+}
