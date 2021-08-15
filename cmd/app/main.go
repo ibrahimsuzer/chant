@@ -35,8 +35,9 @@ func main() {
 	// Manage Command
 	dbClient := db.NewClient()
 	dotfileRepo := storage.NewDotFileRepo(dbClient)
+	fileVersionRepo := storage.NewFileVersionRepo(dbClient)
 	dotfilePrinter := printer.NewPrinter(color.New(color.Reset))
-	dotfileManager := dotfiles.NewDotfileManager(dotfileRepo, dotfilePrinter)
+	dotfileManager := dotfiles.NewDotfileManager(dotfileRepo, fileVersionRepo, dotfilePrinter)
 	dotfileCommandFactory := dotfile.NewDotfileCommandFactory(dbClient, dotfileManager)
 	dotfileCmd, err := dotfileCommandFactory.CreateCommand()
 	if err != nil {

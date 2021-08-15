@@ -15,8 +15,6 @@ type Dotfile struct {
 type FileVersion struct {
 	Id string
 
-	FilePath string
-	Version  int
-	Content  string
-	Hash     string
+	Content string
+	Hash    string
 }
