@@ -11,9 +11,55 @@ model Dotfile {
   id        String   @id @default(cuid())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
   name      String
-  path      String   @unique
+  path      String @unique // Cannot manage multiple files in the same location
   extension String
   mimeType  String
   language  String
+
+  // Currently used file version
+  current   FileVersion? @relation("CurrentVersion", fields: [currentId], references: [id])
+  currentId String?
+
+  // All versions of the file
+  versions FileVersion[] @relation("Versions")
 }
+
+model FileVersion {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  content String
+  hash    String
+
+  // Currently used by dotfile
+  currentlyUsed Dotfile? @relation("CurrentVersion")
+
+  // Dotfile this version belongs to
+  file   Dotfile @relation("Versions", fields: [fileId], references: [id])
+  fileId String
+
+  // Previous version of this file
+  successor     FileVersion[] @relation("PreviousFileVersion")
+  predecessor   FileVersion?  @relation("PreviousFileVersion", fields: [predecessorId], references: [id])
+  predecessorId String?
+
+  // appliedSnippets Snippet[]
+}
+
+// model Snippet {
+//   id        String   @id @default(cuid())
+//   createdAt DateTime @default(now())
+//   updatedAt DateTime @updatedAt
+//
+//   appliedTo   FileVersion @relation(fields: [appliedToId], references: [id])
+//   appliedToId String
+//
+//   language String
+//   name     String
+//   key      String
+//   content  String
+//
+// }
