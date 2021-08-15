@@ -65,9 +65,17 @@ func main() {
 		log.Fatalf("failed to create command: %v", err)
 	}
 
+	// Manage Update
+	dotfileUpdateFactory := dotfile.NewDotfileUpdateFactory(dbClient, dotfileManager)
+	dotfileUpdateCmd, err := dotfileUpdateFactory.CreateCommand()
+	if err != nil {
+		log.Fatalf("failed to create command: %v", err)
+	}
+
 	dotfileCmd.AddCommand(dotfileAddCmd)
 	dotfileCmd.AddCommand(dotfileListCmd)
 	dotfileCmd.AddCommand(dotfileRemoveCmd)
+	dotfileCmd.AddCommand(dotfileUpdateCmd)
 	rootCmd.AddCommand(dotfileCmd)
 	err = rootCmd.Execute()
 	if err != nil {

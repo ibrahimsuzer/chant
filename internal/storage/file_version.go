@@ -20,13 +20,14 @@ func NewFileVersionRepo(db *db.PrismaClient) *fileVersion {
 	return &fileVersion{dbClient: db}
 }
 
-func (s *fileVersion) Add(ctx context.Context, fileId string, file *dotfiles.FileVersion) (*dotfiles.FileVersion, error) {
-	hash := hash256(file.Content)
+func (s *fileVersion) Add(ctx context.Context, fileId string, content string) (*dotfiles.FileVersion, error) {
+	hash := hash256(content)
 
 	createFileVersion, err := s.dbClient.FileVersion.CreateOne(
-		db.FileVersion.Content.Set(file.Content),
+		db.FileVersion.Content.Set(content),
 		db.FileVersion.Hash.Set(hash),
 		db.FileVersion.File.Link(db.Dotfile.ID.Equals(fileId)),
+		db.FileVersion.CurrentlyUsed.Link(db.Dotfile.ID.Equals(fileId)),
 	).Exec(ctx)
 
 	if err != nil {
@@ -35,6 +36,41 @@ func (s *fileVersion) Add(ctx context.Context, fileId string, file *dotfiles.Fil
 		}
 
 		return nil, fmt.Errorf("failed to commit: %w", err)
+	}
+
+	return mapModelToFileVersion(createFileVersion), nil
+
+}
+
+func (s *fileVersion) Update(ctx context.Context, fileId string, content string) (*dotfiles.FileVersion, error) {
+	hash := hash256(content)
+
+	dotfile, err := s.dbClient.Dotfile.FindUnique(db.Dotfile.ID.Equals(fileId)).With(db.Dotfile.Current.Fetch()).Exec(ctx)
+	if err != nil {
+		return nil, fmt.Errorf("cannot find the file: %w", err)
+	}
+
+	// If current exists, check if hash is same and return
+	var foundCurrent *string
+	current, ok := dotfile.Current()
+	if ok && current.Hash == hash {
+		return mapModelToFileVersion(current), nil
+	} else if ok {
+		foundCurrent = &current.ID // If current exists, use it as predecessor
+	}
+
+	// If current doesn't exist or hash is different
+	// add new version and update current
+
+	createFileVersion, err := s.dbClient.FileVersion.CreateOne(
+		db.FileVersion.Content.Set(content),
+		db.FileVersion.Hash.Set(hash),
+		db.FileVersion.File.Link(db.Dotfile.ID.Equals(fileId)),
+		db.FileVersion.CurrentlyUsed.Link(db.Dotfile.ID.Equals(fileId)),
+		db.FileVersion.Predecessor.Link(db.FileVersion.ID.EqualsIfPresent(foundCurrent)),
+	).Exec(ctx)
+	if err != nil {
+		return nil, fmt.Errorf("failed to add new version: %w", err)
 	}
 
 	return mapModelToFileVersion(createFileVersion), nil

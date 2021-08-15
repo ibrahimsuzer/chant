@@ -25,7 +25,8 @@ type dotfileRepo interface {
 }
 
 type fileVersionRepo interface {
-	Add(ctx context.Context, fileId string, file *FileVersion) (*FileVersion, error)
+	Add(ctx context.Context, fileId, content string) (*FileVersion, error)
+	Update(ctx context.Context, fileId string, content string) (*FileVersion, error)
 }
 
 type dotfileManager struct {
@@ -37,7 +38,6 @@ type dotfileManager struct {
 func NewDotfileManager(dotfiles dotfileRepo, versions fileVersionRepo, printer dotfilePrinter) *dotfileManager {
 	return &dotfileManager{dotfiles: dotfiles, versions: versions, printer: printer}
 }
-
 
 func (m *dotfileManager) Add(ctx context.Context, paths ...string) error {
 
@@ -58,6 +58,7 @@ func (m *dotfileManager) Add(ctx context.Context, paths ...string) error {
 			continue
 		}
 
+		extension := filepath.Ext(absolutePath)
 		language := enry.GetLanguage(absolutePath, content)
 		mimeType := enry.GetMIMEType(absolutePath, language)
 
@@ -65,22 +66,21 @@ func (m *dotfileManager) Add(ctx context.Context, paths ...string) error {
 			Id:        "",
 			Name:      "",
 			Path:      absolutePath,
-			Extension: filepath.Ext(absolutePath),
+			Extension: extension,
 			MimeType:  mimeType,
 			Language:  language,
 		})
 		if errors.Is(err, storage_errors.ErrUniqueConstraintViolation) {
 			fmt.Printf("file already exists: %s \n", absolutePath)
+
 			continue
 		} else if err != nil {
 			return fmt.Errorf("failed to add dotfile: %w", err)
+		} else {
+			fmt.Printf("added: %s \n", absolutePath)
 		}
 
-		_, err = m.versions.Add(ctx, dotfile.Id, &FileVersion{
-			Id:      "",
-			Content: string(content),
-			Hash:    "",
-		})
+		_, err = m.versions.Add(ctx, dotfile.Id, string(content))
 		if err != nil {
 			return fmt.Errorf("failed to add file content: %w", err)
 		}
@@ -108,6 +108,50 @@ func (m *dotfileManager) Remove(ctx context.Context, ids ...string) error {
 		return fmt.Errorf("failed to remove config files: %w", err)
 	}
 
+	return nil
+}
+
+func (m *dotfileManager) Update(ctx context.Context, ids ...string) error {
+
+	filesToUpdate := []*Dotfile{}
+	var err error
+
+	if len(ids) == 0 {
+		filesToUpdate, err = m.dotfiles.List(ctx, 0, 0)
+		if err != nil {
+			return fmt.Errorf("failed to list config files: %w", err)
+		}
+	} else {
+		filesToUpdate, err = m.dotfiles.Find(ctx, ids...)
+		if err != nil {
+			return fmt.Errorf("failed to list config files: %w", err)
+		}
+	}
+
+	for _, dotfile := range filesToUpdate {
+
+		absolutePath, err := getAbsolutePath(dotfile.Path)
+		if err != nil {
+			fmt.Printf("failed to read path: %s\n", err)
+
+			continue
+		}
+
+		// Check details
+		content, err := ioutil.ReadFile(absolutePath)
+		if err != nil {
+			fmt.Printf("failed to read file: %s\n", err)
+
+			continue
+		}
+
+		_, err = m.versions.Update(ctx, dotfile.Id, string(content))
+		if err != nil {
+			return fmt.Errorf("failed to add file content: %w", err)
+		} else {
+			fmt.Printf("updated: %s\n", absolutePath)
+		}
+	}
 	return nil
 }
 
