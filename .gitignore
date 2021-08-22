@@ -4,6 +4,7 @@ coverage.txt
 db/*_gen.go
 db/.gitignore
 storage.db*
+go_build_*
 
 # goreleaser
 dist/

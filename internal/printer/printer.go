@@ -14,6 +14,10 @@ func NewPrinter(base *color.Color) *printer {
 }
 
 func (p *printer) Dotfiles(dotfiles ...*dotfiles.Dotfile) {
+	if len(dotfiles) == 0 {
+		p.colorBasic.Printf("Dotfile list is empty\n")
+
+	}
 	for _, dotfile := range dotfiles {
 		p.colorBasic.Printf("%s %s %s\n", dotfile.Id, dotfile.Name, dotfile.Path)
 	}

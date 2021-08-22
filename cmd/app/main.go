@@ -35,8 +35,9 @@ func main() {
 	// Manage Command
 	dbClient := db.NewClient()
 	dotfileRepo := storage.NewDotFileRepo(dbClient)
+	fileVersionRepo := storage.NewFileVersionRepo(dbClient)
 	dotfilePrinter := printer.NewPrinter(color.New(color.Reset))
-	dotfileManager := dotfiles.NewDotfileManager(dotfileRepo, dotfilePrinter)
+	dotfileManager := dotfiles.NewDotfileManager(dotfileRepo, fileVersionRepo, dotfilePrinter)
 	dotfileCommandFactory := dotfile.NewDotfileCommandFactory(dbClient, dotfileManager)
 	dotfileCmd, err := dotfileCommandFactory.CreateCommand()
 	if err != nil {
@@ -64,9 +65,17 @@ func main() {
 		log.Fatalf("failed to create command: %v", err)
 	}
 
+	// Manage Update
+	dotfileUpdateFactory := dotfile.NewDotfileUpdateFactory(dbClient, dotfileManager)
+	dotfileUpdateCmd, err := dotfileUpdateFactory.CreateCommand()
+	if err != nil {
+		log.Fatalf("failed to create command: %v", err)
+	}
+
 	dotfileCmd.AddCommand(dotfileAddCmd)
 	dotfileCmd.AddCommand(dotfileListCmd)
 	dotfileCmd.AddCommand(dotfileRemoveCmd)
+	dotfileCmd.AddCommand(dotfileUpdateCmd)
 	rootCmd.AddCommand(dotfileCmd)
 	err = rootCmd.Execute()
 	if err != nil {

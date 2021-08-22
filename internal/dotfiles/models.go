@@ -1,17 +1,20 @@
 package dotfiles
 
 type Dotfile struct {
-	Id        string
+	Id string
+
 	Name      string
 	Path      string
 	Extension string
 	MimeType  string
 	Language  string
-	Directory DotfileDir
+
+	Version *FileVersion
 }
 
-type DotfileDir struct {
-	Id   string
-	Name string
-	Path string
+type FileVersion struct {
+	Id string
+
+	Content string
+	Hash    string
 }

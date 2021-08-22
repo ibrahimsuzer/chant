@@ -23,7 +23,28 @@ func NewDotFileRepo(db *db.PrismaClient) *dotfileRepo {
 	return &dotfileRepo{dbClient: db}
 }
 
-func (s *dotfileRepo) Add(ctx context.Context, files ...*dotfiles.Dotfile) error {
+func (s *dotfileRepo) Add(ctx context.Context, file *dotfiles.Dotfile) (*dotfiles.Dotfile, error) {
+	createDotfile, err := s.dbClient.Dotfile.CreateOne(
+		db.Dotfile.Name.Set(file.Name),
+		db.Dotfile.Path.Set(file.Path),
+		db.Dotfile.Extension.Set(file.Extension),
+		db.Dotfile.MimeType.Set(file.MimeType),
+		db.Dotfile.Language.Set(file.Language),
+	).Exec(ctx)
+
+	if err != nil {
+		if strings.Contains(err.Error(), uniqueConstraintViolation) {
+			return nil, storage_errors.ErrUniqueConstraintViolation
+		}
+
+		return nil, fmt.Errorf("failed to commit: %w", err)
+	}
+
+	return mapModelToDotfile(createDotfile), nil
+
+}
+
+func (s *dotfileRepo) AddMany(ctx context.Context, files ...*dotfiles.Dotfile) error {
 
 	queries := make([]transaction.Param, 0, len(files))
 
@@ -67,7 +88,7 @@ func (s *dotfileRepo) List(ctx context.Context, page, count int) ([]*dotfiles.Do
 		return nil, fmt.Errorf("query failed: %w", err)
 	}
 
-	result := mapModelsToDotfile(dotfileModels)
+	result := mapModelsToDotfiles(dotfileModels)
 
 	return result, nil
 
@@ -90,25 +111,27 @@ func (s *dotfileRepo) Find(ctx context.Context, ids ...string) ([]*dotfiles.Dotf
 		return []*dotfiles.Dotfile{}, fmt.Errorf("query failed: %w", err)
 	}
 
-	result := mapModelsToDotfile(found)
+	result := mapModelsToDotfiles(found)
 
 	return result, nil
 }
 
-func mapModelsToDotfile(dotfileModels []db.DotfileModel) []*dotfiles.Dotfile {
+func mapModelToDotfile(model *db.DotfileModel) *dotfiles.Dotfile {
+	return &dotfiles.Dotfile{
+		Id:        model.ID,
+		Name:      model.Name,
+		Path:      model.Path,
+		Extension: model.Extension,
+		MimeType:  model.MimeType,
+		Language:  model.Language,
+	}
+}
+
+func mapModelsToDotfiles(dotfileModels []db.DotfileModel) []*dotfiles.Dotfile {
 	result := make([]*dotfiles.Dotfile, 0, len(dotfileModels))
 	for _, dotfileModel := range dotfileModels {
-
-		dotfile := dotfiles.Dotfile{
-			Id:        dotfileModel.ID,
-			Name:      dotfileModel.Name,
-			Path:      dotfileModel.Path,
-			Extension: dotfileModel.Extension,
-			MimeType:  dotfileModel.MimeType,
-			Language:  dotfileModel.Language,
-		}
-
-		result = append(result, &dotfile)
+		dotfile := mapModelToDotfile(&dotfileModel)
+		result = append(result, dotfile)
 	}
 	return result
 }

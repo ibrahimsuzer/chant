@@ -17,24 +17,29 @@ type dotfilePrinter interface {
 }
 
 type dotfileRepo interface {
-	Add(ctx context.Context, files ...*Dotfile) error
+	Add(ctx context.Context, file *Dotfile) (*Dotfile, error)
+	AddMany(ctx context.Context, files ...*Dotfile) error
 	List(ctx context.Context, page, count int) ([]*Dotfile, error)
 	Remove(ctx context.Context, ids ...string) error
 	Find(ctx context.Context, ids ...string) ([]*Dotfile, error)
 }
 
+type fileVersionRepo interface {
+	Add(ctx context.Context, fileId, content string) (*FileVersion, error)
+	Update(ctx context.Context, fileId string, content string) (*FileVersion, error)
+}
+
 type dotfileManager struct {
 	dotfiles dotfileRepo
+	versions fileVersionRepo
 	printer  dotfilePrinter
 }
 
-func NewDotfileManager(dotfileRepo dotfileRepo, printer dotfilePrinter) *dotfileManager {
-	return &dotfileManager{dotfiles: dotfileRepo, printer: printer}
+func NewDotfileManager(dotfiles dotfileRepo, versions fileVersionRepo, printer dotfilePrinter) *dotfileManager {
+	return &dotfileManager{dotfiles: dotfiles, versions: versions, printer: printer}
 }
 
 func (m *dotfileManager) Add(ctx context.Context, paths ...string) error {
-
-	dotfiles := make([]*Dotfile, 0, len(paths))
 
 	for _, path := range paths {
 
@@ -53,25 +58,33 @@ func (m *dotfileManager) Add(ctx context.Context, paths ...string) error {
 			continue
 		}
 
+		extension := filepath.Ext(absolutePath)
 		language := enry.GetLanguage(absolutePath, content)
 		mimeType := enry.GetMIMEType(absolutePath, language)
 
-		dotfiles = append(dotfiles, &Dotfile{
+		dotfile, err := m.dotfiles.Add(ctx, &Dotfile{
 			Id:        "",
 			Name:      "",
 			Path:      absolutePath,
-			Extension: filepath.Ext(absolutePath),
+			Extension: extension,
 			MimeType:  mimeType,
 			Language:  language,
 		})
+		if errors.Is(err, storage_errors.ErrUniqueConstraintViolation) {
+			fmt.Printf("file already exists: %s \n", absolutePath)
 
-	}
+			continue
+		} else if err != nil {
+			return fmt.Errorf("failed to add dotfile: %w", err)
+		} else {
+			fmt.Printf("added: %s \n", absolutePath)
+		}
 
-	err := m.dotfiles.Add(ctx, dotfiles...)
-	if errors.Is(err, storage_errors.ErrUniqueConstraintViolation) {
-		fmt.Printf("file already exists\n")
-	} else if err != nil {
-		return fmt.Errorf("failed to add config files: %w", err)
+		_, err = m.versions.Add(ctx, dotfile.Id, string(content))
+		if err != nil {
+			return fmt.Errorf("failed to add file content: %w", err)
+		}
+
 	}
 
 	return nil
@@ -95,6 +108,50 @@ func (m *dotfileManager) Remove(ctx context.Context, ids ...string) error {
 		return fmt.Errorf("failed to remove config files: %w", err)
 	}
 
+	return nil
+}
+
+func (m *dotfileManager) Update(ctx context.Context, ids ...string) error {
+
+	filesToUpdate := []*Dotfile{}
+	var err error
+
+	if len(ids) == 0 {
+		filesToUpdate, err = m.dotfiles.List(ctx, 0, 0)
+		if err != nil {
+			return fmt.Errorf("failed to list config files: %w", err)
+		}
+	} else {
+		filesToUpdate, err = m.dotfiles.Find(ctx, ids...)
+		if err != nil {
+			return fmt.Errorf("failed to list config files: %w", err)
+		}
+	}
+
+	for _, dotfile := range filesToUpdate {
+
+		absolutePath, err := getAbsolutePath(dotfile.Path)
+		if err != nil {
+			fmt.Printf("failed to read path: %s\n", err)
+
+			continue
+		}
+
+		// Check details
+		content, err := ioutil.ReadFile(absolutePath)
+		if err != nil {
+			fmt.Printf("failed to read file: %s\n", err)
+
+			continue
+		}
+
+		_, err = m.versions.Update(ctx, dotfile.Id, string(content))
+		if err != nil {
+			return fmt.Errorf("failed to add file content: %w", err)
+		} else {
+			fmt.Printf("updated: %s\n", absolutePath)
+		}
+	}
 	return nil
 }
 

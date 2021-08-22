@@ -62,6 +62,7 @@ var dotfileOutput = []builder.Output{
 	{Name: "extension"},
 	{Name: "mimeType"},
 	{Name: "language"},
+	{Name: "currentId"},
 }
 
 type iDotfileRelationWith interface {
@@ -852,6 +853,1277 @@ func (p dotfileWithPrismaLanguageEqualsUniqueParam) languageField() {}
 func (dotfileWithPrismaLanguageEqualsUniqueParam) unique() {}
 func (dotfileWithPrismaLanguageEqualsUniqueParam) equals() {}
 
+type DotfileWithPrismaCurrentEqualsSetParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	equals()
+	dotfileModel()
+	currentField()
+}
+
+type DotfileWithPrismaCurrentSetParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	dotfileModel()
+	currentField()
+}
+
+type dotfileWithPrismaCurrentSetParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p dotfileWithPrismaCurrentSetParam) field() builder.Field {
+	return p.data
+}
+
+func (p dotfileWithPrismaCurrentSetParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p dotfileWithPrismaCurrentSetParam) dotfileModel() {}
+
+func (p dotfileWithPrismaCurrentSetParam) currentField() {}
+
+type DotfileWithPrismaCurrentWhereParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	dotfileModel()
+	currentField()
+}
+
+type dotfileWithPrismaCurrentEqualsParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p dotfileWithPrismaCurrentEqualsParam) field() builder.Field {
+	return p.data
+}
+
+func (p dotfileWithPrismaCurrentEqualsParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p dotfileWithPrismaCurrentEqualsParam) dotfileModel() {}
+
+func (p dotfileWithPrismaCurrentEqualsParam) currentField() {}
+
+func (dotfileWithPrismaCurrentSetParam) settable()  {}
+func (dotfileWithPrismaCurrentEqualsParam) equals() {}
+
+type dotfileWithPrismaCurrentEqualsUniqueParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p dotfileWithPrismaCurrentEqualsUniqueParam) field() builder.Field {
+	return p.data
+}
+
+func (p dotfileWithPrismaCurrentEqualsUniqueParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p dotfileWithPrismaCurrentEqualsUniqueParam) dotfileModel() {}
+func (p dotfileWithPrismaCurrentEqualsUniqueParam) currentField() {}
+
+func (dotfileWithPrismaCurrentEqualsUniqueParam) unique() {}
+func (dotfileWithPrismaCurrentEqualsUniqueParam) equals() {}
+
+type DotfileWithPrismaCurrentIDEqualsSetParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	equals()
+	dotfileModel()
+	currentIDField()
+}
+
+type DotfileWithPrismaCurrentIDSetParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	dotfileModel()
+	currentIDField()
+}
+
+type dotfileWithPrismaCurrentIDSetParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p dotfileWithPrismaCurrentIDSetParam) field() builder.Field {
+	return p.data
+}
+
+func (p dotfileWithPrismaCurrentIDSetParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p dotfileWithPrismaCurrentIDSetParam) dotfileModel() {}
+
+func (p dotfileWithPrismaCurrentIDSetParam) currentIDField() {}
+
+type DotfileWithPrismaCurrentIDWhereParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	dotfileModel()
+	currentIDField()
+}
+
+type dotfileWithPrismaCurrentIDEqualsParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p dotfileWithPrismaCurrentIDEqualsParam) field() builder.Field {
+	return p.data
+}
+
+func (p dotfileWithPrismaCurrentIDEqualsParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p dotfileWithPrismaCurrentIDEqualsParam) dotfileModel() {}
+
+func (p dotfileWithPrismaCurrentIDEqualsParam) currentIDField() {}
+
+func (dotfileWithPrismaCurrentIDSetParam) settable()  {}
+func (dotfileWithPrismaCurrentIDEqualsParam) equals() {}
+
+type dotfileWithPrismaCurrentIDEqualsUniqueParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p dotfileWithPrismaCurrentIDEqualsUniqueParam) field() builder.Field {
+	return p.data
+}
+
+func (p dotfileWithPrismaCurrentIDEqualsUniqueParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p dotfileWithPrismaCurrentIDEqualsUniqueParam) dotfileModel()   {}
+func (p dotfileWithPrismaCurrentIDEqualsUniqueParam) currentIDField() {}
+
+func (dotfileWithPrismaCurrentIDEqualsUniqueParam) unique() {}
+func (dotfileWithPrismaCurrentIDEqualsUniqueParam) equals() {}
+
+type DotfileWithPrismaVersionsEqualsSetParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	equals()
+	dotfileModel()
+	versionsField()
+}
+
+type DotfileWithPrismaVersionsSetParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	dotfileModel()
+	versionsField()
+}
+
+type dotfileWithPrismaVersionsSetParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p dotfileWithPrismaVersionsSetParam) field() builder.Field {
+	return p.data
+}
+
+func (p dotfileWithPrismaVersionsSetParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p dotfileWithPrismaVersionsSetParam) dotfileModel() {}
+
+func (p dotfileWithPrismaVersionsSetParam) versionsField() {}
+
+type DotfileWithPrismaVersionsWhereParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	dotfileModel()
+	versionsField()
+}
+
+type dotfileWithPrismaVersionsEqualsParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p dotfileWithPrismaVersionsEqualsParam) field() builder.Field {
+	return p.data
+}
+
+func (p dotfileWithPrismaVersionsEqualsParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p dotfileWithPrismaVersionsEqualsParam) dotfileModel() {}
+
+func (p dotfileWithPrismaVersionsEqualsParam) versionsField() {}
+
+func (dotfileWithPrismaVersionsSetParam) settable()  {}
+func (dotfileWithPrismaVersionsEqualsParam) equals() {}
+
+type dotfileWithPrismaVersionsEqualsUniqueParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p dotfileWithPrismaVersionsEqualsUniqueParam) field() builder.Field {
+	return p.data
+}
+
+func (p dotfileWithPrismaVersionsEqualsUniqueParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p dotfileWithPrismaVersionsEqualsUniqueParam) dotfileModel()  {}
+func (p dotfileWithPrismaVersionsEqualsUniqueParam) versionsField() {}
+
+func (dotfileWithPrismaVersionsEqualsUniqueParam) unique() {}
+func (dotfileWithPrismaVersionsEqualsUniqueParam) equals() {}
+
+type fileVersionActions struct {
+	// client holds the prisma client
+	client *PrismaClient
+}
+
+var fileVersionOutput = []builder.Output{
+	{Name: "id"},
+	{Name: "createdAt"},
+	{Name: "updatedAt"},
+	{Name: "content"},
+	{Name: "hash"},
+	{Name: "fileId"},
+	{Name: "predecessorId"},
+}
+
+type iFileVersionRelationWith interface {
+	getQuery() builder.Query
+	with()
+	fileVersionRelation()
+}
+
+type FileVersionWhereParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	fileVersionModel()
+}
+
+type fileVersionDefaultParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p fileVersionDefaultParam) field() builder.Field {
+	return p.data
+}
+
+func (p fileVersionDefaultParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p fileVersionDefaultParam) fileVersionModel() {}
+
+type iFileVersionOrderByParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	fileVersionModel()
+}
+
+type fileVersionOrderByParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p fileVersionOrderByParam) field() builder.Field {
+	return p.data
+}
+
+func (p fileVersionOrderByParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p fileVersionOrderByParam) fileVersionModel() {}
+
+type iFileVersionCursorParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	fileVersionModel()
+	isCursor()
+}
+
+type fileVersionCursorParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p fileVersionCursorParam) field() builder.Field {
+	return p.data
+}
+
+func (p fileVersionCursorParam) isCursor() {}
+
+func (p fileVersionCursorParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p fileVersionCursorParam) fileVersionModel() {}
+
+type FileVersionParamUnique interface {
+	field() builder.Field
+	getQuery() builder.Query
+	unique()
+	fileVersionModel()
+}
+
+type fileVersionParamUnique struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p fileVersionParamUnique) fileVersionModel() {}
+
+func (fileVersionParamUnique) unique() {}
+
+func (p fileVersionParamUnique) field() builder.Field {
+	return p.data
+}
+
+func (p fileVersionParamUnique) getQuery() builder.Query {
+	return p.query
+}
+
+type FileVersionEqualsWhereParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	equals()
+	fileVersionModel()
+}
+
+type fileVersionEqualsParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p fileVersionEqualsParam) fileVersionModel() {}
+
+func (fileVersionEqualsParam) equals() {}
+
+func (p fileVersionEqualsParam) field() builder.Field {
+	return p.data
+}
+
+func (p fileVersionEqualsParam) getQuery() builder.Query {
+	return p.query
+}
+
+type FileVersionEqualsUniqueWhereParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	equals()
+	unique()
+	fileVersionModel()
+}
+
+type fileVersionEqualsUniqueParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p fileVersionEqualsUniqueParam) fileVersionModel() {}
+
+func (fileVersionEqualsUniqueParam) unique() {}
+func (fileVersionEqualsUniqueParam) equals() {}
+
+func (p fileVersionEqualsUniqueParam) field() builder.Field {
+	return p.data
+}
+
+func (p fileVersionEqualsUniqueParam) getQuery() builder.Query {
+	return p.query
+}
+
+type FileVersionSetParam interface {
+	field() builder.Field
+	settable()
+	fileVersionModel()
+}
+
+type fileVersionSetParam struct {
+	data builder.Field
+}
+
+func (fileVersionSetParam) settable() {}
+
+func (p fileVersionSetParam) field() builder.Field {
+	return p.data
+}
+
+func (p fileVersionSetParam) fileVersionModel() {}
+
+type FileVersionWithPrismaIDEqualsSetParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	equals()
+	fileVersionModel()
+	idField()
+}
+
+type FileVersionWithPrismaIDSetParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	fileVersionModel()
+	idField()
+}
+
+type fileVersionWithPrismaIDSetParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p fileVersionWithPrismaIDSetParam) field() builder.Field {
+	return p.data
+}
+
+func (p fileVersionWithPrismaIDSetParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p fileVersionWithPrismaIDSetParam) fileVersionModel() {}
+
+func (p fileVersionWithPrismaIDSetParam) idField() {}
+
+type FileVersionWithPrismaIDWhereParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	fileVersionModel()
+	idField()
+}
+
+type fileVersionWithPrismaIDEqualsParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p fileVersionWithPrismaIDEqualsParam) field() builder.Field {
+	return p.data
+}
+
+func (p fileVersionWithPrismaIDEqualsParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p fileVersionWithPrismaIDEqualsParam) fileVersionModel() {}
+
+func (p fileVersionWithPrismaIDEqualsParam) idField() {}
+
+func (fileVersionWithPrismaIDSetParam) settable()  {}
+func (fileVersionWithPrismaIDEqualsParam) equals() {}
+
+type fileVersionWithPrismaIDEqualsUniqueParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p fileVersionWithPrismaIDEqualsUniqueParam) field() builder.Field {
+	return p.data
+}
+
+func (p fileVersionWithPrismaIDEqualsUniqueParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p fileVersionWithPrismaIDEqualsUniqueParam) fileVersionModel() {}
+func (p fileVersionWithPrismaIDEqualsUniqueParam) idField()          {}
+
+func (fileVersionWithPrismaIDEqualsUniqueParam) unique() {}
+func (fileVersionWithPrismaIDEqualsUniqueParam) equals() {}
+
+type FileVersionWithPrismaCreatedAtEqualsSetParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	equals()
+	fileVersionModel()
+	createdAtField()
+}
+
+type FileVersionWithPrismaCreatedAtSetParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	fileVersionModel()
+	createdAtField()
+}
+
+type fileVersionWithPrismaCreatedAtSetParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p fileVersionWithPrismaCreatedAtSetParam) field() builder.Field {
+	return p.data
+}
+
+func (p fileVersionWithPrismaCreatedAtSetParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p fileVersionWithPrismaCreatedAtSetParam) fileVersionModel() {}
+
+func (p fileVersionWithPrismaCreatedAtSetParam) createdAtField() {}
+
+type FileVersionWithPrismaCreatedAtWhereParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	fileVersionModel()
+	createdAtField()
+}
+
+type fileVersionWithPrismaCreatedAtEqualsParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p fileVersionWithPrismaCreatedAtEqualsParam) field() builder.Field {
+	return p.data
+}
+
+func (p fileVersionWithPrismaCreatedAtEqualsParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p fileVersionWithPrismaCreatedAtEqualsParam) fileVersionModel() {}
+
+func (p fileVersionWithPrismaCreatedAtEqualsParam) createdAtField() {}
+
+func (fileVersionWithPrismaCreatedAtSetParam) settable()  {}
+func (fileVersionWithPrismaCreatedAtEqualsParam) equals() {}
+
+type fileVersionWithPrismaCreatedAtEqualsUniqueParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p fileVersionWithPrismaCreatedAtEqualsUniqueParam) field() builder.Field {
+	return p.data
+}
+
+func (p fileVersionWithPrismaCreatedAtEqualsUniqueParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p fileVersionWithPrismaCreatedAtEqualsUniqueParam) fileVersionModel() {}
+func (p fileVersionWithPrismaCreatedAtEqualsUniqueParam) createdAtField()   {}
+
+func (fileVersionWithPrismaCreatedAtEqualsUniqueParam) unique() {}
+func (fileVersionWithPrismaCreatedAtEqualsUniqueParam) equals() {}
+
+type FileVersionWithPrismaUpdatedAtEqualsSetParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	equals()
+	fileVersionModel()
+	updatedAtField()
+}
+
+type FileVersionWithPrismaUpdatedAtSetParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	fileVersionModel()
+	updatedAtField()
+}
+
+type fileVersionWithPrismaUpdatedAtSetParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p fileVersionWithPrismaUpdatedAtSetParam) field() builder.Field {
+	return p.data
+}
+
+func (p fileVersionWithPrismaUpdatedAtSetParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p fileVersionWithPrismaUpdatedAtSetParam) fileVersionModel() {}
+
+func (p fileVersionWithPrismaUpdatedAtSetParam) updatedAtField() {}
+
+type FileVersionWithPrismaUpdatedAtWhereParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	fileVersionModel()
+	updatedAtField()
+}
+
+type fileVersionWithPrismaUpdatedAtEqualsParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p fileVersionWithPrismaUpdatedAtEqualsParam) field() builder.Field {
+	return p.data
+}
+
+func (p fileVersionWithPrismaUpdatedAtEqualsParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p fileVersionWithPrismaUpdatedAtEqualsParam) fileVersionModel() {}
+
+func (p fileVersionWithPrismaUpdatedAtEqualsParam) updatedAtField() {}
+
+func (fileVersionWithPrismaUpdatedAtSetParam) settable()  {}
+func (fileVersionWithPrismaUpdatedAtEqualsParam) equals() {}
+
+type fileVersionWithPrismaUpdatedAtEqualsUniqueParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p fileVersionWithPrismaUpdatedAtEqualsUniqueParam) field() builder.Field {
+	return p.data
+}
+
+func (p fileVersionWithPrismaUpdatedAtEqualsUniqueParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p fileVersionWithPrismaUpdatedAtEqualsUniqueParam) fileVersionModel() {}
+func (p fileVersionWithPrismaUpdatedAtEqualsUniqueParam) updatedAtField()   {}
+
+func (fileVersionWithPrismaUpdatedAtEqualsUniqueParam) unique() {}
+func (fileVersionWithPrismaUpdatedAtEqualsUniqueParam) equals() {}
+
+type FileVersionWithPrismaContentEqualsSetParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	equals()
+	fileVersionModel()
+	contentField()
+}
+
+type FileVersionWithPrismaContentSetParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	fileVersionModel()
+	contentField()
+}
+
+type fileVersionWithPrismaContentSetParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p fileVersionWithPrismaContentSetParam) field() builder.Field {
+	return p.data
+}
+
+func (p fileVersionWithPrismaContentSetParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p fileVersionWithPrismaContentSetParam) fileVersionModel() {}
+
+func (p fileVersionWithPrismaContentSetParam) contentField() {}
+
+type FileVersionWithPrismaContentWhereParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	fileVersionModel()
+	contentField()
+}
+
+type fileVersionWithPrismaContentEqualsParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p fileVersionWithPrismaContentEqualsParam) field() builder.Field {
+	return p.data
+}
+
+func (p fileVersionWithPrismaContentEqualsParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p fileVersionWithPrismaContentEqualsParam) fileVersionModel() {}
+
+func (p fileVersionWithPrismaContentEqualsParam) contentField() {}
+
+func (fileVersionWithPrismaContentSetParam) settable()  {}
+func (fileVersionWithPrismaContentEqualsParam) equals() {}
+
+type fileVersionWithPrismaContentEqualsUniqueParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p fileVersionWithPrismaContentEqualsUniqueParam) field() builder.Field {
+	return p.data
+}
+
+func (p fileVersionWithPrismaContentEqualsUniqueParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p fileVersionWithPrismaContentEqualsUniqueParam) fileVersionModel() {}
+func (p fileVersionWithPrismaContentEqualsUniqueParam) contentField()     {}
+
+func (fileVersionWithPrismaContentEqualsUniqueParam) unique() {}
+func (fileVersionWithPrismaContentEqualsUniqueParam) equals() {}
+
+type FileVersionWithPrismaHashEqualsSetParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	equals()
+	fileVersionModel()
+	hashField()
+}
+
+type FileVersionWithPrismaHashSetParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	fileVersionModel()
+	hashField()
+}
+
+type fileVersionWithPrismaHashSetParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p fileVersionWithPrismaHashSetParam) field() builder.Field {
+	return p.data
+}
+
+func (p fileVersionWithPrismaHashSetParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p fileVersionWithPrismaHashSetParam) fileVersionModel() {}
+
+func (p fileVersionWithPrismaHashSetParam) hashField() {}
+
+type FileVersionWithPrismaHashWhereParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	fileVersionModel()
+	hashField()
+}
+
+type fileVersionWithPrismaHashEqualsParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p fileVersionWithPrismaHashEqualsParam) field() builder.Field {
+	return p.data
+}
+
+func (p fileVersionWithPrismaHashEqualsParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p fileVersionWithPrismaHashEqualsParam) fileVersionModel() {}
+
+func (p fileVersionWithPrismaHashEqualsParam) hashField() {}
+
+func (fileVersionWithPrismaHashSetParam) settable()  {}
+func (fileVersionWithPrismaHashEqualsParam) equals() {}
+
+type fileVersionWithPrismaHashEqualsUniqueParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p fileVersionWithPrismaHashEqualsUniqueParam) field() builder.Field {
+	return p.data
+}
+
+func (p fileVersionWithPrismaHashEqualsUniqueParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p fileVersionWithPrismaHashEqualsUniqueParam) fileVersionModel() {}
+func (p fileVersionWithPrismaHashEqualsUniqueParam) hashField()        {}
+
+func (fileVersionWithPrismaHashEqualsUniqueParam) unique() {}
+func (fileVersionWithPrismaHashEqualsUniqueParam) equals() {}
+
+type FileVersionWithPrismaCurrentlyUsedEqualsSetParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	equals()
+	fileVersionModel()
+	currentlyUsedField()
+}
+
+type FileVersionWithPrismaCurrentlyUsedSetParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	fileVersionModel()
+	currentlyUsedField()
+}
+
+type fileVersionWithPrismaCurrentlyUsedSetParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p fileVersionWithPrismaCurrentlyUsedSetParam) field() builder.Field {
+	return p.data
+}
+
+func (p fileVersionWithPrismaCurrentlyUsedSetParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p fileVersionWithPrismaCurrentlyUsedSetParam) fileVersionModel() {}
+
+func (p fileVersionWithPrismaCurrentlyUsedSetParam) currentlyUsedField() {}
+
+type FileVersionWithPrismaCurrentlyUsedWhereParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	fileVersionModel()
+	currentlyUsedField()
+}
+
+type fileVersionWithPrismaCurrentlyUsedEqualsParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p fileVersionWithPrismaCurrentlyUsedEqualsParam) field() builder.Field {
+	return p.data
+}
+
+func (p fileVersionWithPrismaCurrentlyUsedEqualsParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p fileVersionWithPrismaCurrentlyUsedEqualsParam) fileVersionModel() {}
+
+func (p fileVersionWithPrismaCurrentlyUsedEqualsParam) currentlyUsedField() {}
+
+func (fileVersionWithPrismaCurrentlyUsedSetParam) settable()  {}
+func (fileVersionWithPrismaCurrentlyUsedEqualsParam) equals() {}
+
+type fileVersionWithPrismaCurrentlyUsedEqualsUniqueParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p fileVersionWithPrismaCurrentlyUsedEqualsUniqueParam) field() builder.Field {
+	return p.data
+}
+
+func (p fileVersionWithPrismaCurrentlyUsedEqualsUniqueParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p fileVersionWithPrismaCurrentlyUsedEqualsUniqueParam) fileVersionModel()   {}
+func (p fileVersionWithPrismaCurrentlyUsedEqualsUniqueParam) currentlyUsedField() {}
+
+func (fileVersionWithPrismaCurrentlyUsedEqualsUniqueParam) unique() {}
+func (fileVersionWithPrismaCurrentlyUsedEqualsUniqueParam) equals() {}
+
+type FileVersionWithPrismaFileEqualsSetParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	equals()
+	fileVersionModel()
+	fileField()
+}
+
+type FileVersionWithPrismaFileSetParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	fileVersionModel()
+	fileField()
+}
+
+type fileVersionWithPrismaFileSetParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p fileVersionWithPrismaFileSetParam) field() builder.Field {
+	return p.data
+}
+
+func (p fileVersionWithPrismaFileSetParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p fileVersionWithPrismaFileSetParam) fileVersionModel() {}
+
+func (p fileVersionWithPrismaFileSetParam) fileField() {}
+
+type FileVersionWithPrismaFileWhereParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	fileVersionModel()
+	fileField()
+}
+
+type fileVersionWithPrismaFileEqualsParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p fileVersionWithPrismaFileEqualsParam) field() builder.Field {
+	return p.data
+}
+
+func (p fileVersionWithPrismaFileEqualsParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p fileVersionWithPrismaFileEqualsParam) fileVersionModel() {}
+
+func (p fileVersionWithPrismaFileEqualsParam) fileField() {}
+
+func (fileVersionWithPrismaFileSetParam) settable()  {}
+func (fileVersionWithPrismaFileEqualsParam) equals() {}
+
+type fileVersionWithPrismaFileEqualsUniqueParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p fileVersionWithPrismaFileEqualsUniqueParam) field() builder.Field {
+	return p.data
+}
+
+func (p fileVersionWithPrismaFileEqualsUniqueParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p fileVersionWithPrismaFileEqualsUniqueParam) fileVersionModel() {}
+func (p fileVersionWithPrismaFileEqualsUniqueParam) fileField()        {}
+
+func (fileVersionWithPrismaFileEqualsUniqueParam) unique() {}
+func (fileVersionWithPrismaFileEqualsUniqueParam) equals() {}
+
+type FileVersionWithPrismaFileIDEqualsSetParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	equals()
+	fileVersionModel()
+	fileIDField()
+}
+
+type FileVersionWithPrismaFileIDSetParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	fileVersionModel()
+	fileIDField()
+}
+
+type fileVersionWithPrismaFileIDSetParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p fileVersionWithPrismaFileIDSetParam) field() builder.Field {
+	return p.data
+}
+
+func (p fileVersionWithPrismaFileIDSetParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p fileVersionWithPrismaFileIDSetParam) fileVersionModel() {}
+
+func (p fileVersionWithPrismaFileIDSetParam) fileIDField() {}
+
+type FileVersionWithPrismaFileIDWhereParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	fileVersionModel()
+	fileIDField()
+}
+
+type fileVersionWithPrismaFileIDEqualsParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p fileVersionWithPrismaFileIDEqualsParam) field() builder.Field {
+	return p.data
+}
+
+func (p fileVersionWithPrismaFileIDEqualsParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p fileVersionWithPrismaFileIDEqualsParam) fileVersionModel() {}
+
+func (p fileVersionWithPrismaFileIDEqualsParam) fileIDField() {}
+
+func (fileVersionWithPrismaFileIDSetParam) settable()  {}
+func (fileVersionWithPrismaFileIDEqualsParam) equals() {}
+
+type fileVersionWithPrismaFileIDEqualsUniqueParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p fileVersionWithPrismaFileIDEqualsUniqueParam) field() builder.Field {
+	return p.data
+}
+
+func (p fileVersionWithPrismaFileIDEqualsUniqueParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p fileVersionWithPrismaFileIDEqualsUniqueParam) fileVersionModel() {}
+func (p fileVersionWithPrismaFileIDEqualsUniqueParam) fileIDField()      {}
+
+func (fileVersionWithPrismaFileIDEqualsUniqueParam) unique() {}
+func (fileVersionWithPrismaFileIDEqualsUniqueParam) equals() {}
+
+type FileVersionWithPrismaSuccessorEqualsSetParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	equals()
+	fileVersionModel()
+	successorField()
+}
+
+type FileVersionWithPrismaSuccessorSetParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	fileVersionModel()
+	successorField()
+}
+
+type fileVersionWithPrismaSuccessorSetParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p fileVersionWithPrismaSuccessorSetParam) field() builder.Field {
+	return p.data
+}
+
+func (p fileVersionWithPrismaSuccessorSetParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p fileVersionWithPrismaSuccessorSetParam) fileVersionModel() {}
+
+func (p fileVersionWithPrismaSuccessorSetParam) successorField() {}
+
+type FileVersionWithPrismaSuccessorWhereParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	fileVersionModel()
+	successorField()
+}
+
+type fileVersionWithPrismaSuccessorEqualsParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p fileVersionWithPrismaSuccessorEqualsParam) field() builder.Field {
+	return p.data
+}
+
+func (p fileVersionWithPrismaSuccessorEqualsParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p fileVersionWithPrismaSuccessorEqualsParam) fileVersionModel() {}
+
+func (p fileVersionWithPrismaSuccessorEqualsParam) successorField() {}
+
+func (fileVersionWithPrismaSuccessorSetParam) settable()  {}
+func (fileVersionWithPrismaSuccessorEqualsParam) equals() {}
+
+type fileVersionWithPrismaSuccessorEqualsUniqueParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p fileVersionWithPrismaSuccessorEqualsUniqueParam) field() builder.Field {
+	return p.data
+}
+
+func (p fileVersionWithPrismaSuccessorEqualsUniqueParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p fileVersionWithPrismaSuccessorEqualsUniqueParam) fileVersionModel() {}
+func (p fileVersionWithPrismaSuccessorEqualsUniqueParam) successorField()   {}
+
+func (fileVersionWithPrismaSuccessorEqualsUniqueParam) unique() {}
+func (fileVersionWithPrismaSuccessorEqualsUniqueParam) equals() {}
+
+type FileVersionWithPrismaPredecessorEqualsSetParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	equals()
+	fileVersionModel()
+	predecessorField()
+}
+
+type FileVersionWithPrismaPredecessorSetParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	fileVersionModel()
+	predecessorField()
+}
+
+type fileVersionWithPrismaPredecessorSetParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p fileVersionWithPrismaPredecessorSetParam) field() builder.Field {
+	return p.data
+}
+
+func (p fileVersionWithPrismaPredecessorSetParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p fileVersionWithPrismaPredecessorSetParam) fileVersionModel() {}
+
+func (p fileVersionWithPrismaPredecessorSetParam) predecessorField() {}
+
+type FileVersionWithPrismaPredecessorWhereParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	fileVersionModel()
+	predecessorField()
+}
+
+type fileVersionWithPrismaPredecessorEqualsParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p fileVersionWithPrismaPredecessorEqualsParam) field() builder.Field {
+	return p.data
+}
+
+func (p fileVersionWithPrismaPredecessorEqualsParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p fileVersionWithPrismaPredecessorEqualsParam) fileVersionModel() {}
+
+func (p fileVersionWithPrismaPredecessorEqualsParam) predecessorField() {}
+
+func (fileVersionWithPrismaPredecessorSetParam) settable()  {}
+func (fileVersionWithPrismaPredecessorEqualsParam) equals() {}
+
+type fileVersionWithPrismaPredecessorEqualsUniqueParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p fileVersionWithPrismaPredecessorEqualsUniqueParam) field() builder.Field {
+	return p.data
+}
+
+func (p fileVersionWithPrismaPredecessorEqualsUniqueParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p fileVersionWithPrismaPredecessorEqualsUniqueParam) fileVersionModel() {}
+func (p fileVersionWithPrismaPredecessorEqualsUniqueParam) predecessorField() {}
+
+func (fileVersionWithPrismaPredecessorEqualsUniqueParam) unique() {}
+func (fileVersionWithPrismaPredecessorEqualsUniqueParam) equals() {}
+
+type FileVersionWithPrismaPredecessorIDEqualsSetParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	equals()
+	fileVersionModel()
+	predecessorIDField()
+}
+
+type FileVersionWithPrismaPredecessorIDSetParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	fileVersionModel()
+	predecessorIDField()
+}
+
+type fileVersionWithPrismaPredecessorIDSetParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p fileVersionWithPrismaPredecessorIDSetParam) field() builder.Field {
+	return p.data
+}
+
+func (p fileVersionWithPrismaPredecessorIDSetParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p fileVersionWithPrismaPredecessorIDSetParam) fileVersionModel() {}
+
+func (p fileVersionWithPrismaPredecessorIDSetParam) predecessorIDField() {}
+
+type FileVersionWithPrismaPredecessorIDWhereParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	fileVersionModel()
+	predecessorIDField()
+}
+
+type fileVersionWithPrismaPredecessorIDEqualsParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p fileVersionWithPrismaPredecessorIDEqualsParam) field() builder.Field {
+	return p.data
+}
+
+func (p fileVersionWithPrismaPredecessorIDEqualsParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p fileVersionWithPrismaPredecessorIDEqualsParam) fileVersionModel() {}
+
+func (p fileVersionWithPrismaPredecessorIDEqualsParam) predecessorIDField() {}
+
+func (fileVersionWithPrismaPredecessorIDSetParam) settable()  {}
+func (fileVersionWithPrismaPredecessorIDEqualsParam) equals() {}
+
+type fileVersionWithPrismaPredecessorIDEqualsUniqueParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p fileVersionWithPrismaPredecessorIDEqualsUniqueParam) field() builder.Field {
+	return p.data
+}
+
+func (p fileVersionWithPrismaPredecessorIDEqualsUniqueParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p fileVersionWithPrismaPredecessorIDEqualsUniqueParam) fileVersionModel()   {}
+func (p fileVersionWithPrismaPredecessorIDEqualsUniqueParam) predecessorIDField() {}
+
+func (fileVersionWithPrismaPredecessorIDEqualsUniqueParam) unique() {}
+func (fileVersionWithPrismaPredecessorIDEqualsUniqueParam) equals() {}
+
 // --- template create.gotpl ---
 
 // Creates a single dotfile.
@@ -930,7 +2202,989 @@ func (r dotfileCreateOne) Tx() dotfileUniqueTxResult {
 	return v
 }
 
+// Creates a single fileVersion.
+func (r fileVersionActions) CreateOne(
+	_content FileVersionWithPrismaContentSetParam,
+	_hash FileVersionWithPrismaHashSetParam,
+	_file FileVersionWithPrismaFileSetParam,
+
+	optional ...FileVersionSetParam,
+) fileVersionCreateOne {
+	var v fileVersionCreateOne
+	v.query = builder.NewQuery()
+	v.query.Engine = r.client
+
+	v.query.Operation = "mutation"
+	v.query.Method = "createOne"
+	v.query.Model = "FileVersion"
+	v.query.Outputs = fileVersionOutput
+
+	var fields []builder.Field
+
+	fields = append(fields, _content.field())
+	fields = append(fields, _hash.field())
+	fields = append(fields, _file.field())
+
+	for _, q := range optional {
+		fields = append(fields, q.field())
+	}
+
+	v.query.Inputs = append(v.query.Inputs, builder.Input{
+		Name:   "data",
+		Fields: fields,
+	})
+	return v
+}
+
+func (r fileVersionCreateOne) With(params ...iFileVersionRelationWith) fileVersionCreateOne {
+	for _, q := range params {
+		query := q.getQuery()
+		r.query.Outputs = append(r.query.Outputs, builder.Output{
+			Name:    query.Method,
+			Inputs:  query.Inputs,
+			Outputs: query.Outputs,
+		})
+	}
+
+	return r
+}
+
+type fileVersionCreateOne struct {
+	query builder.Query
+}
+
+func (p fileVersionCreateOne) ExtractQuery() builder.Query {
+	return p.query
+}
+
+func (p fileVersionCreateOne) fileVersionModel() {}
+
+func (r fileVersionCreateOne) Exec(ctx context.Context) (*FileVersionModel, error) {
+	var v FileVersionModel
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+	return &v, nil
+}
+
+func (r fileVersionCreateOne) Tx() fileVersionUniqueTxResult {
+	v := NewfileVersionUniqueTxResult()
+	v.query = r.query
+	v.query.TxResult = make(chan []byte, 1)
+	return v
+}
+
 // --- template find.gotpl ---
+
+type dotfileToCurrentFindUnique struct {
+	query builder.Query
+}
+
+func (r dotfileToCurrentFindUnique) getQuery() builder.Query {
+	return r.query
+}
+
+func (r dotfileToCurrentFindUnique) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (r dotfileToCurrentFindUnique) with()            {}
+func (r dotfileToCurrentFindUnique) dotfileModel()    {}
+func (r dotfileToCurrentFindUnique) dotfileRelation() {}
+
+func (r dotfileToCurrentFindUnique) With(params ...iFileVersionRelationWith) dotfileToCurrentFindUnique {
+	for _, q := range params {
+		query := q.getQuery()
+		r.query.Outputs = append(r.query.Outputs, builder.Output{
+			Name:    query.Method,
+			Inputs:  query.Inputs,
+			Outputs: query.Outputs,
+		})
+	}
+
+	return r
+}
+
+func (r dotfileToCurrentFindUnique) Exec(ctx context.Context) (
+	*DotfileModel,
+	error,
+) {
+	var v *DotfileModel
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+
+	if v == nil {
+		return nil, ErrNotFound
+	}
+
+	return v, nil
+}
+
+func (r dotfileToCurrentFindUnique) ExecInner(ctx context.Context) (
+	*InnerDotfile,
+	error,
+) {
+	var v *InnerDotfile
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+
+	if v == nil {
+		return nil, ErrNotFound
+	}
+
+	return v, nil
+}
+
+func (r dotfileToCurrentFindUnique) Update(params ...DotfileSetParam) dotfileToCurrentUpdateUnique {
+	r.query.Operation = "mutation"
+	r.query.Method = "updateOne"
+	r.query.Model = "Dotfile"
+
+	var v dotfileToCurrentUpdateUnique
+	v.query = r.query
+	var fields []builder.Field
+	for _, q := range params {
+
+		field := q.field()
+
+		_, isJson := field.Value.(types.JSON)
+		if field.Value != nil && !isJson {
+			v := field.Value
+			field.Fields = []builder.Field{
+				{
+					Name:  "set",
+					Value: v,
+				},
+			}
+
+			field.Value = nil
+		}
+
+		fields = append(fields, field)
+	}
+	v.query.Inputs = append(v.query.Inputs, builder.Input{
+		Name:   "data",
+		Fields: fields,
+	})
+	return v
+}
+
+type dotfileToCurrentUpdateUnique struct {
+	query builder.Query
+}
+
+func (r dotfileToCurrentUpdateUnique) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (r dotfileToCurrentUpdateUnique) dotfileModel() {}
+
+func (r dotfileToCurrentUpdateUnique) Exec(ctx context.Context) (*DotfileModel, error) {
+	var v DotfileModel
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+	return &v, nil
+}
+
+func (r dotfileToCurrentUpdateUnique) Tx() dotfileUniqueTxResult {
+	v := NewdotfileUniqueTxResult()
+	v.query = r.query
+	v.query.TxResult = make(chan []byte, 1)
+	return v
+}
+
+func (r dotfileToCurrentFindUnique) Delete() dotfileToCurrentDeleteUnique {
+	var v dotfileToCurrentDeleteUnique
+	v.query = r.query
+	v.query.Operation = "mutation"
+	v.query.Method = "deleteOne"
+	v.query.Model = "Dotfile"
+
+	return v
+}
+
+type dotfileToCurrentDeleteUnique struct {
+	query builder.Query
+}
+
+func (r dotfileToCurrentDeleteUnique) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (p dotfileToCurrentDeleteUnique) dotfileModel() {}
+
+func (r dotfileToCurrentDeleteUnique) Exec(ctx context.Context) (*DotfileModel, error) {
+	var v DotfileModel
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+	return &v, nil
+}
+
+func (r dotfileToCurrentDeleteUnique) Tx() dotfileUniqueTxResult {
+	v := NewdotfileUniqueTxResult()
+	v.query = r.query
+	v.query.TxResult = make(chan []byte, 1)
+	return v
+}
+
+type dotfileToCurrentFindFirst struct {
+	query builder.Query
+}
+
+func (r dotfileToCurrentFindFirst) getQuery() builder.Query {
+	return r.query
+}
+
+func (r dotfileToCurrentFindFirst) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (r dotfileToCurrentFindFirst) with()            {}
+func (r dotfileToCurrentFindFirst) dotfileModel()    {}
+func (r dotfileToCurrentFindFirst) dotfileRelation() {}
+
+func (r dotfileToCurrentFindFirst) With(params ...iFileVersionRelationWith) dotfileToCurrentFindFirst {
+	for _, q := range params {
+		query := q.getQuery()
+		r.query.Outputs = append(r.query.Outputs, builder.Output{
+			Name:    query.Method,
+			Inputs:  query.Inputs,
+			Outputs: query.Outputs,
+		})
+	}
+
+	return r
+}
+
+func (r dotfileToCurrentFindFirst) OrderBy(params ...iFileVersionOrderByParam) dotfileToCurrentFindFirst {
+	var fields []builder.Field
+
+	for _, param := range params {
+		direction, _ := param.field().Value.(types.Direction)
+
+		fields = append(fields, builder.Field{
+			Name:  param.field().Name,
+			Value: direction,
+		})
+	}
+
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:   "orderBy",
+		Fields: fields,
+	})
+
+	return r
+}
+
+func (r dotfileToCurrentFindFirst) Skip(count int) dotfileToCurrentFindFirst {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "skip",
+		Value: count,
+	})
+	return r
+}
+
+func (r dotfileToCurrentFindFirst) Take(count int) dotfileToCurrentFindFirst {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "take",
+		Value: count,
+	})
+	return r
+}
+
+func (r dotfileToCurrentFindFirst) Cursor(cursor iDotfileCursorParam) dotfileToCurrentFindFirst {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:   "cursor",
+		Fields: []builder.Field{cursor.field()},
+	})
+	return r
+}
+
+func (r dotfileToCurrentFindFirst) Exec(ctx context.Context) (
+	*DotfileModel,
+	error,
+) {
+	var v *DotfileModel
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+
+	if v == nil {
+		return nil, ErrNotFound
+	}
+
+	return v, nil
+}
+
+func (r dotfileToCurrentFindFirst) ExecInner(ctx context.Context) (
+	*InnerDotfile,
+	error,
+) {
+	var v *InnerDotfile
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+
+	if v == nil {
+		return nil, ErrNotFound
+	}
+
+	return v, nil
+}
+
+type dotfileToCurrentFindMany struct {
+	query builder.Query
+}
+
+func (r dotfileToCurrentFindMany) getQuery() builder.Query {
+	return r.query
+}
+
+func (r dotfileToCurrentFindMany) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (r dotfileToCurrentFindMany) with()            {}
+func (r dotfileToCurrentFindMany) dotfileModel()    {}
+func (r dotfileToCurrentFindMany) dotfileRelation() {}
+
+func (r dotfileToCurrentFindMany) With(params ...iFileVersionRelationWith) dotfileToCurrentFindMany {
+	for _, q := range params {
+		query := q.getQuery()
+		r.query.Outputs = append(r.query.Outputs, builder.Output{
+			Name:    query.Method,
+			Inputs:  query.Inputs,
+			Outputs: query.Outputs,
+		})
+	}
+
+	return r
+}
+
+func (r dotfileToCurrentFindMany) OrderBy(params ...iFileVersionOrderByParam) dotfileToCurrentFindMany {
+	var fields []builder.Field
+
+	for _, param := range params {
+		direction, _ := param.field().Value.(types.Direction)
+
+		fields = append(fields, builder.Field{
+			Name:  param.field().Name,
+			Value: direction,
+		})
+	}
+
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:   "orderBy",
+		Fields: fields,
+	})
+
+	return r
+}
+
+func (r dotfileToCurrentFindMany) Skip(count int) dotfileToCurrentFindMany {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "skip",
+		Value: count,
+	})
+	return r
+}
+
+func (r dotfileToCurrentFindMany) Take(count int) dotfileToCurrentFindMany {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "take",
+		Value: count,
+	})
+	return r
+}
+
+func (r dotfileToCurrentFindMany) Cursor(cursor iDotfileCursorParam) dotfileToCurrentFindMany {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:   "cursor",
+		Fields: []builder.Field{cursor.field()},
+	})
+	return r
+}
+
+func (r dotfileToCurrentFindMany) Exec(ctx context.Context) (
+	[]DotfileModel,
+	error,
+) {
+	var v []DotfileModel
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+
+	return v, nil
+}
+
+func (r dotfileToCurrentFindMany) ExecInner(ctx context.Context) (
+	[]InnerDotfile,
+	error,
+) {
+	var v []InnerDotfile
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+
+	return v, nil
+}
+
+func (r dotfileToCurrentFindMany) Update(params ...DotfileSetParam) dotfileToCurrentUpdateMany {
+	r.query.Operation = "mutation"
+	r.query.Method = "updateMany"
+	r.query.Model = "Dotfile"
+
+	r.query.Outputs = countOutput
+
+	var v dotfileToCurrentUpdateMany
+	v.query = r.query
+	var fields []builder.Field
+	for _, q := range params {
+
+		field := q.field()
+
+		_, isJson := field.Value.(types.JSON)
+		if field.Value != nil && !isJson {
+			v := field.Value
+			field.Fields = []builder.Field{
+				{
+					Name:  "set",
+					Value: v,
+				},
+			}
+
+			field.Value = nil
+		}
+
+		fields = append(fields, field)
+	}
+	v.query.Inputs = append(v.query.Inputs, builder.Input{
+		Name:   "data",
+		Fields: fields,
+	})
+	return v
+}
+
+type dotfileToCurrentUpdateMany struct {
+	query builder.Query
+}
+
+func (r dotfileToCurrentUpdateMany) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (r dotfileToCurrentUpdateMany) dotfileModel() {}
+
+func (r dotfileToCurrentUpdateMany) Exec(ctx context.Context) (*BatchResult, error) {
+	var v BatchResult
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+	return &v, nil
+}
+
+func (r dotfileToCurrentUpdateMany) Tx() dotfileManyTxResult {
+	v := NewdotfileManyTxResult()
+	v.query = r.query
+	v.query.TxResult = make(chan []byte, 1)
+	return v
+}
+
+func (r dotfileToCurrentFindMany) Delete() dotfileToCurrentDeleteMany {
+	var v dotfileToCurrentDeleteMany
+	v.query = r.query
+	v.query.Operation = "mutation"
+	v.query.Method = "deleteMany"
+	v.query.Model = "Dotfile"
+
+	v.query.Outputs = countOutput
+
+	return v
+}
+
+type dotfileToCurrentDeleteMany struct {
+	query builder.Query
+}
+
+func (r dotfileToCurrentDeleteMany) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (p dotfileToCurrentDeleteMany) dotfileModel() {}
+
+func (r dotfileToCurrentDeleteMany) Exec(ctx context.Context) (*BatchResult, error) {
+	var v BatchResult
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+	return &v, nil
+}
+
+func (r dotfileToCurrentDeleteMany) Tx() dotfileManyTxResult {
+	v := NewdotfileManyTxResult()
+	v.query = r.query
+	v.query.TxResult = make(chan []byte, 1)
+	return v
+}
+
+type dotfileToVersionsFindUnique struct {
+	query builder.Query
+}
+
+func (r dotfileToVersionsFindUnique) getQuery() builder.Query {
+	return r.query
+}
+
+func (r dotfileToVersionsFindUnique) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (r dotfileToVersionsFindUnique) with()            {}
+func (r dotfileToVersionsFindUnique) dotfileModel()    {}
+func (r dotfileToVersionsFindUnique) dotfileRelation() {}
+
+func (r dotfileToVersionsFindUnique) With(params ...iFileVersionRelationWith) dotfileToVersionsFindUnique {
+	for _, q := range params {
+		query := q.getQuery()
+		r.query.Outputs = append(r.query.Outputs, builder.Output{
+			Name:    query.Method,
+			Inputs:  query.Inputs,
+			Outputs: query.Outputs,
+		})
+	}
+
+	return r
+}
+
+func (r dotfileToVersionsFindUnique) Exec(ctx context.Context) (
+	*DotfileModel,
+	error,
+) {
+	var v *DotfileModel
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+
+	if v == nil {
+		return nil, ErrNotFound
+	}
+
+	return v, nil
+}
+
+func (r dotfileToVersionsFindUnique) ExecInner(ctx context.Context) (
+	*InnerDotfile,
+	error,
+) {
+	var v *InnerDotfile
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+
+	if v == nil {
+		return nil, ErrNotFound
+	}
+
+	return v, nil
+}
+
+func (r dotfileToVersionsFindUnique) Update(params ...DotfileSetParam) dotfileToVersionsUpdateUnique {
+	r.query.Operation = "mutation"
+	r.query.Method = "updateOne"
+	r.query.Model = "Dotfile"
+
+	var v dotfileToVersionsUpdateUnique
+	v.query = r.query
+	var fields []builder.Field
+	for _, q := range params {
+
+		field := q.field()
+
+		_, isJson := field.Value.(types.JSON)
+		if field.Value != nil && !isJson {
+			v := field.Value
+			field.Fields = []builder.Field{
+				{
+					Name:  "set",
+					Value: v,
+				},
+			}
+
+			field.Value = nil
+		}
+
+		fields = append(fields, field)
+	}
+	v.query.Inputs = append(v.query.Inputs, builder.Input{
+		Name:   "data",
+		Fields: fields,
+	})
+	return v
+}
+
+type dotfileToVersionsUpdateUnique struct {
+	query builder.Query
+}
+
+func (r dotfileToVersionsUpdateUnique) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (r dotfileToVersionsUpdateUnique) dotfileModel() {}
+
+func (r dotfileToVersionsUpdateUnique) Exec(ctx context.Context) (*DotfileModel, error) {
+	var v DotfileModel
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+	return &v, nil
+}
+
+func (r dotfileToVersionsUpdateUnique) Tx() dotfileUniqueTxResult {
+	v := NewdotfileUniqueTxResult()
+	v.query = r.query
+	v.query.TxResult = make(chan []byte, 1)
+	return v
+}
+
+func (r dotfileToVersionsFindUnique) Delete() dotfileToVersionsDeleteUnique {
+	var v dotfileToVersionsDeleteUnique
+	v.query = r.query
+	v.query.Operation = "mutation"
+	v.query.Method = "deleteOne"
+	v.query.Model = "Dotfile"
+
+	return v
+}
+
+type dotfileToVersionsDeleteUnique struct {
+	query builder.Query
+}
+
+func (r dotfileToVersionsDeleteUnique) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (p dotfileToVersionsDeleteUnique) dotfileModel() {}
+
+func (r dotfileToVersionsDeleteUnique) Exec(ctx context.Context) (*DotfileModel, error) {
+	var v DotfileModel
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+	return &v, nil
+}
+
+func (r dotfileToVersionsDeleteUnique) Tx() dotfileUniqueTxResult {
+	v := NewdotfileUniqueTxResult()
+	v.query = r.query
+	v.query.TxResult = make(chan []byte, 1)
+	return v
+}
+
+type dotfileToVersionsFindFirst struct {
+	query builder.Query
+}
+
+func (r dotfileToVersionsFindFirst) getQuery() builder.Query {
+	return r.query
+}
+
+func (r dotfileToVersionsFindFirst) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (r dotfileToVersionsFindFirst) with()            {}
+func (r dotfileToVersionsFindFirst) dotfileModel()    {}
+func (r dotfileToVersionsFindFirst) dotfileRelation() {}
+
+func (r dotfileToVersionsFindFirst) With(params ...iFileVersionRelationWith) dotfileToVersionsFindFirst {
+	for _, q := range params {
+		query := q.getQuery()
+		r.query.Outputs = append(r.query.Outputs, builder.Output{
+			Name:    query.Method,
+			Inputs:  query.Inputs,
+			Outputs: query.Outputs,
+		})
+	}
+
+	return r
+}
+
+func (r dotfileToVersionsFindFirst) OrderBy(params ...iFileVersionOrderByParam) dotfileToVersionsFindFirst {
+	var fields []builder.Field
+
+	for _, param := range params {
+		direction, _ := param.field().Value.(types.Direction)
+
+		fields = append(fields, builder.Field{
+			Name:  param.field().Name,
+			Value: direction,
+		})
+	}
+
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:   "orderBy",
+		Fields: fields,
+	})
+
+	return r
+}
+
+func (r dotfileToVersionsFindFirst) Skip(count int) dotfileToVersionsFindFirst {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "skip",
+		Value: count,
+	})
+	return r
+}
+
+func (r dotfileToVersionsFindFirst) Take(count int) dotfileToVersionsFindFirst {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "take",
+		Value: count,
+	})
+	return r
+}
+
+func (r dotfileToVersionsFindFirst) Cursor(cursor iDotfileCursorParam) dotfileToVersionsFindFirst {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:   "cursor",
+		Fields: []builder.Field{cursor.field()},
+	})
+	return r
+}
+
+func (r dotfileToVersionsFindFirst) Exec(ctx context.Context) (
+	*DotfileModel,
+	error,
+) {
+	var v *DotfileModel
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+
+	if v == nil {
+		return nil, ErrNotFound
+	}
+
+	return v, nil
+}
+
+func (r dotfileToVersionsFindFirst) ExecInner(ctx context.Context) (
+	*InnerDotfile,
+	error,
+) {
+	var v *InnerDotfile
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+
+	if v == nil {
+		return nil, ErrNotFound
+	}
+
+	return v, nil
+}
+
+type dotfileToVersionsFindMany struct {
+	query builder.Query
+}
+
+func (r dotfileToVersionsFindMany) getQuery() builder.Query {
+	return r.query
+}
+
+func (r dotfileToVersionsFindMany) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (r dotfileToVersionsFindMany) with()            {}
+func (r dotfileToVersionsFindMany) dotfileModel()    {}
+func (r dotfileToVersionsFindMany) dotfileRelation() {}
+
+func (r dotfileToVersionsFindMany) With(params ...iFileVersionRelationWith) dotfileToVersionsFindMany {
+	for _, q := range params {
+		query := q.getQuery()
+		r.query.Outputs = append(r.query.Outputs, builder.Output{
+			Name:    query.Method,
+			Inputs:  query.Inputs,
+			Outputs: query.Outputs,
+		})
+	}
+
+	return r
+}
+
+func (r dotfileToVersionsFindMany) OrderBy(params ...iFileVersionOrderByParam) dotfileToVersionsFindMany {
+	var fields []builder.Field
+
+	for _, param := range params {
+		direction, _ := param.field().Value.(types.Direction)
+
+		fields = append(fields, builder.Field{
+			Name:  param.field().Name,
+			Value: direction,
+		})
+	}
+
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:   "orderBy",
+		Fields: fields,
+	})
+
+	return r
+}
+
+func (r dotfileToVersionsFindMany) Skip(count int) dotfileToVersionsFindMany {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "skip",
+		Value: count,
+	})
+	return r
+}
+
+func (r dotfileToVersionsFindMany) Take(count int) dotfileToVersionsFindMany {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "take",
+		Value: count,
+	})
+	return r
+}
+
+func (r dotfileToVersionsFindMany) Cursor(cursor iDotfileCursorParam) dotfileToVersionsFindMany {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:   "cursor",
+		Fields: []builder.Field{cursor.field()},
+	})
+	return r
+}
+
+func (r dotfileToVersionsFindMany) Exec(ctx context.Context) (
+	[]DotfileModel,
+	error,
+) {
+	var v []DotfileModel
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+
+	return v, nil
+}
+
+func (r dotfileToVersionsFindMany) ExecInner(ctx context.Context) (
+	[]InnerDotfile,
+	error,
+) {
+	var v []InnerDotfile
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+
+	return v, nil
+}
+
+func (r dotfileToVersionsFindMany) Update(params ...DotfileSetParam) dotfileToVersionsUpdateMany {
+	r.query.Operation = "mutation"
+	r.query.Method = "updateMany"
+	r.query.Model = "Dotfile"
+
+	r.query.Outputs = countOutput
+
+	var v dotfileToVersionsUpdateMany
+	v.query = r.query
+	var fields []builder.Field
+	for _, q := range params {
+
+		field := q.field()
+
+		_, isJson := field.Value.(types.JSON)
+		if field.Value != nil && !isJson {
+			v := field.Value
+			field.Fields = []builder.Field{
+				{
+					Name:  "set",
+					Value: v,
+				},
+			}
+
+			field.Value = nil
+		}
+
+		fields = append(fields, field)
+	}
+	v.query.Inputs = append(v.query.Inputs, builder.Input{
+		Name:   "data",
+		Fields: fields,
+	})
+	return v
+}
+
+type dotfileToVersionsUpdateMany struct {
+	query builder.Query
+}
+
+func (r dotfileToVersionsUpdateMany) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (r dotfileToVersionsUpdateMany) dotfileModel() {}
+
+func (r dotfileToVersionsUpdateMany) Exec(ctx context.Context) (*BatchResult, error) {
+	var v BatchResult
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+	return &v, nil
+}
+
+func (r dotfileToVersionsUpdateMany) Tx() dotfileManyTxResult {
+	v := NewdotfileManyTxResult()
+	v.query = r.query
+	v.query.TxResult = make(chan []byte, 1)
+	return v
+}
+
+func (r dotfileToVersionsFindMany) Delete() dotfileToVersionsDeleteMany {
+	var v dotfileToVersionsDeleteMany
+	v.query = r.query
+	v.query.Operation = "mutation"
+	v.query.Method = "deleteMany"
+	v.query.Model = "Dotfile"
+
+	v.query.Outputs = countOutput
+
+	return v
+}
+
+type dotfileToVersionsDeleteMany struct {
+	query builder.Query
+}
+
+func (r dotfileToVersionsDeleteMany) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (p dotfileToVersionsDeleteMany) dotfileModel() {}
+
+func (r dotfileToVersionsDeleteMany) Exec(ctx context.Context) (*BatchResult, error) {
+	var v BatchResult
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+	return &v, nil
+}
+
+func (r dotfileToVersionsDeleteMany) Tx() dotfileManyTxResult {
+	v := NewdotfileManyTxResult()
+	v.query = r.query
+	v.query.TxResult = make(chan []byte, 1)
+	return v
+}
 
 type dotfileFindUnique struct {
 	query builder.Query
@@ -1493,6 +3747,2387 @@ func (r dotfileDeleteMany) Tx() dotfileManyTxResult {
 	return v
 }
 
+type fileVersionToCurrentlyUsedFindUnique struct {
+	query builder.Query
+}
+
+func (r fileVersionToCurrentlyUsedFindUnique) getQuery() builder.Query {
+	return r.query
+}
+
+func (r fileVersionToCurrentlyUsedFindUnique) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (r fileVersionToCurrentlyUsedFindUnique) with()                {}
+func (r fileVersionToCurrentlyUsedFindUnique) fileVersionModel()    {}
+func (r fileVersionToCurrentlyUsedFindUnique) fileVersionRelation() {}
+
+func (r fileVersionToCurrentlyUsedFindUnique) With(params ...iDotfileRelationWith) fileVersionToCurrentlyUsedFindUnique {
+	for _, q := range params {
+		query := q.getQuery()
+		r.query.Outputs = append(r.query.Outputs, builder.Output{
+			Name:    query.Method,
+			Inputs:  query.Inputs,
+			Outputs: query.Outputs,
+		})
+	}
+
+	return r
+}
+
+func (r fileVersionToCurrentlyUsedFindUnique) Exec(ctx context.Context) (
+	*FileVersionModel,
+	error,
+) {
+	var v *FileVersionModel
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+
+	if v == nil {
+		return nil, ErrNotFound
+	}
+
+	return v, nil
+}
+
+func (r fileVersionToCurrentlyUsedFindUnique) ExecInner(ctx context.Context) (
+	*InnerFileVersion,
+	error,
+) {
+	var v *InnerFileVersion
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+
+	if v == nil {
+		return nil, ErrNotFound
+	}
+
+	return v, nil
+}
+
+func (r fileVersionToCurrentlyUsedFindUnique) Update(params ...FileVersionSetParam) fileVersionToCurrentlyUsedUpdateUnique {
+	r.query.Operation = "mutation"
+	r.query.Method = "updateOne"
+	r.query.Model = "FileVersion"
+
+	var v fileVersionToCurrentlyUsedUpdateUnique
+	v.query = r.query
+	var fields []builder.Field
+	for _, q := range params {
+
+		field := q.field()
+
+		_, isJson := field.Value.(types.JSON)
+		if field.Value != nil && !isJson {
+			v := field.Value
+			field.Fields = []builder.Field{
+				{
+					Name:  "set",
+					Value: v,
+				},
+			}
+
+			field.Value = nil
+		}
+
+		fields = append(fields, field)
+	}
+	v.query.Inputs = append(v.query.Inputs, builder.Input{
+		Name:   "data",
+		Fields: fields,
+	})
+	return v
+}
+
+type fileVersionToCurrentlyUsedUpdateUnique struct {
+	query builder.Query
+}
+
+func (r fileVersionToCurrentlyUsedUpdateUnique) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (r fileVersionToCurrentlyUsedUpdateUnique) fileVersionModel() {}
+
+func (r fileVersionToCurrentlyUsedUpdateUnique) Exec(ctx context.Context) (*FileVersionModel, error) {
+	var v FileVersionModel
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+	return &v, nil
+}
+
+func (r fileVersionToCurrentlyUsedUpdateUnique) Tx() fileVersionUniqueTxResult {
+	v := NewfileVersionUniqueTxResult()
+	v.query = r.query
+	v.query.TxResult = make(chan []byte, 1)
+	return v
+}
+
+func (r fileVersionToCurrentlyUsedFindUnique) Delete() fileVersionToCurrentlyUsedDeleteUnique {
+	var v fileVersionToCurrentlyUsedDeleteUnique
+	v.query = r.query
+	v.query.Operation = "mutation"
+	v.query.Method = "deleteOne"
+	v.query.Model = "FileVersion"
+
+	return v
+}
+
+type fileVersionToCurrentlyUsedDeleteUnique struct {
+	query builder.Query
+}
+
+func (r fileVersionToCurrentlyUsedDeleteUnique) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (p fileVersionToCurrentlyUsedDeleteUnique) fileVersionModel() {}
+
+func (r fileVersionToCurrentlyUsedDeleteUnique) Exec(ctx context.Context) (*FileVersionModel, error) {
+	var v FileVersionModel
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+	return &v, nil
+}
+
+func (r fileVersionToCurrentlyUsedDeleteUnique) Tx() fileVersionUniqueTxResult {
+	v := NewfileVersionUniqueTxResult()
+	v.query = r.query
+	v.query.TxResult = make(chan []byte, 1)
+	return v
+}
+
+type fileVersionToCurrentlyUsedFindFirst struct {
+	query builder.Query
+}
+
+func (r fileVersionToCurrentlyUsedFindFirst) getQuery() builder.Query {
+	return r.query
+}
+
+func (r fileVersionToCurrentlyUsedFindFirst) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (r fileVersionToCurrentlyUsedFindFirst) with()                {}
+func (r fileVersionToCurrentlyUsedFindFirst) fileVersionModel()    {}
+func (r fileVersionToCurrentlyUsedFindFirst) fileVersionRelation() {}
+
+func (r fileVersionToCurrentlyUsedFindFirst) With(params ...iDotfileRelationWith) fileVersionToCurrentlyUsedFindFirst {
+	for _, q := range params {
+		query := q.getQuery()
+		r.query.Outputs = append(r.query.Outputs, builder.Output{
+			Name:    query.Method,
+			Inputs:  query.Inputs,
+			Outputs: query.Outputs,
+		})
+	}
+
+	return r
+}
+
+func (r fileVersionToCurrentlyUsedFindFirst) OrderBy(params ...iDotfileOrderByParam) fileVersionToCurrentlyUsedFindFirst {
+	var fields []builder.Field
+
+	for _, param := range params {
+		direction, _ := param.field().Value.(types.Direction)
+
+		fields = append(fields, builder.Field{
+			Name:  param.field().Name,
+			Value: direction,
+		})
+	}
+
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:   "orderBy",
+		Fields: fields,
+	})
+
+	return r
+}
+
+func (r fileVersionToCurrentlyUsedFindFirst) Skip(count int) fileVersionToCurrentlyUsedFindFirst {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "skip",
+		Value: count,
+	})
+	return r
+}
+
+func (r fileVersionToCurrentlyUsedFindFirst) Take(count int) fileVersionToCurrentlyUsedFindFirst {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "take",
+		Value: count,
+	})
+	return r
+}
+
+func (r fileVersionToCurrentlyUsedFindFirst) Cursor(cursor iFileVersionCursorParam) fileVersionToCurrentlyUsedFindFirst {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:   "cursor",
+		Fields: []builder.Field{cursor.field()},
+	})
+	return r
+}
+
+func (r fileVersionToCurrentlyUsedFindFirst) Exec(ctx context.Context) (
+	*FileVersionModel,
+	error,
+) {
+	var v *FileVersionModel
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+
+	if v == nil {
+		return nil, ErrNotFound
+	}
+
+	return v, nil
+}
+
+func (r fileVersionToCurrentlyUsedFindFirst) ExecInner(ctx context.Context) (
+	*InnerFileVersion,
+	error,
+) {
+	var v *InnerFileVersion
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+
+	if v == nil {
+		return nil, ErrNotFound
+	}
+
+	return v, nil
+}
+
+type fileVersionToCurrentlyUsedFindMany struct {
+	query builder.Query
+}
+
+func (r fileVersionToCurrentlyUsedFindMany) getQuery() builder.Query {
+	return r.query
+}
+
+func (r fileVersionToCurrentlyUsedFindMany) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (r fileVersionToCurrentlyUsedFindMany) with()                {}
+func (r fileVersionToCurrentlyUsedFindMany) fileVersionModel()    {}
+func (r fileVersionToCurrentlyUsedFindMany) fileVersionRelation() {}
+
+func (r fileVersionToCurrentlyUsedFindMany) With(params ...iDotfileRelationWith) fileVersionToCurrentlyUsedFindMany {
+	for _, q := range params {
+		query := q.getQuery()
+		r.query.Outputs = append(r.query.Outputs, builder.Output{
+			Name:    query.Method,
+			Inputs:  query.Inputs,
+			Outputs: query.Outputs,
+		})
+	}
+
+	return r
+}
+
+func (r fileVersionToCurrentlyUsedFindMany) OrderBy(params ...iDotfileOrderByParam) fileVersionToCurrentlyUsedFindMany {
+	var fields []builder.Field
+
+	for _, param := range params {
+		direction, _ := param.field().Value.(types.Direction)
+
+		fields = append(fields, builder.Field{
+			Name:  param.field().Name,
+			Value: direction,
+		})
+	}
+
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:   "orderBy",
+		Fields: fields,
+	})
+
+	return r
+}
+
+func (r fileVersionToCurrentlyUsedFindMany) Skip(count int) fileVersionToCurrentlyUsedFindMany {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "skip",
+		Value: count,
+	})
+	return r
+}
+
+func (r fileVersionToCurrentlyUsedFindMany) Take(count int) fileVersionToCurrentlyUsedFindMany {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "take",
+		Value: count,
+	})
+	return r
+}
+
+func (r fileVersionToCurrentlyUsedFindMany) Cursor(cursor iFileVersionCursorParam) fileVersionToCurrentlyUsedFindMany {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:   "cursor",
+		Fields: []builder.Field{cursor.field()},
+	})
+	return r
+}
+
+func (r fileVersionToCurrentlyUsedFindMany) Exec(ctx context.Context) (
+	[]FileVersionModel,
+	error,
+) {
+	var v []FileVersionModel
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+
+	return v, nil
+}
+
+func (r fileVersionToCurrentlyUsedFindMany) ExecInner(ctx context.Context) (
+	[]InnerFileVersion,
+	error,
+) {
+	var v []InnerFileVersion
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+
+	return v, nil
+}
+
+func (r fileVersionToCurrentlyUsedFindMany) Update(params ...FileVersionSetParam) fileVersionToCurrentlyUsedUpdateMany {
+	r.query.Operation = "mutation"
+	r.query.Method = "updateMany"
+	r.query.Model = "FileVersion"
+
+	r.query.Outputs = countOutput
+
+	var v fileVersionToCurrentlyUsedUpdateMany
+	v.query = r.query
+	var fields []builder.Field
+	for _, q := range params {
+
+		field := q.field()
+
+		_, isJson := field.Value.(types.JSON)
+		if field.Value != nil && !isJson {
+			v := field.Value
+			field.Fields = []builder.Field{
+				{
+					Name:  "set",
+					Value: v,
+				},
+			}
+
+			field.Value = nil
+		}
+
+		fields = append(fields, field)
+	}
+	v.query.Inputs = append(v.query.Inputs, builder.Input{
+		Name:   "data",
+		Fields: fields,
+	})
+	return v
+}
+
+type fileVersionToCurrentlyUsedUpdateMany struct {
+	query builder.Query
+}
+
+func (r fileVersionToCurrentlyUsedUpdateMany) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (r fileVersionToCurrentlyUsedUpdateMany) fileVersionModel() {}
+
+func (r fileVersionToCurrentlyUsedUpdateMany) Exec(ctx context.Context) (*BatchResult, error) {
+	var v BatchResult
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+	return &v, nil
+}
+
+func (r fileVersionToCurrentlyUsedUpdateMany) Tx() fileVersionManyTxResult {
+	v := NewfileVersionManyTxResult()
+	v.query = r.query
+	v.query.TxResult = make(chan []byte, 1)
+	return v
+}
+
+func (r fileVersionToCurrentlyUsedFindMany) Delete() fileVersionToCurrentlyUsedDeleteMany {
+	var v fileVersionToCurrentlyUsedDeleteMany
+	v.query = r.query
+	v.query.Operation = "mutation"
+	v.query.Method = "deleteMany"
+	v.query.Model = "FileVersion"
+
+	v.query.Outputs = countOutput
+
+	return v
+}
+
+type fileVersionToCurrentlyUsedDeleteMany struct {
+	query builder.Query
+}
+
+func (r fileVersionToCurrentlyUsedDeleteMany) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (p fileVersionToCurrentlyUsedDeleteMany) fileVersionModel() {}
+
+func (r fileVersionToCurrentlyUsedDeleteMany) Exec(ctx context.Context) (*BatchResult, error) {
+	var v BatchResult
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+	return &v, nil
+}
+
+func (r fileVersionToCurrentlyUsedDeleteMany) Tx() fileVersionManyTxResult {
+	v := NewfileVersionManyTxResult()
+	v.query = r.query
+	v.query.TxResult = make(chan []byte, 1)
+	return v
+}
+
+type fileVersionToFileFindUnique struct {
+	query builder.Query
+}
+
+func (r fileVersionToFileFindUnique) getQuery() builder.Query {
+	return r.query
+}
+
+func (r fileVersionToFileFindUnique) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (r fileVersionToFileFindUnique) with()                {}
+func (r fileVersionToFileFindUnique) fileVersionModel()    {}
+func (r fileVersionToFileFindUnique) fileVersionRelation() {}
+
+func (r fileVersionToFileFindUnique) With(params ...iDotfileRelationWith) fileVersionToFileFindUnique {
+	for _, q := range params {
+		query := q.getQuery()
+		r.query.Outputs = append(r.query.Outputs, builder.Output{
+			Name:    query.Method,
+			Inputs:  query.Inputs,
+			Outputs: query.Outputs,
+		})
+	}
+
+	return r
+}
+
+func (r fileVersionToFileFindUnique) Exec(ctx context.Context) (
+	*FileVersionModel,
+	error,
+) {
+	var v *FileVersionModel
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+
+	if v == nil {
+		return nil, ErrNotFound
+	}
+
+	return v, nil
+}
+
+func (r fileVersionToFileFindUnique) ExecInner(ctx context.Context) (
+	*InnerFileVersion,
+	error,
+) {
+	var v *InnerFileVersion
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+
+	if v == nil {
+		return nil, ErrNotFound
+	}
+
+	return v, nil
+}
+
+func (r fileVersionToFileFindUnique) Update(params ...FileVersionSetParam) fileVersionToFileUpdateUnique {
+	r.query.Operation = "mutation"
+	r.query.Method = "updateOne"
+	r.query.Model = "FileVersion"
+
+	var v fileVersionToFileUpdateUnique
+	v.query = r.query
+	var fields []builder.Field
+	for _, q := range params {
+
+		field := q.field()
+
+		_, isJson := field.Value.(types.JSON)
+		if field.Value != nil && !isJson {
+			v := field.Value
+			field.Fields = []builder.Field{
+				{
+					Name:  "set",
+					Value: v,
+				},
+			}
+
+			field.Value = nil
+		}
+
+		fields = append(fields, field)
+	}
+	v.query.Inputs = append(v.query.Inputs, builder.Input{
+		Name:   "data",
+		Fields: fields,
+	})
+	return v
+}
+
+type fileVersionToFileUpdateUnique struct {
+	query builder.Query
+}
+
+func (r fileVersionToFileUpdateUnique) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (r fileVersionToFileUpdateUnique) fileVersionModel() {}
+
+func (r fileVersionToFileUpdateUnique) Exec(ctx context.Context) (*FileVersionModel, error) {
+	var v FileVersionModel
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+	return &v, nil
+}
+
+func (r fileVersionToFileUpdateUnique) Tx() fileVersionUniqueTxResult {
+	v := NewfileVersionUniqueTxResult()
+	v.query = r.query
+	v.query.TxResult = make(chan []byte, 1)
+	return v
+}
+
+func (r fileVersionToFileFindUnique) Delete() fileVersionToFileDeleteUnique {
+	var v fileVersionToFileDeleteUnique
+	v.query = r.query
+	v.query.Operation = "mutation"
+	v.query.Method = "deleteOne"
+	v.query.Model = "FileVersion"
+
+	return v
+}
+
+type fileVersionToFileDeleteUnique struct {
+	query builder.Query
+}
+
+func (r fileVersionToFileDeleteUnique) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (p fileVersionToFileDeleteUnique) fileVersionModel() {}
+
+func (r fileVersionToFileDeleteUnique) Exec(ctx context.Context) (*FileVersionModel, error) {
+	var v FileVersionModel
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+	return &v, nil
+}
+
+func (r fileVersionToFileDeleteUnique) Tx() fileVersionUniqueTxResult {
+	v := NewfileVersionUniqueTxResult()
+	v.query = r.query
+	v.query.TxResult = make(chan []byte, 1)
+	return v
+}
+
+type fileVersionToFileFindFirst struct {
+	query builder.Query
+}
+
+func (r fileVersionToFileFindFirst) getQuery() builder.Query {
+	return r.query
+}
+
+func (r fileVersionToFileFindFirst) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (r fileVersionToFileFindFirst) with()                {}
+func (r fileVersionToFileFindFirst) fileVersionModel()    {}
+func (r fileVersionToFileFindFirst) fileVersionRelation() {}
+
+func (r fileVersionToFileFindFirst) With(params ...iDotfileRelationWith) fileVersionToFileFindFirst {
+	for _, q := range params {
+		query := q.getQuery()
+		r.query.Outputs = append(r.query.Outputs, builder.Output{
+			Name:    query.Method,
+			Inputs:  query.Inputs,
+			Outputs: query.Outputs,
+		})
+	}
+
+	return r
+}
+
+func (r fileVersionToFileFindFirst) OrderBy(params ...iDotfileOrderByParam) fileVersionToFileFindFirst {
+	var fields []builder.Field
+
+	for _, param := range params {
+		direction, _ := param.field().Value.(types.Direction)
+
+		fields = append(fields, builder.Field{
+			Name:  param.field().Name,
+			Value: direction,
+		})
+	}
+
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:   "orderBy",
+		Fields: fields,
+	})
+
+	return r
+}
+
+func (r fileVersionToFileFindFirst) Skip(count int) fileVersionToFileFindFirst {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "skip",
+		Value: count,
+	})
+	return r
+}
+
+func (r fileVersionToFileFindFirst) Take(count int) fileVersionToFileFindFirst {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "take",
+		Value: count,
+	})
+	return r
+}
+
+func (r fileVersionToFileFindFirst) Cursor(cursor iFileVersionCursorParam) fileVersionToFileFindFirst {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:   "cursor",
+		Fields: []builder.Field{cursor.field()},
+	})
+	return r
+}
+
+func (r fileVersionToFileFindFirst) Exec(ctx context.Context) (
+	*FileVersionModel,
+	error,
+) {
+	var v *FileVersionModel
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+
+	if v == nil {
+		return nil, ErrNotFound
+	}
+
+	return v, nil
+}
+
+func (r fileVersionToFileFindFirst) ExecInner(ctx context.Context) (
+	*InnerFileVersion,
+	error,
+) {
+	var v *InnerFileVersion
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+
+	if v == nil {
+		return nil, ErrNotFound
+	}
+
+	return v, nil
+}
+
+type fileVersionToFileFindMany struct {
+	query builder.Query
+}
+
+func (r fileVersionToFileFindMany) getQuery() builder.Query {
+	return r.query
+}
+
+func (r fileVersionToFileFindMany) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (r fileVersionToFileFindMany) with()                {}
+func (r fileVersionToFileFindMany) fileVersionModel()    {}
+func (r fileVersionToFileFindMany) fileVersionRelation() {}
+
+func (r fileVersionToFileFindMany) With(params ...iDotfileRelationWith) fileVersionToFileFindMany {
+	for _, q := range params {
+		query := q.getQuery()
+		r.query.Outputs = append(r.query.Outputs, builder.Output{
+			Name:    query.Method,
+			Inputs:  query.Inputs,
+			Outputs: query.Outputs,
+		})
+	}
+
+	return r
+}
+
+func (r fileVersionToFileFindMany) OrderBy(params ...iDotfileOrderByParam) fileVersionToFileFindMany {
+	var fields []builder.Field
+
+	for _, param := range params {
+		direction, _ := param.field().Value.(types.Direction)
+
+		fields = append(fields, builder.Field{
+			Name:  param.field().Name,
+			Value: direction,
+		})
+	}
+
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:   "orderBy",
+		Fields: fields,
+	})
+
+	return r
+}
+
+func (r fileVersionToFileFindMany) Skip(count int) fileVersionToFileFindMany {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "skip",
+		Value: count,
+	})
+	return r
+}
+
+func (r fileVersionToFileFindMany) Take(count int) fileVersionToFileFindMany {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "take",
+		Value: count,
+	})
+	return r
+}
+
+func (r fileVersionToFileFindMany) Cursor(cursor iFileVersionCursorParam) fileVersionToFileFindMany {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:   "cursor",
+		Fields: []builder.Field{cursor.field()},
+	})
+	return r
+}
+
+func (r fileVersionToFileFindMany) Exec(ctx context.Context) (
+	[]FileVersionModel,
+	error,
+) {
+	var v []FileVersionModel
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+
+	return v, nil
+}
+
+func (r fileVersionToFileFindMany) ExecInner(ctx context.Context) (
+	[]InnerFileVersion,
+	error,
+) {
+	var v []InnerFileVersion
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+
+	return v, nil
+}
+
+func (r fileVersionToFileFindMany) Update(params ...FileVersionSetParam) fileVersionToFileUpdateMany {
+	r.query.Operation = "mutation"
+	r.query.Method = "updateMany"
+	r.query.Model = "FileVersion"
+
+	r.query.Outputs = countOutput
+
+	var v fileVersionToFileUpdateMany
+	v.query = r.query
+	var fields []builder.Field
+	for _, q := range params {
+
+		field := q.field()
+
+		_, isJson := field.Value.(types.JSON)
+		if field.Value != nil && !isJson {
+			v := field.Value
+			field.Fields = []builder.Field{
+				{
+					Name:  "set",
+					Value: v,
+				},
+			}
+
+			field.Value = nil
+		}
+
+		fields = append(fields, field)
+	}
+	v.query.Inputs = append(v.query.Inputs, builder.Input{
+		Name:   "data",
+		Fields: fields,
+	})
+	return v
+}
+
+type fileVersionToFileUpdateMany struct {
+	query builder.Query
+}
+
+func (r fileVersionToFileUpdateMany) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (r fileVersionToFileUpdateMany) fileVersionModel() {}
+
+func (r fileVersionToFileUpdateMany) Exec(ctx context.Context) (*BatchResult, error) {
+	var v BatchResult
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+	return &v, nil
+}
+
+func (r fileVersionToFileUpdateMany) Tx() fileVersionManyTxResult {
+	v := NewfileVersionManyTxResult()
+	v.query = r.query
+	v.query.TxResult = make(chan []byte, 1)
+	return v
+}
+
+func (r fileVersionToFileFindMany) Delete() fileVersionToFileDeleteMany {
+	var v fileVersionToFileDeleteMany
+	v.query = r.query
+	v.query.Operation = "mutation"
+	v.query.Method = "deleteMany"
+	v.query.Model = "FileVersion"
+
+	v.query.Outputs = countOutput
+
+	return v
+}
+
+type fileVersionToFileDeleteMany struct {
+	query builder.Query
+}
+
+func (r fileVersionToFileDeleteMany) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (p fileVersionToFileDeleteMany) fileVersionModel() {}
+
+func (r fileVersionToFileDeleteMany) Exec(ctx context.Context) (*BatchResult, error) {
+	var v BatchResult
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+	return &v, nil
+}
+
+func (r fileVersionToFileDeleteMany) Tx() fileVersionManyTxResult {
+	v := NewfileVersionManyTxResult()
+	v.query = r.query
+	v.query.TxResult = make(chan []byte, 1)
+	return v
+}
+
+type fileVersionToSuccessorFindUnique struct {
+	query builder.Query
+}
+
+func (r fileVersionToSuccessorFindUnique) getQuery() builder.Query {
+	return r.query
+}
+
+func (r fileVersionToSuccessorFindUnique) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (r fileVersionToSuccessorFindUnique) with()                {}
+func (r fileVersionToSuccessorFindUnique) fileVersionModel()    {}
+func (r fileVersionToSuccessorFindUnique) fileVersionRelation() {}
+
+func (r fileVersionToSuccessorFindUnique) With(params ...iFileVersionRelationWith) fileVersionToSuccessorFindUnique {
+	for _, q := range params {
+		query := q.getQuery()
+		r.query.Outputs = append(r.query.Outputs, builder.Output{
+			Name:    query.Method,
+			Inputs:  query.Inputs,
+			Outputs: query.Outputs,
+		})
+	}
+
+	return r
+}
+
+func (r fileVersionToSuccessorFindUnique) Exec(ctx context.Context) (
+	*FileVersionModel,
+	error,
+) {
+	var v *FileVersionModel
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+
+	if v == nil {
+		return nil, ErrNotFound
+	}
+
+	return v, nil
+}
+
+func (r fileVersionToSuccessorFindUnique) ExecInner(ctx context.Context) (
+	*InnerFileVersion,
+	error,
+) {
+	var v *InnerFileVersion
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+
+	if v == nil {
+		return nil, ErrNotFound
+	}
+
+	return v, nil
+}
+
+func (r fileVersionToSuccessorFindUnique) Update(params ...FileVersionSetParam) fileVersionToSuccessorUpdateUnique {
+	r.query.Operation = "mutation"
+	r.query.Method = "updateOne"
+	r.query.Model = "FileVersion"
+
+	var v fileVersionToSuccessorUpdateUnique
+	v.query = r.query
+	var fields []builder.Field
+	for _, q := range params {
+
+		field := q.field()
+
+		_, isJson := field.Value.(types.JSON)
+		if field.Value != nil && !isJson {
+			v := field.Value
+			field.Fields = []builder.Field{
+				{
+					Name:  "set",
+					Value: v,
+				},
+			}
+
+			field.Value = nil
+		}
+
+		fields = append(fields, field)
+	}
+	v.query.Inputs = append(v.query.Inputs, builder.Input{
+		Name:   "data",
+		Fields: fields,
+	})
+	return v
+}
+
+type fileVersionToSuccessorUpdateUnique struct {
+	query builder.Query
+}
+
+func (r fileVersionToSuccessorUpdateUnique) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (r fileVersionToSuccessorUpdateUnique) fileVersionModel() {}
+
+func (r fileVersionToSuccessorUpdateUnique) Exec(ctx context.Context) (*FileVersionModel, error) {
+	var v FileVersionModel
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+	return &v, nil
+}
+
+func (r fileVersionToSuccessorUpdateUnique) Tx() fileVersionUniqueTxResult {
+	v := NewfileVersionUniqueTxResult()
+	v.query = r.query
+	v.query.TxResult = make(chan []byte, 1)
+	return v
+}
+
+func (r fileVersionToSuccessorFindUnique) Delete() fileVersionToSuccessorDeleteUnique {
+	var v fileVersionToSuccessorDeleteUnique
+	v.query = r.query
+	v.query.Operation = "mutation"
+	v.query.Method = "deleteOne"
+	v.query.Model = "FileVersion"
+
+	return v
+}
+
+type fileVersionToSuccessorDeleteUnique struct {
+	query builder.Query
+}
+
+func (r fileVersionToSuccessorDeleteUnique) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (p fileVersionToSuccessorDeleteUnique) fileVersionModel() {}
+
+func (r fileVersionToSuccessorDeleteUnique) Exec(ctx context.Context) (*FileVersionModel, error) {
+	var v FileVersionModel
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+	return &v, nil
+}
+
+func (r fileVersionToSuccessorDeleteUnique) Tx() fileVersionUniqueTxResult {
+	v := NewfileVersionUniqueTxResult()
+	v.query = r.query
+	v.query.TxResult = make(chan []byte, 1)
+	return v
+}
+
+type fileVersionToSuccessorFindFirst struct {
+	query builder.Query
+}
+
+func (r fileVersionToSuccessorFindFirst) getQuery() builder.Query {
+	return r.query
+}
+
+func (r fileVersionToSuccessorFindFirst) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (r fileVersionToSuccessorFindFirst) with()                {}
+func (r fileVersionToSuccessorFindFirst) fileVersionModel()    {}
+func (r fileVersionToSuccessorFindFirst) fileVersionRelation() {}
+
+func (r fileVersionToSuccessorFindFirst) With(params ...iFileVersionRelationWith) fileVersionToSuccessorFindFirst {
+	for _, q := range params {
+		query := q.getQuery()
+		r.query.Outputs = append(r.query.Outputs, builder.Output{
+			Name:    query.Method,
+			Inputs:  query.Inputs,
+			Outputs: query.Outputs,
+		})
+	}
+
+	return r
+}
+
+func (r fileVersionToSuccessorFindFirst) OrderBy(params ...iFileVersionOrderByParam) fileVersionToSuccessorFindFirst {
+	var fields []builder.Field
+
+	for _, param := range params {
+		direction, _ := param.field().Value.(types.Direction)
+
+		fields = append(fields, builder.Field{
+			Name:  param.field().Name,
+			Value: direction,
+		})
+	}
+
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:   "orderBy",
+		Fields: fields,
+	})
+
+	return r
+}
+
+func (r fileVersionToSuccessorFindFirst) Skip(count int) fileVersionToSuccessorFindFirst {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "skip",
+		Value: count,
+	})
+	return r
+}
+
+func (r fileVersionToSuccessorFindFirst) Take(count int) fileVersionToSuccessorFindFirst {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "take",
+		Value: count,
+	})
+	return r
+}
+
+func (r fileVersionToSuccessorFindFirst) Cursor(cursor iFileVersionCursorParam) fileVersionToSuccessorFindFirst {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:   "cursor",
+		Fields: []builder.Field{cursor.field()},
+	})
+	return r
+}
+
+func (r fileVersionToSuccessorFindFirst) Exec(ctx context.Context) (
+	*FileVersionModel,
+	error,
+) {
+	var v *FileVersionModel
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+
+	if v == nil {
+		return nil, ErrNotFound
+	}
+
+	return v, nil
+}
+
+func (r fileVersionToSuccessorFindFirst) ExecInner(ctx context.Context) (
+	*InnerFileVersion,
+	error,
+) {
+	var v *InnerFileVersion
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+
+	if v == nil {
+		return nil, ErrNotFound
+	}
+
+	return v, nil
+}
+
+type fileVersionToSuccessorFindMany struct {
+	query builder.Query
+}
+
+func (r fileVersionToSuccessorFindMany) getQuery() builder.Query {
+	return r.query
+}
+
+func (r fileVersionToSuccessorFindMany) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (r fileVersionToSuccessorFindMany) with()                {}
+func (r fileVersionToSuccessorFindMany) fileVersionModel()    {}
+func (r fileVersionToSuccessorFindMany) fileVersionRelation() {}
+
+func (r fileVersionToSuccessorFindMany) With(params ...iFileVersionRelationWith) fileVersionToSuccessorFindMany {
+	for _, q := range params {
+		query := q.getQuery()
+		r.query.Outputs = append(r.query.Outputs, builder.Output{
+			Name:    query.Method,
+			Inputs:  query.Inputs,
+			Outputs: query.Outputs,
+		})
+	}
+
+	return r
+}
+
+func (r fileVersionToSuccessorFindMany) OrderBy(params ...iFileVersionOrderByParam) fileVersionToSuccessorFindMany {
+	var fields []builder.Field
+
+	for _, param := range params {
+		direction, _ := param.field().Value.(types.Direction)
+
+		fields = append(fields, builder.Field{
+			Name:  param.field().Name,
+			Value: direction,
+		})
+	}
+
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:   "orderBy",
+		Fields: fields,
+	})
+
+	return r
+}
+
+func (r fileVersionToSuccessorFindMany) Skip(count int) fileVersionToSuccessorFindMany {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "skip",
+		Value: count,
+	})
+	return r
+}
+
+func (r fileVersionToSuccessorFindMany) Take(count int) fileVersionToSuccessorFindMany {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "take",
+		Value: count,
+	})
+	return r
+}
+
+func (r fileVersionToSuccessorFindMany) Cursor(cursor iFileVersionCursorParam) fileVersionToSuccessorFindMany {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:   "cursor",
+		Fields: []builder.Field{cursor.field()},
+	})
+	return r
+}
+
+func (r fileVersionToSuccessorFindMany) Exec(ctx context.Context) (
+	[]FileVersionModel,
+	error,
+) {
+	var v []FileVersionModel
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+
+	return v, nil
+}
+
+func (r fileVersionToSuccessorFindMany) ExecInner(ctx context.Context) (
+	[]InnerFileVersion,
+	error,
+) {
+	var v []InnerFileVersion
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+
+	return v, nil
+}
+
+func (r fileVersionToSuccessorFindMany) Update(params ...FileVersionSetParam) fileVersionToSuccessorUpdateMany {
+	r.query.Operation = "mutation"
+	r.query.Method = "updateMany"
+	r.query.Model = "FileVersion"
+
+	r.query.Outputs = countOutput
+
+	var v fileVersionToSuccessorUpdateMany
+	v.query = r.query
+	var fields []builder.Field
+	for _, q := range params {
+
+		field := q.field()
+
+		_, isJson := field.Value.(types.JSON)
+		if field.Value != nil && !isJson {
+			v := field.Value
+			field.Fields = []builder.Field{
+				{
+					Name:  "set",
+					Value: v,
+				},
+			}
+
+			field.Value = nil
+		}
+
+		fields = append(fields, field)
+	}
+	v.query.Inputs = append(v.query.Inputs, builder.Input{
+		Name:   "data",
+		Fields: fields,
+	})
+	return v
+}
+
+type fileVersionToSuccessorUpdateMany struct {
+	query builder.Query
+}
+
+func (r fileVersionToSuccessorUpdateMany) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (r fileVersionToSuccessorUpdateMany) fileVersionModel() {}
+
+func (r fileVersionToSuccessorUpdateMany) Exec(ctx context.Context) (*BatchResult, error) {
+	var v BatchResult
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+	return &v, nil
+}
+
+func (r fileVersionToSuccessorUpdateMany) Tx() fileVersionManyTxResult {
+	v := NewfileVersionManyTxResult()
+	v.query = r.query
+	v.query.TxResult = make(chan []byte, 1)
+	return v
+}
+
+func (r fileVersionToSuccessorFindMany) Delete() fileVersionToSuccessorDeleteMany {
+	var v fileVersionToSuccessorDeleteMany
+	v.query = r.query
+	v.query.Operation = "mutation"
+	v.query.Method = "deleteMany"
+	v.query.Model = "FileVersion"
+
+	v.query.Outputs = countOutput
+
+	return v
+}
+
+type fileVersionToSuccessorDeleteMany struct {
+	query builder.Query
+}
+
+func (r fileVersionToSuccessorDeleteMany) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (p fileVersionToSuccessorDeleteMany) fileVersionModel() {}
+
+func (r fileVersionToSuccessorDeleteMany) Exec(ctx context.Context) (*BatchResult, error) {
+	var v BatchResult
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+	return &v, nil
+}
+
+func (r fileVersionToSuccessorDeleteMany) Tx() fileVersionManyTxResult {
+	v := NewfileVersionManyTxResult()
+	v.query = r.query
+	v.query.TxResult = make(chan []byte, 1)
+	return v
+}
+
+type fileVersionToPredecessorFindUnique struct {
+	query builder.Query
+}
+
+func (r fileVersionToPredecessorFindUnique) getQuery() builder.Query {
+	return r.query
+}
+
+func (r fileVersionToPredecessorFindUnique) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (r fileVersionToPredecessorFindUnique) with()                {}
+func (r fileVersionToPredecessorFindUnique) fileVersionModel()    {}
+func (r fileVersionToPredecessorFindUnique) fileVersionRelation() {}
+
+func (r fileVersionToPredecessorFindUnique) With(params ...iFileVersionRelationWith) fileVersionToPredecessorFindUnique {
+	for _, q := range params {
+		query := q.getQuery()
+		r.query.Outputs = append(r.query.Outputs, builder.Output{
+			Name:    query.Method,
+			Inputs:  query.Inputs,
+			Outputs: query.Outputs,
+		})
+	}
+
+	return r
+}
+
+func (r fileVersionToPredecessorFindUnique) Exec(ctx context.Context) (
+	*FileVersionModel,
+	error,
+) {
+	var v *FileVersionModel
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+
+	if v == nil {
+		return nil, ErrNotFound
+	}
+
+	return v, nil
+}
+
+func (r fileVersionToPredecessorFindUnique) ExecInner(ctx context.Context) (
+	*InnerFileVersion,
+	error,
+) {
+	var v *InnerFileVersion
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+
+	if v == nil {
+		return nil, ErrNotFound
+	}
+
+	return v, nil
+}
+
+func (r fileVersionToPredecessorFindUnique) Update(params ...FileVersionSetParam) fileVersionToPredecessorUpdateUnique {
+	r.query.Operation = "mutation"
+	r.query.Method = "updateOne"
+	r.query.Model = "FileVersion"
+
+	var v fileVersionToPredecessorUpdateUnique
+	v.query = r.query
+	var fields []builder.Field
+	for _, q := range params {
+
+		field := q.field()
+
+		_, isJson := field.Value.(types.JSON)
+		if field.Value != nil && !isJson {
+			v := field.Value
+			field.Fields = []builder.Field{
+				{
+					Name:  "set",
+					Value: v,
+				},
+			}
+
+			field.Value = nil
+		}
+
+		fields = append(fields, field)
+	}
+	v.query.Inputs = append(v.query.Inputs, builder.Input{
+		Name:   "data",
+		Fields: fields,
+	})
+	return v
+}
+
+type fileVersionToPredecessorUpdateUnique struct {
+	query builder.Query
+}
+
+func (r fileVersionToPredecessorUpdateUnique) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (r fileVersionToPredecessorUpdateUnique) fileVersionModel() {}
+
+func (r fileVersionToPredecessorUpdateUnique) Exec(ctx context.Context) (*FileVersionModel, error) {
+	var v FileVersionModel
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+	return &v, nil
+}
+
+func (r fileVersionToPredecessorUpdateUnique) Tx() fileVersionUniqueTxResult {
+	v := NewfileVersionUniqueTxResult()
+	v.query = r.query
+	v.query.TxResult = make(chan []byte, 1)
+	return v
+}
+
+func (r fileVersionToPredecessorFindUnique) Delete() fileVersionToPredecessorDeleteUnique {
+	var v fileVersionToPredecessorDeleteUnique
+	v.query = r.query
+	v.query.Operation = "mutation"
+	v.query.Method = "deleteOne"
+	v.query.Model = "FileVersion"
+
+	return v
+}
+
+type fileVersionToPredecessorDeleteUnique struct {
+	query builder.Query
+}
+
+func (r fileVersionToPredecessorDeleteUnique) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (p fileVersionToPredecessorDeleteUnique) fileVersionModel() {}
+
+func (r fileVersionToPredecessorDeleteUnique) Exec(ctx context.Context) (*FileVersionModel, error) {
+	var v FileVersionModel
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+	return &v, nil
+}
+
+func (r fileVersionToPredecessorDeleteUnique) Tx() fileVersionUniqueTxResult {
+	v := NewfileVersionUniqueTxResult()
+	v.query = r.query
+	v.query.TxResult = make(chan []byte, 1)
+	return v
+}
+
+type fileVersionToPredecessorFindFirst struct {
+	query builder.Query
+}
+
+func (r fileVersionToPredecessorFindFirst) getQuery() builder.Query {
+	return r.query
+}
+
+func (r fileVersionToPredecessorFindFirst) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (r fileVersionToPredecessorFindFirst) with()                {}
+func (r fileVersionToPredecessorFindFirst) fileVersionModel()    {}
+func (r fileVersionToPredecessorFindFirst) fileVersionRelation() {}
+
+func (r fileVersionToPredecessorFindFirst) With(params ...iFileVersionRelationWith) fileVersionToPredecessorFindFirst {
+	for _, q := range params {
+		query := q.getQuery()
+		r.query.Outputs = append(r.query.Outputs, builder.Output{
+			Name:    query.Method,
+			Inputs:  query.Inputs,
+			Outputs: query.Outputs,
+		})
+	}
+
+	return r
+}
+
+func (r fileVersionToPredecessorFindFirst) OrderBy(params ...iFileVersionOrderByParam) fileVersionToPredecessorFindFirst {
+	var fields []builder.Field
+
+	for _, param := range params {
+		direction, _ := param.field().Value.(types.Direction)
+
+		fields = append(fields, builder.Field{
+			Name:  param.field().Name,
+			Value: direction,
+		})
+	}
+
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:   "orderBy",
+		Fields: fields,
+	})
+
+	return r
+}
+
+func (r fileVersionToPredecessorFindFirst) Skip(count int) fileVersionToPredecessorFindFirst {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "skip",
+		Value: count,
+	})
+	return r
+}
+
+func (r fileVersionToPredecessorFindFirst) Take(count int) fileVersionToPredecessorFindFirst {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "take",
+		Value: count,
+	})
+	return r
+}
+
+func (r fileVersionToPredecessorFindFirst) Cursor(cursor iFileVersionCursorParam) fileVersionToPredecessorFindFirst {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:   "cursor",
+		Fields: []builder.Field{cursor.field()},
+	})
+	return r
+}
+
+func (r fileVersionToPredecessorFindFirst) Exec(ctx context.Context) (
+	*FileVersionModel,
+	error,
+) {
+	var v *FileVersionModel
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+
+	if v == nil {
+		return nil, ErrNotFound
+	}
+
+	return v, nil
+}
+
+func (r fileVersionToPredecessorFindFirst) ExecInner(ctx context.Context) (
+	*InnerFileVersion,
+	error,
+) {
+	var v *InnerFileVersion
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+
+	if v == nil {
+		return nil, ErrNotFound
+	}
+
+	return v, nil
+}
+
+type fileVersionToPredecessorFindMany struct {
+	query builder.Query
+}
+
+func (r fileVersionToPredecessorFindMany) getQuery() builder.Query {
+	return r.query
+}
+
+func (r fileVersionToPredecessorFindMany) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (r fileVersionToPredecessorFindMany) with()                {}
+func (r fileVersionToPredecessorFindMany) fileVersionModel()    {}
+func (r fileVersionToPredecessorFindMany) fileVersionRelation() {}
+
+func (r fileVersionToPredecessorFindMany) With(params ...iFileVersionRelationWith) fileVersionToPredecessorFindMany {
+	for _, q := range params {
+		query := q.getQuery()
+		r.query.Outputs = append(r.query.Outputs, builder.Output{
+			Name:    query.Method,
+			Inputs:  query.Inputs,
+			Outputs: query.Outputs,
+		})
+	}
+
+	return r
+}
+
+func (r fileVersionToPredecessorFindMany) OrderBy(params ...iFileVersionOrderByParam) fileVersionToPredecessorFindMany {
+	var fields []builder.Field
+
+	for _, param := range params {
+		direction, _ := param.field().Value.(types.Direction)
+
+		fields = append(fields, builder.Field{
+			Name:  param.field().Name,
+			Value: direction,
+		})
+	}
+
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:   "orderBy",
+		Fields: fields,
+	})
+
+	return r
+}
+
+func (r fileVersionToPredecessorFindMany) Skip(count int) fileVersionToPredecessorFindMany {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "skip",
+		Value: count,
+	})
+	return r
+}
+
+func (r fileVersionToPredecessorFindMany) Take(count int) fileVersionToPredecessorFindMany {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "take",
+		Value: count,
+	})
+	return r
+}
+
+func (r fileVersionToPredecessorFindMany) Cursor(cursor iFileVersionCursorParam) fileVersionToPredecessorFindMany {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:   "cursor",
+		Fields: []builder.Field{cursor.field()},
+	})
+	return r
+}
+
+func (r fileVersionToPredecessorFindMany) Exec(ctx context.Context) (
+	[]FileVersionModel,
+	error,
+) {
+	var v []FileVersionModel
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+
+	return v, nil
+}
+
+func (r fileVersionToPredecessorFindMany) ExecInner(ctx context.Context) (
+	[]InnerFileVersion,
+	error,
+) {
+	var v []InnerFileVersion
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+
+	return v, nil
+}
+
+func (r fileVersionToPredecessorFindMany) Update(params ...FileVersionSetParam) fileVersionToPredecessorUpdateMany {
+	r.query.Operation = "mutation"
+	r.query.Method = "updateMany"
+	r.query.Model = "FileVersion"
+
+	r.query.Outputs = countOutput
+
+	var v fileVersionToPredecessorUpdateMany
+	v.query = r.query
+	var fields []builder.Field
+	for _, q := range params {
+
+		field := q.field()
+
+		_, isJson := field.Value.(types.JSON)
+		if field.Value != nil && !isJson {
+			v := field.Value
+			field.Fields = []builder.Field{
+				{
+					Name:  "set",
+					Value: v,
+				},
+			}
+
+			field.Value = nil
+		}
+
+		fields = append(fields, field)
+	}
+	v.query.Inputs = append(v.query.Inputs, builder.Input{
+		Name:   "data",
+		Fields: fields,
+	})
+	return v
+}
+
+type fileVersionToPredecessorUpdateMany struct {
+	query builder.Query
+}
+
+func (r fileVersionToPredecessorUpdateMany) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (r fileVersionToPredecessorUpdateMany) fileVersionModel() {}
+
+func (r fileVersionToPredecessorUpdateMany) Exec(ctx context.Context) (*BatchResult, error) {
+	var v BatchResult
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+	return &v, nil
+}
+
+func (r fileVersionToPredecessorUpdateMany) Tx() fileVersionManyTxResult {
+	v := NewfileVersionManyTxResult()
+	v.query = r.query
+	v.query.TxResult = make(chan []byte, 1)
+	return v
+}
+
+func (r fileVersionToPredecessorFindMany) Delete() fileVersionToPredecessorDeleteMany {
+	var v fileVersionToPredecessorDeleteMany
+	v.query = r.query
+	v.query.Operation = "mutation"
+	v.query.Method = "deleteMany"
+	v.query.Model = "FileVersion"
+
+	v.query.Outputs = countOutput
+
+	return v
+}
+
+type fileVersionToPredecessorDeleteMany struct {
+	query builder.Query
+}
+
+func (r fileVersionToPredecessorDeleteMany) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (p fileVersionToPredecessorDeleteMany) fileVersionModel() {}
+
+func (r fileVersionToPredecessorDeleteMany) Exec(ctx context.Context) (*BatchResult, error) {
+	var v BatchResult
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+	return &v, nil
+}
+
+func (r fileVersionToPredecessorDeleteMany) Tx() fileVersionManyTxResult {
+	v := NewfileVersionManyTxResult()
+	v.query = r.query
+	v.query.TxResult = make(chan []byte, 1)
+	return v
+}
+
+type fileVersionFindUnique struct {
+	query builder.Query
+}
+
+func (r fileVersionFindUnique) getQuery() builder.Query {
+	return r.query
+}
+
+func (r fileVersionFindUnique) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (r fileVersionFindUnique) with()                {}
+func (r fileVersionFindUnique) fileVersionModel()    {}
+func (r fileVersionFindUnique) fileVersionRelation() {}
+
+func (r fileVersionActions) FindUnique(
+	params FileVersionEqualsUniqueWhereParam,
+) fileVersionFindUnique {
+	var v fileVersionFindUnique
+	v.query = builder.NewQuery()
+	v.query.Engine = r.client
+
+	v.query.Operation = "query"
+
+	v.query.Method = "findUnique"
+
+	v.query.Model = "FileVersion"
+	v.query.Outputs = fileVersionOutput
+
+	v.query.Inputs = append(v.query.Inputs, builder.Input{
+		Name:   "where",
+		Fields: builder.TransformEquals([]builder.Field{params.field()}),
+	})
+
+	return v
+}
+
+func (r fileVersionFindUnique) With(params ...iFileVersionRelationWith) fileVersionFindUnique {
+	for _, q := range params {
+		query := q.getQuery()
+		r.query.Outputs = append(r.query.Outputs, builder.Output{
+			Name:    query.Method,
+			Inputs:  query.Inputs,
+			Outputs: query.Outputs,
+		})
+	}
+
+	return r
+}
+
+func (r fileVersionFindUnique) Exec(ctx context.Context) (
+	*FileVersionModel,
+	error,
+) {
+	var v *FileVersionModel
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+
+	if v == nil {
+		return nil, ErrNotFound
+	}
+
+	return v, nil
+}
+
+func (r fileVersionFindUnique) ExecInner(ctx context.Context) (
+	*InnerFileVersion,
+	error,
+) {
+	var v *InnerFileVersion
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+
+	if v == nil {
+		return nil, ErrNotFound
+	}
+
+	return v, nil
+}
+
+func (r fileVersionFindUnique) Update(params ...FileVersionSetParam) fileVersionUpdateUnique {
+	r.query.Operation = "mutation"
+	r.query.Method = "updateOne"
+	r.query.Model = "FileVersion"
+
+	var v fileVersionUpdateUnique
+	v.query = r.query
+	var fields []builder.Field
+	for _, q := range params {
+
+		field := q.field()
+
+		_, isJson := field.Value.(types.JSON)
+		if field.Value != nil && !isJson {
+			v := field.Value
+			field.Fields = []builder.Field{
+				{
+					Name:  "set",
+					Value: v,
+				},
+			}
+
+			field.Value = nil
+		}
+
+		fields = append(fields, field)
+	}
+	v.query.Inputs = append(v.query.Inputs, builder.Input{
+		Name:   "data",
+		Fields: fields,
+	})
+	return v
+}
+
+type fileVersionUpdateUnique struct {
+	query builder.Query
+}
+
+func (r fileVersionUpdateUnique) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (r fileVersionUpdateUnique) fileVersionModel() {}
+
+func (r fileVersionUpdateUnique) Exec(ctx context.Context) (*FileVersionModel, error) {
+	var v FileVersionModel
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+	return &v, nil
+}
+
+func (r fileVersionUpdateUnique) Tx() fileVersionUniqueTxResult {
+	v := NewfileVersionUniqueTxResult()
+	v.query = r.query
+	v.query.TxResult = make(chan []byte, 1)
+	return v
+}
+
+func (r fileVersionFindUnique) Delete() fileVersionDeleteUnique {
+	var v fileVersionDeleteUnique
+	v.query = r.query
+	v.query.Operation = "mutation"
+	v.query.Method = "deleteOne"
+	v.query.Model = "FileVersion"
+
+	return v
+}
+
+type fileVersionDeleteUnique struct {
+	query builder.Query
+}
+
+func (r fileVersionDeleteUnique) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (p fileVersionDeleteUnique) fileVersionModel() {}
+
+func (r fileVersionDeleteUnique) Exec(ctx context.Context) (*FileVersionModel, error) {
+	var v FileVersionModel
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+	return &v, nil
+}
+
+func (r fileVersionDeleteUnique) Tx() fileVersionUniqueTxResult {
+	v := NewfileVersionUniqueTxResult()
+	v.query = r.query
+	v.query.TxResult = make(chan []byte, 1)
+	return v
+}
+
+type fileVersionFindFirst struct {
+	query builder.Query
+}
+
+func (r fileVersionFindFirst) getQuery() builder.Query {
+	return r.query
+}
+
+func (r fileVersionFindFirst) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (r fileVersionFindFirst) with()                {}
+func (r fileVersionFindFirst) fileVersionModel()    {}
+func (r fileVersionFindFirst) fileVersionRelation() {}
+
+func (r fileVersionActions) FindFirst(
+	params ...FileVersionWhereParam,
+) fileVersionFindFirst {
+	var v fileVersionFindFirst
+	v.query = builder.NewQuery()
+	v.query.Engine = r.client
+
+	v.query.Operation = "query"
+
+	v.query.Method = "findFirst"
+
+	v.query.Model = "FileVersion"
+	v.query.Outputs = fileVersionOutput
+
+	var where []builder.Field
+	for _, q := range params {
+		if query := q.getQuery(); query.Operation != "" {
+			v.query.Outputs = append(v.query.Outputs, builder.Output{
+				Name:    query.Method,
+				Inputs:  query.Inputs,
+				Outputs: query.Outputs,
+			})
+		} else {
+			where = append(where, q.field())
+		}
+	}
+
+	if len(where) > 0 {
+		v.query.Inputs = append(v.query.Inputs, builder.Input{
+			Name: "where",
+			Fields: []builder.Field{builder.Field{
+				Name:     "AND",
+				List:     true,
+				WrapList: true,
+				Fields:   where,
+			}},
+		})
+	}
+
+	return v
+}
+
+func (r fileVersionFindFirst) With(params ...iFileVersionRelationWith) fileVersionFindFirst {
+	for _, q := range params {
+		query := q.getQuery()
+		r.query.Outputs = append(r.query.Outputs, builder.Output{
+			Name:    query.Method,
+			Inputs:  query.Inputs,
+			Outputs: query.Outputs,
+		})
+	}
+
+	return r
+}
+
+func (r fileVersionFindFirst) OrderBy(params ...iFileVersionOrderByParam) fileVersionFindFirst {
+	var fields []builder.Field
+
+	for _, param := range params {
+		direction, _ := param.field().Value.(types.Direction)
+
+		fields = append(fields, builder.Field{
+			Name:  param.field().Name,
+			Value: direction,
+		})
+	}
+
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:   "orderBy",
+		Fields: fields,
+	})
+
+	return r
+}
+
+func (r fileVersionFindFirst) Skip(count int) fileVersionFindFirst {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "skip",
+		Value: count,
+	})
+	return r
+}
+
+func (r fileVersionFindFirst) Take(count int) fileVersionFindFirst {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "take",
+		Value: count,
+	})
+	return r
+}
+
+func (r fileVersionFindFirst) Cursor(cursor iFileVersionCursorParam) fileVersionFindFirst {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:   "cursor",
+		Fields: []builder.Field{cursor.field()},
+	})
+	return r
+}
+
+func (r fileVersionFindFirst) Exec(ctx context.Context) (
+	*FileVersionModel,
+	error,
+) {
+	var v *FileVersionModel
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+
+	if v == nil {
+		return nil, ErrNotFound
+	}
+
+	return v, nil
+}
+
+func (r fileVersionFindFirst) ExecInner(ctx context.Context) (
+	*InnerFileVersion,
+	error,
+) {
+	var v *InnerFileVersion
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+
+	if v == nil {
+		return nil, ErrNotFound
+	}
+
+	return v, nil
+}
+
+type fileVersionFindMany struct {
+	query builder.Query
+}
+
+func (r fileVersionFindMany) getQuery() builder.Query {
+	return r.query
+}
+
+func (r fileVersionFindMany) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (r fileVersionFindMany) with()                {}
+func (r fileVersionFindMany) fileVersionModel()    {}
+func (r fileVersionFindMany) fileVersionRelation() {}
+
+func (r fileVersionActions) FindMany(
+	params ...FileVersionWhereParam,
+) fileVersionFindMany {
+	var v fileVersionFindMany
+	v.query = builder.NewQuery()
+	v.query.Engine = r.client
+
+	v.query.Operation = "query"
+
+	v.query.Method = "findMany"
+
+	v.query.Model = "FileVersion"
+	v.query.Outputs = fileVersionOutput
+
+	var where []builder.Field
+	for _, q := range params {
+		if query := q.getQuery(); query.Operation != "" {
+			v.query.Outputs = append(v.query.Outputs, builder.Output{
+				Name:    query.Method,
+				Inputs:  query.Inputs,
+				Outputs: query.Outputs,
+			})
+		} else {
+			where = append(where, q.field())
+		}
+	}
+
+	if len(where) > 0 {
+		v.query.Inputs = append(v.query.Inputs, builder.Input{
+			Name: "where",
+			Fields: []builder.Field{builder.Field{
+				Name:     "AND",
+				List:     true,
+				WrapList: true,
+				Fields:   where,
+			}},
+		})
+	}
+
+	return v
+}
+
+func (r fileVersionFindMany) With(params ...iFileVersionRelationWith) fileVersionFindMany {
+	for _, q := range params {
+		query := q.getQuery()
+		r.query.Outputs = append(r.query.Outputs, builder.Output{
+			Name:    query.Method,
+			Inputs:  query.Inputs,
+			Outputs: query.Outputs,
+		})
+	}
+
+	return r
+}
+
+func (r fileVersionFindMany) OrderBy(params ...iFileVersionOrderByParam) fileVersionFindMany {
+	var fields []builder.Field
+
+	for _, param := range params {
+		direction, _ := param.field().Value.(types.Direction)
+
+		fields = append(fields, builder.Field{
+			Name:  param.field().Name,
+			Value: direction,
+		})
+	}
+
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:   "orderBy",
+		Fields: fields,
+	})
+
+	return r
+}
+
+func (r fileVersionFindMany) Skip(count int) fileVersionFindMany {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "skip",
+		Value: count,
+	})
+	return r
+}
+
+func (r fileVersionFindMany) Take(count int) fileVersionFindMany {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "take",
+		Value: count,
+	})
+	return r
+}
+
+func (r fileVersionFindMany) Cursor(cursor iFileVersionCursorParam) fileVersionFindMany {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:   "cursor",
+		Fields: []builder.Field{cursor.field()},
+	})
+	return r
+}
+
+func (r fileVersionFindMany) Exec(ctx context.Context) (
+	[]FileVersionModel,
+	error,
+) {
+	var v []FileVersionModel
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+
+	return v, nil
+}
+
+func (r fileVersionFindMany) ExecInner(ctx context.Context) (
+	[]InnerFileVersion,
+	error,
+) {
+	var v []InnerFileVersion
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+
+	return v, nil
+}
+
+func (r fileVersionFindMany) Update(params ...FileVersionSetParam) fileVersionUpdateMany {
+	r.query.Operation = "mutation"
+	r.query.Method = "updateMany"
+	r.query.Model = "FileVersion"
+
+	r.query.Outputs = countOutput
+
+	var v fileVersionUpdateMany
+	v.query = r.query
+	var fields []builder.Field
+	for _, q := range params {
+
+		field := q.field()
+
+		_, isJson := field.Value.(types.JSON)
+		if field.Value != nil && !isJson {
+			v := field.Value
+			field.Fields = []builder.Field{
+				{
+					Name:  "set",
+					Value: v,
+				},
+			}
+
+			field.Value = nil
+		}
+
+		fields = append(fields, field)
+	}
+	v.query.Inputs = append(v.query.Inputs, builder.Input{
+		Name:   "data",
+		Fields: fields,
+	})
+	return v
+}
+
+type fileVersionUpdateMany struct {
+	query builder.Query
+}
+
+func (r fileVersionUpdateMany) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (r fileVersionUpdateMany) fileVersionModel() {}
+
+func (r fileVersionUpdateMany) Exec(ctx context.Context) (*BatchResult, error) {
+	var v BatchResult
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+	return &v, nil
+}
+
+func (r fileVersionUpdateMany) Tx() fileVersionManyTxResult {
+	v := NewfileVersionManyTxResult()
+	v.query = r.query
+	v.query.TxResult = make(chan []byte, 1)
+	return v
+}
+
+func (r fileVersionFindMany) Delete() fileVersionDeleteMany {
+	var v fileVersionDeleteMany
+	v.query = r.query
+	v.query.Operation = "mutation"
+	v.query.Method = "deleteMany"
+	v.query.Model = "FileVersion"
+
+	v.query.Outputs = countOutput
+
+	return v
+}
+
+type fileVersionDeleteMany struct {
+	query builder.Query
+}
+
+func (r fileVersionDeleteMany) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (p fileVersionDeleteMany) fileVersionModel() {}
+
+func (r fileVersionDeleteMany) Exec(ctx context.Context) (*BatchResult, error) {
+	var v BatchResult
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+	return &v, nil
+}
+
+func (r fileVersionDeleteMany) Tx() fileVersionManyTxResult {
+	v := NewfileVersionManyTxResult()
+	v.query = r.query
+	v.query.TxResult = make(chan []byte, 1)
+	return v
+}
+
 // --- template transaction.gotpl ---
 
 func NewdotfileUniqueTxResult() dotfileUniqueTxResult {
@@ -1537,6 +6172,54 @@ func (p dotfileManyTxResult) ExtractQuery() builder.Query {
 func (p dotfileManyTxResult) IsTx() {}
 
 func (r dotfileManyTxResult) Result() (v *BatchResult) {
+	if err := r.result.Get(r.query.TxResult, &v); err != nil {
+		panic(err)
+	}
+	return v
+}
+
+func NewfileVersionUniqueTxResult() fileVersionUniqueTxResult {
+	return fileVersionUniqueTxResult{
+		result: &transaction.Result{},
+	}
+}
+
+type fileVersionUniqueTxResult struct {
+	query  builder.Query
+	result *transaction.Result
+}
+
+func (p fileVersionUniqueTxResult) ExtractQuery() builder.Query {
+	return p.query
+}
+
+func (p fileVersionUniqueTxResult) IsTx() {}
+
+func (r fileVersionUniqueTxResult) Result() (v *FileVersionModel) {
+	if err := r.result.Get(r.query.TxResult, &v); err != nil {
+		panic(err)
+	}
+	return v
+}
+
+func NewfileVersionManyTxResult() fileVersionManyTxResult {
+	return fileVersionManyTxResult{
+		result: &transaction.Result{},
+	}
+}
+
+type fileVersionManyTxResult struct {
+	query  builder.Query
+	result *transaction.Result
+}
+
+func (p fileVersionManyTxResult) ExtractQuery() builder.Query {
+	return p.query
+}
+
+func (p fileVersionManyTxResult) IsTx() {}
+
+func (r fileVersionManyTxResult) Result() (v *BatchResult) {
 	if err := r.result.Get(r.query.TxResult, &v); err != nil {
 		panic(err)
 	}
@@ -1663,6 +6346,120 @@ func (r dotfileUpsertOne) Tx() dotfileUniqueTxResult {
 	return v
 }
 
+type fileVersionUpsertOne struct {
+	query builder.Query
+}
+
+func (r fileVersionUpsertOne) getQuery() builder.Query {
+	return r.query
+}
+
+func (r fileVersionUpsertOne) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (r fileVersionUpsertOne) with()                {}
+func (r fileVersionUpsertOne) fileVersionModel()    {}
+func (r fileVersionUpsertOne) fileVersionRelation() {}
+
+func (r fileVersionActions) UpsertOne(
+	params FileVersionEqualsUniqueWhereParam,
+) fileVersionUpsertOne {
+	var v fileVersionUpsertOne
+	v.query = builder.NewQuery()
+	v.query.Engine = r.client
+
+	v.query.Operation = "mutation"
+	v.query.Method = "upsertOne"
+	v.query.Model = "FileVersion"
+	v.query.Outputs = fileVersionOutput
+
+	v.query.Inputs = append(v.query.Inputs, builder.Input{
+		Name:   "where",
+		Fields: builder.TransformEquals([]builder.Field{params.field()}),
+	})
+
+	return v
+}
+
+func (r fileVersionUpsertOne) Create(
+
+	_content FileVersionWithPrismaContentSetParam,
+	_hash FileVersionWithPrismaHashSetParam,
+	_file FileVersionWithPrismaFileSetParam,
+
+	optional ...FileVersionSetParam,
+) fileVersionUpsertOne {
+	var v fileVersionUpsertOne
+	v.query = r.query
+
+	var fields []builder.Field
+	fields = append(fields, _content.field())
+	fields = append(fields, _hash.field())
+	fields = append(fields, _file.field())
+
+	for _, q := range optional {
+		fields = append(fields, q.field())
+	}
+
+	v.query.Inputs = append(v.query.Inputs, builder.Input{
+		Name:   "create",
+		Fields: fields,
+	})
+
+	return v
+}
+
+func (r fileVersionUpsertOne) Update(
+	params ...FileVersionSetParam,
+) fileVersionUpsertOne {
+	var v fileVersionUpsertOne
+	v.query = r.query
+
+	var fields []builder.Field
+	for _, q := range params {
+
+		field := q.field()
+
+		_, isJson := field.Value.(types.JSON)
+		if field.Value != nil && !isJson {
+			v := field.Value
+			field.Fields = []builder.Field{
+				{
+					Name:  "set",
+					Value: v,
+				},
+			}
+
+			field.Value = nil
+		}
+
+		fields = append(fields, field)
+	}
+
+	v.query.Inputs = append(v.query.Inputs, builder.Input{
+		Name:   "update",
+		Fields: fields,
+	})
+
+	return v
+}
+
+func (r fileVersionUpsertOne) Exec(ctx context.Context) (*FileVersionModel, error) {
+	var v FileVersionModel
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+	return &v, nil
+}
+
+func (r fileVersionUpsertOne) Tx() fileVersionUniqueTxResult {
+	v := NewfileVersionUniqueTxResult()
+	v.query = r.query
+	v.query.TxResult = make(chan []byte, 1)
+	return v
+}
+
 // --- template client.gotpl ---
 const schema = `generator client {
   provider = "prisma-client-go"
@@ -1677,12 +6474,58 @@ model Dotfile {
   id        String   @id @default(cuid())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
   name      String
-  path      String   @unique
+  path      String @unique // Cannot manage multiple files in the same location
   extension String
   mimeType  String
   language  String
+
+  // Currently used file version
+  current   FileVersion? @relation("CurrentVersion", fields: [currentId], references: [id])
+  currentId String?
+
+  // All versions of the file
+  versions FileVersion[] @relation("Versions")
 }
+
+model FileVersion {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  content String
+  hash    String
+
+  // Currently used by dotfile
+  currentlyUsed Dotfile? @relation("CurrentVersion")
+
+  // Dotfile this version belongs to
+  file   Dotfile @relation("Versions", fields: [fileId], references: [id])
+  fileId String
+
+  // Previous version of this file
+  successor     FileVersion[] @relation("PreviousFileVersion")
+  predecessor   FileVersion?  @relation("PreviousFileVersion", fields: [predecessorId], references: [id])
+  predecessorId String?
+
+  // appliedSnippets Snippet[]
+}
+
+// model Snippet {
+//   id        String   @id @default(cuid())
+//   createdAt DateTime @default(now())
+//   updatedAt DateTime @updatedAt
+//
+//   appliedTo   FileVersion @relation(fields: [appliedToId], references: [id])
+//   appliedToId String
+//
+//   language String
+//   name     String
+//   key      String
+//   content  String
+//
+// }
 `
 
 // hasBinaryTargets is true when binaryTargets are provided on generation time
@@ -1722,6 +6565,7 @@ func newMockClient(expectations *[]mock.Expectation) *PrismaClient {
 func newClient() *PrismaClient {
 	c := &PrismaClient{}
 	c.Dotfile = dotfileActions{client: c}
+	c.FileVersion = fileVersionActions{client: c}
 
 	c.Prisma = &PrismaActions{
 		Raw: &raw.Raw{Engine: c},
@@ -1748,6 +6592,8 @@ type PrismaClient struct {
 
 	// Dotfile provides access to CRUD methods.
 	Dotfile dotfileActions
+	// FileVersion provides access to CRUD methods.
+	FileVersion fileVersionActions
 }
 
 // deprecated: use .Prisma.Connect
@@ -1789,6 +6635,10 @@ func NewMock() (*PrismaClient, *Mock, func(t *testing.T)) {
 		mock: m,
 	}
 
+	m.FileVersion = fileVersionMock{
+		mock: m,
+	}
+
 	return pc, m, m.Ensure
 }
 
@@ -1796,6 +6646,8 @@ type Mock struct {
 	*mock.Mock
 
 	Dotfile dotfileMock
+
+	FileVersion fileVersionMock
 }
 
 type dotfileMock struct {
@@ -1833,6 +6685,41 @@ func (m *dotfileMockExec) Errors(err error) {
 	})
 }
 
+type fileVersionMock struct {
+	mock *Mock
+}
+
+type iFileVersionMockExpectParam interface {
+	ExtractQuery() builder.Query
+	fileVersionModel()
+}
+
+func (m *fileVersionMock) Expect(query iFileVersionMockExpectParam) *fileVersionMockExec {
+	return &fileVersionMockExec{
+		mock:  m.mock,
+		query: query.ExtractQuery(),
+	}
+}
+
+type fileVersionMockExec struct {
+	mock  *Mock
+	query builder.Query
+}
+
+func (m *fileVersionMockExec) Returns(v FileVersionModel) {
+	*m.mock.Expectations = append(*m.mock.Expectations, mock.Expectation{
+		Query: m.query,
+		Want:  &v,
+	})
+}
+
+func (m *fileVersionMockExec) Errors(err error) {
+	*m.mock.Expectations = append(*m.mock.Expectations, mock.Expectation{
+		Query:   m.query,
+		WantErr: err,
+	})
+}
+
 // --- template models.gotpl ---
 
 // DotfileModel represents the `json:"Dotfile"` model and is a wrapper for accessing fields and methods
@@ -1851,10 +6738,94 @@ type InnerDotfile struct {
 	Extension string   `json:"extension"`
 	MimeType  string   `json:"mimeType"`
 	Language  string   `json:"language"`
+	CurrentID *string  `json:"currentId"`
 }
 
 // RelationsDotfile holds the relation data separately
 type RelationsDotfile struct {
+	Current  *FileVersionModel  `json:"current"`
+	Versions []FileVersionModel `json:"versions"`
+}
+
+func (r DotfileModel) Current() (value *FileVersionModel, ok bool) {
+	if r.RelationsDotfile.Current == nil {
+		return value, false
+	}
+	return r.RelationsDotfile.Current, true
+}
+
+func (r DotfileModel) CurrentID() (value string, ok bool) {
+	if r.InnerDotfile.CurrentID == nil {
+		return value, false
+	}
+	return *r.InnerDotfile.CurrentID, true
+}
+
+func (r DotfileModel) Versions() (value []FileVersionModel) {
+	if r.RelationsDotfile.Versions == nil {
+		panic("attempted to access versions but did not fetch it using the .With() syntax")
+	}
+	return r.RelationsDotfile.Versions
+}
+
+// FileVersionModel represents the `json:"FileVersion"` model and is a wrapper for accessing fields and methods
+type FileVersionModel struct {
+	InnerFileVersion
+	RelationsFileVersion
+}
+
+// InnerFileVersion holds the actual data
+type InnerFileVersion struct {
+	ID            string   `json:"id"`
+	CreatedAt     DateTime `json:"createdAt"`
+	UpdatedAt     DateTime `json:"updatedAt"`
+	Content       string   `json:"content"`
+	Hash          string   `json:"hash"`
+	FileID        string   `json:"fileId"`
+	PredecessorID *string  `json:"predecessorId"`
+}
+
+// RelationsFileVersion holds the relation data separately
+type RelationsFileVersion struct {
+	CurrentlyUsed *DotfileModel      `json:"currentlyUsed"`
+	File          *DotfileModel      `json:"file"`
+	Successor     []FileVersionModel `json:"successor"`
+	Predecessor   *FileVersionModel  `json:"predecessor"`
+}
+
+func (r FileVersionModel) CurrentlyUsed() (value *DotfileModel, ok bool) {
+	if r.RelationsFileVersion.CurrentlyUsed == nil {
+		return value, false
+	}
+	return r.RelationsFileVersion.CurrentlyUsed, true
+}
+
+func (r FileVersionModel) File() (value *DotfileModel) {
+	if r.RelationsFileVersion.File == nil {
+		panic("attempted to access file but did not fetch it using the .With() syntax")
+	}
+	return r.RelationsFileVersion.File
+}
+
+func (r FileVersionModel) Successor() (value []FileVersionModel) {
+	if r.RelationsFileVersion.Successor == nil {
+		panic("attempted to access successor but did not fetch it using the .With() syntax")
+	}
+	return r.RelationsFileVersion.Successor
+}
+
+func (r FileVersionModel) Predecessor() (value *FileVersionModel, ok bool) {
+	if r.RelationsFileVersion.Predecessor == nil {
+		return value, false
+	}
+	return r.RelationsFileVersion.Predecessor, true
+}
+
+func (r FileVersionModel) PredecessorID() (value string, ok bool) {
+	if r.InnerFileVersion.PredecessorID == nil {
+		return value, false
+	}
+	return *r.InnerFileVersion.PredecessorID, true
 }
 
 // --- template query.gotpl ---
@@ -1904,6 +6875,15 @@ type dotfileQuery struct {
 	//
 	// @required
 	Language dotfileQueryLanguageString
+
+	Current dotfileQueryCurrentRelations
+
+	// CurrentID
+	//
+	// @optional
+	CurrentID dotfileQueryCurrentIDString
+
+	Versions dotfileQueryVersionsRelations
 }
 
 func (dotfileQuery) Not(params ...DotfileWhereParam) dotfileDefaultParam {
@@ -3125,6 +8105,2029 @@ func (r dotfileQueryLanguageString) HasSuffix(value string) dotfileDefaultParam 
 func (r dotfileQueryLanguageString) HasSuffixIfPresent(value *string) dotfileDefaultParam {
 	if value == nil {
 		return dotfileDefaultParam{}
+	}
+	return r.HasSuffix(*value)
+}
+
+// base struct
+type dotfileQueryCurrentFileVersion struct{}
+
+type dotfileQueryCurrentRelations struct{}
+
+// Dotfile -> Current
+//
+// @relation
+// @optional
+func (dotfileQueryCurrentRelations) Where(
+	params ...FileVersionWhereParam,
+) dotfileDefaultParam {
+	var fields []builder.Field
+
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+
+	return dotfileDefaultParam{
+		data: builder.Field{
+			Name: "current",
+			Fields: []builder.Field{
+				{
+					Name: "is",
+					Fields: []builder.Field{builder.Field{
+						Name:     "AND",
+						List:     true,
+						WrapList: true,
+						Fields:   fields,
+					}},
+				},
+			},
+		},
+	}
+}
+
+func (dotfileQueryCurrentRelations) Fetch() dotfileToCurrentFindUnique {
+	var v dotfileToCurrentFindUnique
+
+	v.query.Operation = "query"
+	v.query.Method = "current"
+	v.query.Outputs = fileVersionOutput
+
+	return v
+}
+
+func (r dotfileQueryCurrentRelations) Link(
+	params FileVersionWhereParam,
+) dotfileSetParam {
+	var fields []builder.Field
+
+	f := params.field()
+	if f.Fields == nil && f.Value == nil {
+		return dotfileSetParam{}
+	}
+
+	fields = append(fields, f)
+
+	return dotfileSetParam{
+		data: builder.Field{
+			Name: "current",
+			Fields: []builder.Field{
+				{
+					Name:   "connect",
+					Fields: builder.TransformEquals(fields),
+				},
+			},
+		},
+	}
+}
+
+func (r dotfileQueryCurrentRelations) Unlink() dotfileSetParam {
+	var v dotfileSetParam
+
+	v = dotfileSetParam{
+		data: builder.Field{
+			Name: "current",
+			Fields: []builder.Field{
+				{
+					Name:  "disconnect",
+					Value: true,
+				},
+			},
+		},
+	}
+
+	return v
+}
+
+// base struct
+type dotfileQueryCurrentIDString struct{}
+
+// Set the optional value of CurrentID
+func (r dotfileQueryCurrentIDString) Set(value string) dotfileSetParam {
+
+	return dotfileSetParam{
+		data: builder.Field{
+			Name:  "currentId",
+			Value: value,
+		},
+	}
+
+}
+
+// Set the optional value of CurrentID dynamically
+func (r dotfileQueryCurrentIDString) SetIfPresent(value *string) dotfileSetParam {
+	if value == nil {
+		return dotfileSetParam{}
+	}
+
+	return r.Set(*value)
+}
+
+// Set the optional value of CurrentID dynamically
+func (r dotfileQueryCurrentIDString) SetOptional(value *string) dotfileSetParam {
+	if value == nil {
+
+		var v *string
+		return dotfileSetParam{
+			data: builder.Field{
+				Name:  "currentId",
+				Value: v,
+			},
+		}
+	}
+
+	return r.Set(*value)
+}
+
+func (r dotfileQueryCurrentIDString) Equals(value string) dotfileWithPrismaCurrentIDEqualsParam {
+
+	return dotfileWithPrismaCurrentIDEqualsParam{
+		data: builder.Field{
+			Name: "currentId",
+			Fields: []builder.Field{
+				{
+					Name:  "equals",
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r dotfileQueryCurrentIDString) EqualsIfPresent(value *string) dotfileWithPrismaCurrentIDEqualsParam {
+	if value == nil {
+		return dotfileWithPrismaCurrentIDEqualsParam{}
+	}
+	return r.Equals(*value)
+}
+
+func (r dotfileQueryCurrentIDString) In(values []string) dotfileDefaultParam {
+	var fields []builder.Field
+	for _, v := range values {
+		fields = append(fields, builder.Field{
+			Value: v,
+		})
+	}
+	return dotfileDefaultParam{
+		data: builder.Field{
+			Name: "currentId",
+			Fields: []builder.Field{
+				{
+					Name:   "in",
+					List:   true,
+					Fields: fields,
+				},
+			},
+		},
+	}
+}
+
+func (r dotfileQueryCurrentIDString) EqualsOptional(value *string) dotfileDefaultParam {
+	return dotfileDefaultParam{
+		data: builder.Field{
+			Name: "currentId",
+			Fields: []builder.Field{
+				{
+					Name:  "equals",
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r dotfileQueryCurrentIDString) IsNull() dotfileDefaultParam {
+	var str *string = nil
+	return dotfileDefaultParam{
+		data: builder.Field{
+			Name: "currentId",
+			Fields: []builder.Field{
+				{
+					Name:  "equals",
+					Value: str,
+				},
+			},
+		},
+	}
+}
+
+func (r dotfileQueryCurrentIDString) Order(direction types.Direction) dotfileDefaultParam {
+	return dotfileDefaultParam{
+		data: builder.Field{
+			Name:  "currentId",
+			Value: direction,
+		},
+	}
+}
+
+func (r dotfileQueryCurrentIDString) Contains(value string) dotfileDefaultParam {
+	return dotfileDefaultParam{
+		data: builder.Field{
+			Name: "currentId",
+			Fields: []builder.Field{
+				{
+					Name:  "contains",
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r dotfileQueryCurrentIDString) ContainsIfPresent(value *string) dotfileDefaultParam {
+	if value == nil {
+		return dotfileDefaultParam{}
+	}
+	return r.Contains(*value)
+}
+
+func (r dotfileQueryCurrentIDString) HasPrefix(value string) dotfileDefaultParam {
+	return dotfileDefaultParam{
+		data: builder.Field{
+			Name: "currentId",
+			Fields: []builder.Field{
+				{
+					Name:  "starts_with",
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r dotfileQueryCurrentIDString) HasPrefixIfPresent(value *string) dotfileDefaultParam {
+	if value == nil {
+		return dotfileDefaultParam{}
+	}
+	return r.HasPrefix(*value)
+}
+
+func (r dotfileQueryCurrentIDString) HasSuffix(value string) dotfileDefaultParam {
+	return dotfileDefaultParam{
+		data: builder.Field{
+			Name: "currentId",
+			Fields: []builder.Field{
+				{
+					Name:  "ends_with",
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r dotfileQueryCurrentIDString) HasSuffixIfPresent(value *string) dotfileDefaultParam {
+	if value == nil {
+		return dotfileDefaultParam{}
+	}
+	return r.HasSuffix(*value)
+}
+
+// base struct
+type dotfileQueryVersionsFileVersion struct{}
+
+type dotfileQueryVersionsRelations struct{}
+
+// Dotfile -> Versions
+//
+// @relation
+// @required
+func (dotfileQueryVersionsRelations) Some(
+	params ...FileVersionWhereParam,
+) dotfileDefaultParam {
+	var fields []builder.Field
+
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+
+	return dotfileDefaultParam{
+		data: builder.Field{
+			Name: "versions",
+			Fields: []builder.Field{
+				{
+					Name: "some",
+					Fields: []builder.Field{builder.Field{
+						Name:     "AND",
+						List:     true,
+						WrapList: true,
+						Fields:   fields,
+					}},
+				},
+			},
+		},
+	}
+}
+
+// Dotfile -> Versions
+//
+// @relation
+// @required
+func (dotfileQueryVersionsRelations) Every(
+	params ...FileVersionWhereParam,
+) dotfileDefaultParam {
+	var fields []builder.Field
+
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+
+	return dotfileDefaultParam{
+		data: builder.Field{
+			Name: "versions",
+			Fields: []builder.Field{
+				{
+					Name: "every",
+					Fields: []builder.Field{builder.Field{
+						Name:     "AND",
+						List:     true,
+						WrapList: true,
+						Fields:   fields,
+					}},
+				},
+			},
+		},
+	}
+}
+
+func (dotfileQueryVersionsRelations) Fetch(
+
+	params ...FileVersionWhereParam,
+
+) dotfileToVersionsFindMany {
+	var v dotfileToVersionsFindMany
+
+	v.query.Operation = "query"
+	v.query.Method = "versions"
+	v.query.Outputs = fileVersionOutput
+
+	var where []builder.Field
+	for _, q := range params {
+		if query := q.getQuery(); query.Operation != "" {
+			v.query.Outputs = append(v.query.Outputs, builder.Output{
+				Name:    query.Method,
+				Inputs:  query.Inputs,
+				Outputs: query.Outputs,
+			})
+		} else {
+			where = append(where, q.field())
+		}
+	}
+
+	if len(where) > 0 {
+		v.query.Inputs = append(v.query.Inputs, builder.Input{
+			Name: "where",
+			Fields: []builder.Field{builder.Field{
+				Name:     "AND",
+				List:     true,
+				WrapList: true,
+				Fields:   where,
+			}},
+		})
+	}
+
+	return v
+}
+
+func (r dotfileQueryVersionsRelations) Link(
+	params ...FileVersionWhereParam,
+) dotfileSetParam {
+	var fields []builder.Field
+
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+
+	return dotfileSetParam{
+		data: builder.Field{
+			Name: "versions",
+			Fields: []builder.Field{
+				{
+					Name:   "connect",
+					Fields: builder.TransformEquals(fields),
+
+					List:     true,
+					WrapList: true,
+				},
+			},
+		},
+	}
+}
+
+func (r dotfileQueryVersionsRelations) Unlink(
+	params ...FileVersionWhereParam,
+) dotfileSetParam {
+	var v dotfileSetParam
+
+	var fields []builder.Field
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+	v = dotfileSetParam{
+		data: builder.Field{
+			Name: "versions",
+			Fields: []builder.Field{
+				{
+					Name:     "disconnect",
+					List:     true,
+					WrapList: true,
+					Fields:   builder.TransformEquals(fields),
+				},
+			},
+		},
+	}
+
+	return v
+}
+
+// FileVersion acts as a namespaces to access query methods for the FileVersion model
+var FileVersion = fileVersionQuery{}
+
+// fileVersionQuery exposes query functions for the fileVersion model
+type fileVersionQuery struct {
+	// ID
+	//
+	// @required
+	ID fileVersionQueryIDString
+
+	// CreatedAt
+	//
+	// @required
+	CreatedAt fileVersionQueryCreatedAtDateTime
+
+	// UpdatedAt
+	//
+	// @required
+	UpdatedAt fileVersionQueryUpdatedAtDateTime
+
+	// Content
+	//
+	// @required
+	Content fileVersionQueryContentString
+
+	// Hash
+	//
+	// @required
+	Hash fileVersionQueryHashString
+
+	CurrentlyUsed fileVersionQueryCurrentlyUsedRelations
+
+	File fileVersionQueryFileRelations
+
+	// FileID
+	//
+	// @required
+	FileID fileVersionQueryFileIDString
+
+	Successor fileVersionQuerySuccessorRelations
+
+	Predecessor fileVersionQueryPredecessorRelations
+
+	// PredecessorID
+	//
+	// @optional
+	PredecessorID fileVersionQueryPredecessorIDString
+}
+
+func (fileVersionQuery) Not(params ...FileVersionWhereParam) fileVersionDefaultParam {
+	var fields []builder.Field
+
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+
+	return fileVersionDefaultParam{
+		data: builder.Field{
+			Name:     "NOT",
+			List:     true,
+			WrapList: true,
+			Fields:   fields,
+		},
+	}
+}
+
+func (fileVersionQuery) Or(params ...FileVersionWhereParam) fileVersionDefaultParam {
+	var fields []builder.Field
+
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+
+	return fileVersionDefaultParam{
+		data: builder.Field{
+			Name:     "OR",
+			List:     true,
+			WrapList: true,
+			Fields:   fields,
+		},
+	}
+}
+
+func (fileVersionQuery) And(params ...FileVersionWhereParam) fileVersionDefaultParam {
+	var fields []builder.Field
+
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+
+	return fileVersionDefaultParam{
+		data: builder.Field{
+			Name:     "AND",
+			List:     true,
+			WrapList: true,
+			Fields:   fields,
+		},
+	}
+}
+
+// base struct
+type fileVersionQueryIDString struct{}
+
+// Set the required value of ID
+func (r fileVersionQueryIDString) Set(value string) fileVersionSetParam {
+
+	return fileVersionSetParam{
+		data: builder.Field{
+			Name:  "id",
+			Value: value,
+		},
+	}
+
+}
+
+// Set the optional value of ID dynamically
+func (r fileVersionQueryIDString) SetIfPresent(value *string) fileVersionSetParam {
+	if value == nil {
+		return fileVersionSetParam{}
+	}
+
+	return r.Set(*value)
+}
+
+func (r fileVersionQueryIDString) Equals(value string) fileVersionWithPrismaIDEqualsUniqueParam {
+
+	return fileVersionWithPrismaIDEqualsUniqueParam{
+		data: builder.Field{
+			Name: "id",
+			Fields: []builder.Field{
+				{
+					Name:  "equals",
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r fileVersionQueryIDString) EqualsIfPresent(value *string) fileVersionWithPrismaIDEqualsUniqueParam {
+	if value == nil {
+		return fileVersionWithPrismaIDEqualsUniqueParam{}
+	}
+	return r.Equals(*value)
+}
+
+func (r fileVersionQueryIDString) In(values []string) fileVersionParamUnique {
+	var fields []builder.Field
+	for _, v := range values {
+		fields = append(fields, builder.Field{
+			Value: v,
+		})
+	}
+	return fileVersionParamUnique{
+		data: builder.Field{
+			Name: "id",
+			Fields: []builder.Field{
+				{
+					Name:   "in",
+					List:   true,
+					Fields: fields,
+				},
+			},
+		},
+	}
+}
+
+func (r fileVersionQueryIDString) Order(direction types.Direction) fileVersionDefaultParam {
+	return fileVersionDefaultParam{
+		data: builder.Field{
+			Name:  "id",
+			Value: direction,
+		},
+	}
+}
+
+func (r fileVersionQueryIDString) Cursor(cursor string) fileVersionCursorParam {
+	return fileVersionCursorParam{
+		data: builder.Field{
+			Name:  "id",
+			Value: cursor,
+		},
+	}
+}
+
+func (r fileVersionQueryIDString) Contains(value string) fileVersionParamUnique {
+	return fileVersionParamUnique{
+		data: builder.Field{
+			Name: "id",
+			Fields: []builder.Field{
+				{
+					Name:  "contains",
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r fileVersionQueryIDString) ContainsIfPresent(value *string) fileVersionParamUnique {
+	if value == nil {
+		return fileVersionParamUnique{}
+	}
+	return r.Contains(*value)
+}
+
+func (r fileVersionQueryIDString) HasPrefix(value string) fileVersionParamUnique {
+	return fileVersionParamUnique{
+		data: builder.Field{
+			Name: "id",
+			Fields: []builder.Field{
+				{
+					Name:  "starts_with",
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r fileVersionQueryIDString) HasPrefixIfPresent(value *string) fileVersionParamUnique {
+	if value == nil {
+		return fileVersionParamUnique{}
+	}
+	return r.HasPrefix(*value)
+}
+
+func (r fileVersionQueryIDString) HasSuffix(value string) fileVersionParamUnique {
+	return fileVersionParamUnique{
+		data: builder.Field{
+			Name: "id",
+			Fields: []builder.Field{
+				{
+					Name:  "ends_with",
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r fileVersionQueryIDString) HasSuffixIfPresent(value *string) fileVersionParamUnique {
+	if value == nil {
+		return fileVersionParamUnique{}
+	}
+	return r.HasSuffix(*value)
+}
+
+// base struct
+type fileVersionQueryCreatedAtDateTime struct{}
+
+// Set the required value of CreatedAt
+func (r fileVersionQueryCreatedAtDateTime) Set(value DateTime) fileVersionSetParam {
+
+	return fileVersionSetParam{
+		data: builder.Field{
+			Name:  "createdAt",
+			Value: value,
+		},
+	}
+
+}
+
+// Set the optional value of CreatedAt dynamically
+func (r fileVersionQueryCreatedAtDateTime) SetIfPresent(value *DateTime) fileVersionSetParam {
+	if value == nil {
+		return fileVersionSetParam{}
+	}
+
+	return r.Set(*value)
+}
+
+func (r fileVersionQueryCreatedAtDateTime) Equals(value DateTime) fileVersionWithPrismaCreatedAtEqualsParam {
+
+	return fileVersionWithPrismaCreatedAtEqualsParam{
+		data: builder.Field{
+			Name: "createdAt",
+			Fields: []builder.Field{
+				{
+					Name:  "equals",
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r fileVersionQueryCreatedAtDateTime) EqualsIfPresent(value *DateTime) fileVersionWithPrismaCreatedAtEqualsParam {
+	if value == nil {
+		return fileVersionWithPrismaCreatedAtEqualsParam{}
+	}
+	return r.Equals(*value)
+}
+
+func (r fileVersionQueryCreatedAtDateTime) In(values []DateTime) fileVersionDefaultParam {
+	var fields []builder.Field
+	for _, v := range values {
+		fields = append(fields, builder.Field{
+			Value: v,
+		})
+	}
+	return fileVersionDefaultParam{
+		data: builder.Field{
+			Name: "createdAt",
+			Fields: []builder.Field{
+				{
+					Name:   "in",
+					List:   true,
+					Fields: fields,
+				},
+			},
+		},
+	}
+}
+
+func (r fileVersionQueryCreatedAtDateTime) Order(direction types.Direction) fileVersionDefaultParam {
+	return fileVersionDefaultParam{
+		data: builder.Field{
+			Name:  "createdAt",
+			Value: direction,
+		},
+	}
+}
+
+func (r fileVersionQueryCreatedAtDateTime) Before(value DateTime) fileVersionDefaultParam {
+	return fileVersionDefaultParam{
+		data: builder.Field{
+			Name: "createdAt",
+			Fields: []builder.Field{
+				{
+					Name:  "lt",
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r fileVersionQueryCreatedAtDateTime) BeforeIfPresent(value *DateTime) fileVersionDefaultParam {
+	if value == nil {
+		return fileVersionDefaultParam{}
+	}
+	return r.Before(*value)
+}
+
+func (r fileVersionQueryCreatedAtDateTime) After(value DateTime) fileVersionDefaultParam {
+	return fileVersionDefaultParam{
+		data: builder.Field{
+			Name: "createdAt",
+			Fields: []builder.Field{
+				{
+					Name:  "gt",
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r fileVersionQueryCreatedAtDateTime) AfterIfPresent(value *DateTime) fileVersionDefaultParam {
+	if value == nil {
+		return fileVersionDefaultParam{}
+	}
+	return r.After(*value)
+}
+
+func (r fileVersionQueryCreatedAtDateTime) BeforeEquals(value DateTime) fileVersionDefaultParam {
+	return fileVersionDefaultParam{
+		data: builder.Field{
+			Name: "createdAt",
+			Fields: []builder.Field{
+				{
+					Name:  "lte",
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r fileVersionQueryCreatedAtDateTime) BeforeEqualsIfPresent(value *DateTime) fileVersionDefaultParam {
+	if value == nil {
+		return fileVersionDefaultParam{}
+	}
+	return r.BeforeEquals(*value)
+}
+
+func (r fileVersionQueryCreatedAtDateTime) AfterEquals(value DateTime) fileVersionDefaultParam {
+	return fileVersionDefaultParam{
+		data: builder.Field{
+			Name: "createdAt",
+			Fields: []builder.Field{
+				{
+					Name:  "gte",
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r fileVersionQueryCreatedAtDateTime) AfterEqualsIfPresent(value *DateTime) fileVersionDefaultParam {
+	if value == nil {
+		return fileVersionDefaultParam{}
+	}
+	return r.AfterEquals(*value)
+}
+
+// base struct
+type fileVersionQueryUpdatedAtDateTime struct{}
+
+// Set the required value of UpdatedAt
+func (r fileVersionQueryUpdatedAtDateTime) Set(value DateTime) fileVersionSetParam {
+
+	return fileVersionSetParam{
+		data: builder.Field{
+			Name:  "updatedAt",
+			Value: value,
+		},
+	}
+
+}
+
+// Set the optional value of UpdatedAt dynamically
+func (r fileVersionQueryUpdatedAtDateTime) SetIfPresent(value *DateTime) fileVersionSetParam {
+	if value == nil {
+		return fileVersionSetParam{}
+	}
+
+	return r.Set(*value)
+}
+
+func (r fileVersionQueryUpdatedAtDateTime) Equals(value DateTime) fileVersionWithPrismaUpdatedAtEqualsParam {
+
+	return fileVersionWithPrismaUpdatedAtEqualsParam{
+		data: builder.Field{
+			Name: "updatedAt",
+			Fields: []builder.Field{
+				{
+					Name:  "equals",
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r fileVersionQueryUpdatedAtDateTime) EqualsIfPresent(value *DateTime) fileVersionWithPrismaUpdatedAtEqualsParam {
+	if value == nil {
+		return fileVersionWithPrismaUpdatedAtEqualsParam{}
+	}
+	return r.Equals(*value)
+}
+
+func (r fileVersionQueryUpdatedAtDateTime) In(values []DateTime) fileVersionDefaultParam {
+	var fields []builder.Field
+	for _, v := range values {
+		fields = append(fields, builder.Field{
+			Value: v,
+		})
+	}
+	return fileVersionDefaultParam{
+		data: builder.Field{
+			Name: "updatedAt",
+			Fields: []builder.Field{
+				{
+					Name:   "in",
+					List:   true,
+					Fields: fields,
+				},
+			},
+		},
+	}
+}
+
+func (r fileVersionQueryUpdatedAtDateTime) Order(direction types.Direction) fileVersionDefaultParam {
+	return fileVersionDefaultParam{
+		data: builder.Field{
+			Name:  "updatedAt",
+			Value: direction,
+		},
+	}
+}
+
+func (r fileVersionQueryUpdatedAtDateTime) Before(value DateTime) fileVersionDefaultParam {
+	return fileVersionDefaultParam{
+		data: builder.Field{
+			Name: "updatedAt",
+			Fields: []builder.Field{
+				{
+					Name:  "lt",
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r fileVersionQueryUpdatedAtDateTime) BeforeIfPresent(value *DateTime) fileVersionDefaultParam {
+	if value == nil {
+		return fileVersionDefaultParam{}
+	}
+	return r.Before(*value)
+}
+
+func (r fileVersionQueryUpdatedAtDateTime) After(value DateTime) fileVersionDefaultParam {
+	return fileVersionDefaultParam{
+		data: builder.Field{
+			Name: "updatedAt",
+			Fields: []builder.Field{
+				{
+					Name:  "gt",
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r fileVersionQueryUpdatedAtDateTime) AfterIfPresent(value *DateTime) fileVersionDefaultParam {
+	if value == nil {
+		return fileVersionDefaultParam{}
+	}
+	return r.After(*value)
+}
+
+func (r fileVersionQueryUpdatedAtDateTime) BeforeEquals(value DateTime) fileVersionDefaultParam {
+	return fileVersionDefaultParam{
+		data: builder.Field{
+			Name: "updatedAt",
+			Fields: []builder.Field{
+				{
+					Name:  "lte",
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r fileVersionQueryUpdatedAtDateTime) BeforeEqualsIfPresent(value *DateTime) fileVersionDefaultParam {
+	if value == nil {
+		return fileVersionDefaultParam{}
+	}
+	return r.BeforeEquals(*value)
+}
+
+func (r fileVersionQueryUpdatedAtDateTime) AfterEquals(value DateTime) fileVersionDefaultParam {
+	return fileVersionDefaultParam{
+		data: builder.Field{
+			Name: "updatedAt",
+			Fields: []builder.Field{
+				{
+					Name:  "gte",
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r fileVersionQueryUpdatedAtDateTime) AfterEqualsIfPresent(value *DateTime) fileVersionDefaultParam {
+	if value == nil {
+		return fileVersionDefaultParam{}
+	}
+	return r.AfterEquals(*value)
+}
+
+// base struct
+type fileVersionQueryContentString struct{}
+
+// Set the required value of Content
+func (r fileVersionQueryContentString) Set(value string) fileVersionWithPrismaContentSetParam {
+
+	return fileVersionWithPrismaContentSetParam{
+		data: builder.Field{
+			Name:  "content",
+			Value: value,
+		},
+	}
+
+}
+
+// Set the optional value of Content dynamically
+func (r fileVersionQueryContentString) SetIfPresent(value *string) fileVersionWithPrismaContentSetParam {
+	if value == nil {
+		return fileVersionWithPrismaContentSetParam{}
+	}
+
+	return r.Set(*value)
+}
+
+func (r fileVersionQueryContentString) Equals(value string) fileVersionWithPrismaContentEqualsParam {
+
+	return fileVersionWithPrismaContentEqualsParam{
+		data: builder.Field{
+			Name: "content",
+			Fields: []builder.Field{
+				{
+					Name:  "equals",
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r fileVersionQueryContentString) EqualsIfPresent(value *string) fileVersionWithPrismaContentEqualsParam {
+	if value == nil {
+		return fileVersionWithPrismaContentEqualsParam{}
+	}
+	return r.Equals(*value)
+}
+
+func (r fileVersionQueryContentString) In(values []string) fileVersionDefaultParam {
+	var fields []builder.Field
+	for _, v := range values {
+		fields = append(fields, builder.Field{
+			Value: v,
+		})
+	}
+	return fileVersionDefaultParam{
+		data: builder.Field{
+			Name: "content",
+			Fields: []builder.Field{
+				{
+					Name:   "in",
+					List:   true,
+					Fields: fields,
+				},
+			},
+		},
+	}
+}
+
+func (r fileVersionQueryContentString) Order(direction types.Direction) fileVersionDefaultParam {
+	return fileVersionDefaultParam{
+		data: builder.Field{
+			Name:  "content",
+			Value: direction,
+		},
+	}
+}
+
+func (r fileVersionQueryContentString) Contains(value string) fileVersionDefaultParam {
+	return fileVersionDefaultParam{
+		data: builder.Field{
+			Name: "content",
+			Fields: []builder.Field{
+				{
+					Name:  "contains",
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r fileVersionQueryContentString) ContainsIfPresent(value *string) fileVersionDefaultParam {
+	if value == nil {
+		return fileVersionDefaultParam{}
+	}
+	return r.Contains(*value)
+}
+
+func (r fileVersionQueryContentString) HasPrefix(value string) fileVersionDefaultParam {
+	return fileVersionDefaultParam{
+		data: builder.Field{
+			Name: "content",
+			Fields: []builder.Field{
+				{
+					Name:  "starts_with",
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r fileVersionQueryContentString) HasPrefixIfPresent(value *string) fileVersionDefaultParam {
+	if value == nil {
+		return fileVersionDefaultParam{}
+	}
+	return r.HasPrefix(*value)
+}
+
+func (r fileVersionQueryContentString) HasSuffix(value string) fileVersionDefaultParam {
+	return fileVersionDefaultParam{
+		data: builder.Field{
+			Name: "content",
+			Fields: []builder.Field{
+				{
+					Name:  "ends_with",
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r fileVersionQueryContentString) HasSuffixIfPresent(value *string) fileVersionDefaultParam {
+	if value == nil {
+		return fileVersionDefaultParam{}
+	}
+	return r.HasSuffix(*value)
+}
+
+// base struct
+type fileVersionQueryHashString struct{}
+
+// Set the required value of Hash
+func (r fileVersionQueryHashString) Set(value string) fileVersionWithPrismaHashSetParam {
+
+	return fileVersionWithPrismaHashSetParam{
+		data: builder.Field{
+			Name:  "hash",
+			Value: value,
+		},
+	}
+
+}
+
+// Set the optional value of Hash dynamically
+func (r fileVersionQueryHashString) SetIfPresent(value *string) fileVersionWithPrismaHashSetParam {
+	if value == nil {
+		return fileVersionWithPrismaHashSetParam{}
+	}
+
+	return r.Set(*value)
+}
+
+func (r fileVersionQueryHashString) Equals(value string) fileVersionWithPrismaHashEqualsParam {
+
+	return fileVersionWithPrismaHashEqualsParam{
+		data: builder.Field{
+			Name: "hash",
+			Fields: []builder.Field{
+				{
+					Name:  "equals",
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r fileVersionQueryHashString) EqualsIfPresent(value *string) fileVersionWithPrismaHashEqualsParam {
+	if value == nil {
+		return fileVersionWithPrismaHashEqualsParam{}
+	}
+	return r.Equals(*value)
+}
+
+func (r fileVersionQueryHashString) In(values []string) fileVersionDefaultParam {
+	var fields []builder.Field
+	for _, v := range values {
+		fields = append(fields, builder.Field{
+			Value: v,
+		})
+	}
+	return fileVersionDefaultParam{
+		data: builder.Field{
+			Name: "hash",
+			Fields: []builder.Field{
+				{
+					Name:   "in",
+					List:   true,
+					Fields: fields,
+				},
+			},
+		},
+	}
+}
+
+func (r fileVersionQueryHashString) Order(direction types.Direction) fileVersionDefaultParam {
+	return fileVersionDefaultParam{
+		data: builder.Field{
+			Name:  "hash",
+			Value: direction,
+		},
+	}
+}
+
+func (r fileVersionQueryHashString) Contains(value string) fileVersionDefaultParam {
+	return fileVersionDefaultParam{
+		data: builder.Field{
+			Name: "hash",
+			Fields: []builder.Field{
+				{
+					Name:  "contains",
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r fileVersionQueryHashString) ContainsIfPresent(value *string) fileVersionDefaultParam {
+	if value == nil {
+		return fileVersionDefaultParam{}
+	}
+	return r.Contains(*value)
+}
+
+func (r fileVersionQueryHashString) HasPrefix(value string) fileVersionDefaultParam {
+	return fileVersionDefaultParam{
+		data: builder.Field{
+			Name: "hash",
+			Fields: []builder.Field{
+				{
+					Name:  "starts_with",
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r fileVersionQueryHashString) HasPrefixIfPresent(value *string) fileVersionDefaultParam {
+	if value == nil {
+		return fileVersionDefaultParam{}
+	}
+	return r.HasPrefix(*value)
+}
+
+func (r fileVersionQueryHashString) HasSuffix(value string) fileVersionDefaultParam {
+	return fileVersionDefaultParam{
+		data: builder.Field{
+			Name: "hash",
+			Fields: []builder.Field{
+				{
+					Name:  "ends_with",
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r fileVersionQueryHashString) HasSuffixIfPresent(value *string) fileVersionDefaultParam {
+	if value == nil {
+		return fileVersionDefaultParam{}
+	}
+	return r.HasSuffix(*value)
+}
+
+// base struct
+type fileVersionQueryCurrentlyUsedDotfile struct{}
+
+type fileVersionQueryCurrentlyUsedRelations struct{}
+
+// FileVersion -> CurrentlyUsed
+//
+// @relation
+// @optional
+func (fileVersionQueryCurrentlyUsedRelations) Where(
+	params ...DotfileWhereParam,
+) fileVersionDefaultParam {
+	var fields []builder.Field
+
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+
+	return fileVersionDefaultParam{
+		data: builder.Field{
+			Name: "currentlyUsed",
+			Fields: []builder.Field{
+				{
+					Name: "is",
+					Fields: []builder.Field{builder.Field{
+						Name:     "AND",
+						List:     true,
+						WrapList: true,
+						Fields:   fields,
+					}},
+				},
+			},
+		},
+	}
+}
+
+func (fileVersionQueryCurrentlyUsedRelations) Fetch() fileVersionToCurrentlyUsedFindUnique {
+	var v fileVersionToCurrentlyUsedFindUnique
+
+	v.query.Operation = "query"
+	v.query.Method = "currentlyUsed"
+	v.query.Outputs = dotfileOutput
+
+	return v
+}
+
+func (r fileVersionQueryCurrentlyUsedRelations) Link(
+	params DotfileWhereParam,
+) fileVersionSetParam {
+	var fields []builder.Field
+
+	f := params.field()
+	if f.Fields == nil && f.Value == nil {
+		return fileVersionSetParam{}
+	}
+
+	fields = append(fields, f)
+
+	return fileVersionSetParam{
+		data: builder.Field{
+			Name: "currentlyUsed",
+			Fields: []builder.Field{
+				{
+					Name:   "connect",
+					Fields: builder.TransformEquals(fields),
+				},
+			},
+		},
+	}
+}
+
+func (r fileVersionQueryCurrentlyUsedRelations) Unlink() fileVersionSetParam {
+	var v fileVersionSetParam
+
+	v = fileVersionSetParam{
+		data: builder.Field{
+			Name: "currentlyUsed",
+			Fields: []builder.Field{
+				{
+					Name:  "disconnect",
+					Value: true,
+				},
+			},
+		},
+	}
+
+	return v
+}
+
+// base struct
+type fileVersionQueryFileDotfile struct{}
+
+type fileVersionQueryFileRelations struct{}
+
+// FileVersion -> File
+//
+// @relation
+// @required
+func (fileVersionQueryFileRelations) Where(
+	params ...DotfileWhereParam,
+) fileVersionDefaultParam {
+	var fields []builder.Field
+
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+
+	return fileVersionDefaultParam{
+		data: builder.Field{
+			Name: "file",
+			Fields: []builder.Field{
+				{
+					Name: "is",
+					Fields: []builder.Field{builder.Field{
+						Name:     "AND",
+						List:     true,
+						WrapList: true,
+						Fields:   fields,
+					}},
+				},
+			},
+		},
+	}
+}
+
+func (fileVersionQueryFileRelations) Fetch() fileVersionToFileFindUnique {
+	var v fileVersionToFileFindUnique
+
+	v.query.Operation = "query"
+	v.query.Method = "file"
+	v.query.Outputs = dotfileOutput
+
+	return v
+}
+
+func (r fileVersionQueryFileRelations) Link(
+	params DotfileWhereParam,
+) fileVersionWithPrismaFileSetParam {
+	var fields []builder.Field
+
+	f := params.field()
+	if f.Fields == nil && f.Value == nil {
+		return fileVersionWithPrismaFileSetParam{}
+	}
+
+	fields = append(fields, f)
+
+	return fileVersionWithPrismaFileSetParam{
+		data: builder.Field{
+			Name: "file",
+			Fields: []builder.Field{
+				{
+					Name:   "connect",
+					Fields: builder.TransformEquals(fields),
+				},
+			},
+		},
+	}
+}
+
+func (r fileVersionQueryFileRelations) Unlink() fileVersionWithPrismaFileSetParam {
+	var v fileVersionWithPrismaFileSetParam
+
+	v = fileVersionWithPrismaFileSetParam{
+		data: builder.Field{
+			Name: "file",
+			Fields: []builder.Field{
+				{
+					Name:  "disconnect",
+					Value: true,
+				},
+			},
+		},
+	}
+
+	return v
+}
+
+// base struct
+type fileVersionQueryFileIDString struct{}
+
+// Set the required value of FileID
+func (r fileVersionQueryFileIDString) Set(value string) fileVersionSetParam {
+
+	return fileVersionSetParam{
+		data: builder.Field{
+			Name:  "fileId",
+			Value: value,
+		},
+	}
+
+}
+
+// Set the optional value of FileID dynamically
+func (r fileVersionQueryFileIDString) SetIfPresent(value *string) fileVersionSetParam {
+	if value == nil {
+		return fileVersionSetParam{}
+	}
+
+	return r.Set(*value)
+}
+
+func (r fileVersionQueryFileIDString) Equals(value string) fileVersionWithPrismaFileIDEqualsParam {
+
+	return fileVersionWithPrismaFileIDEqualsParam{
+		data: builder.Field{
+			Name: "fileId",
+			Fields: []builder.Field{
+				{
+					Name:  "equals",
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r fileVersionQueryFileIDString) EqualsIfPresent(value *string) fileVersionWithPrismaFileIDEqualsParam {
+	if value == nil {
+		return fileVersionWithPrismaFileIDEqualsParam{}
+	}
+	return r.Equals(*value)
+}
+
+func (r fileVersionQueryFileIDString) In(values []string) fileVersionDefaultParam {
+	var fields []builder.Field
+	for _, v := range values {
+		fields = append(fields, builder.Field{
+			Value: v,
+		})
+	}
+	return fileVersionDefaultParam{
+		data: builder.Field{
+			Name: "fileId",
+			Fields: []builder.Field{
+				{
+					Name:   "in",
+					List:   true,
+					Fields: fields,
+				},
+			},
+		},
+	}
+}
+
+func (r fileVersionQueryFileIDString) Order(direction types.Direction) fileVersionDefaultParam {
+	return fileVersionDefaultParam{
+		data: builder.Field{
+			Name:  "fileId",
+			Value: direction,
+		},
+	}
+}
+
+func (r fileVersionQueryFileIDString) Contains(value string) fileVersionDefaultParam {
+	return fileVersionDefaultParam{
+		data: builder.Field{
+			Name: "fileId",
+			Fields: []builder.Field{
+				{
+					Name:  "contains",
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r fileVersionQueryFileIDString) ContainsIfPresent(value *string) fileVersionDefaultParam {
+	if value == nil {
+		return fileVersionDefaultParam{}
+	}
+	return r.Contains(*value)
+}
+
+func (r fileVersionQueryFileIDString) HasPrefix(value string) fileVersionDefaultParam {
+	return fileVersionDefaultParam{
+		data: builder.Field{
+			Name: "fileId",
+			Fields: []builder.Field{
+				{
+					Name:  "starts_with",
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r fileVersionQueryFileIDString) HasPrefixIfPresent(value *string) fileVersionDefaultParam {
+	if value == nil {
+		return fileVersionDefaultParam{}
+	}
+	return r.HasPrefix(*value)
+}
+
+func (r fileVersionQueryFileIDString) HasSuffix(value string) fileVersionDefaultParam {
+	return fileVersionDefaultParam{
+		data: builder.Field{
+			Name: "fileId",
+			Fields: []builder.Field{
+				{
+					Name:  "ends_with",
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r fileVersionQueryFileIDString) HasSuffixIfPresent(value *string) fileVersionDefaultParam {
+	if value == nil {
+		return fileVersionDefaultParam{}
+	}
+	return r.HasSuffix(*value)
+}
+
+// base struct
+type fileVersionQuerySuccessorFileVersion struct{}
+
+type fileVersionQuerySuccessorRelations struct{}
+
+// FileVersion -> Successor
+//
+// @relation
+// @required
+func (fileVersionQuerySuccessorRelations) Some(
+	params ...FileVersionWhereParam,
+) fileVersionDefaultParam {
+	var fields []builder.Field
+
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+
+	return fileVersionDefaultParam{
+		data: builder.Field{
+			Name: "successor",
+			Fields: []builder.Field{
+				{
+					Name: "some",
+					Fields: []builder.Field{builder.Field{
+						Name:     "AND",
+						List:     true,
+						WrapList: true,
+						Fields:   fields,
+					}},
+				},
+			},
+		},
+	}
+}
+
+// FileVersion -> Successor
+//
+// @relation
+// @required
+func (fileVersionQuerySuccessorRelations) Every(
+	params ...FileVersionWhereParam,
+) fileVersionDefaultParam {
+	var fields []builder.Field
+
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+
+	return fileVersionDefaultParam{
+		data: builder.Field{
+			Name: "successor",
+			Fields: []builder.Field{
+				{
+					Name: "every",
+					Fields: []builder.Field{builder.Field{
+						Name:     "AND",
+						List:     true,
+						WrapList: true,
+						Fields:   fields,
+					}},
+				},
+			},
+		},
+	}
+}
+
+func (fileVersionQuerySuccessorRelations) Fetch(
+
+	params ...FileVersionWhereParam,
+
+) fileVersionToSuccessorFindMany {
+	var v fileVersionToSuccessorFindMany
+
+	v.query.Operation = "query"
+	v.query.Method = "successor"
+	v.query.Outputs = fileVersionOutput
+
+	var where []builder.Field
+	for _, q := range params {
+		if query := q.getQuery(); query.Operation != "" {
+			v.query.Outputs = append(v.query.Outputs, builder.Output{
+				Name:    query.Method,
+				Inputs:  query.Inputs,
+				Outputs: query.Outputs,
+			})
+		} else {
+			where = append(where, q.field())
+		}
+	}
+
+	if len(where) > 0 {
+		v.query.Inputs = append(v.query.Inputs, builder.Input{
+			Name: "where",
+			Fields: []builder.Field{builder.Field{
+				Name:     "AND",
+				List:     true,
+				WrapList: true,
+				Fields:   where,
+			}},
+		})
+	}
+
+	return v
+}
+
+func (r fileVersionQuerySuccessorRelations) Link(
+	params ...FileVersionWhereParam,
+) fileVersionSetParam {
+	var fields []builder.Field
+
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+
+	return fileVersionSetParam{
+		data: builder.Field{
+			Name: "successor",
+			Fields: []builder.Field{
+				{
+					Name:   "connect",
+					Fields: builder.TransformEquals(fields),
+
+					List:     true,
+					WrapList: true,
+				},
+			},
+		},
+	}
+}
+
+func (r fileVersionQuerySuccessorRelations) Unlink(
+	params ...FileVersionWhereParam,
+) fileVersionSetParam {
+	var v fileVersionSetParam
+
+	var fields []builder.Field
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+	v = fileVersionSetParam{
+		data: builder.Field{
+			Name: "successor",
+			Fields: []builder.Field{
+				{
+					Name:     "disconnect",
+					List:     true,
+					WrapList: true,
+					Fields:   builder.TransformEquals(fields),
+				},
+			},
+		},
+	}
+
+	return v
+}
+
+// base struct
+type fileVersionQueryPredecessorFileVersion struct{}
+
+type fileVersionQueryPredecessorRelations struct{}
+
+// FileVersion -> Predecessor
+//
+// @relation
+// @optional
+func (fileVersionQueryPredecessorRelations) Where(
+	params ...FileVersionWhereParam,
+) fileVersionDefaultParam {
+	var fields []builder.Field
+
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+
+	return fileVersionDefaultParam{
+		data: builder.Field{
+			Name: "predecessor",
+			Fields: []builder.Field{
+				{
+					Name: "is",
+					Fields: []builder.Field{builder.Field{
+						Name:     "AND",
+						List:     true,
+						WrapList: true,
+						Fields:   fields,
+					}},
+				},
+			},
+		},
+	}
+}
+
+func (fileVersionQueryPredecessorRelations) Fetch() fileVersionToPredecessorFindUnique {
+	var v fileVersionToPredecessorFindUnique
+
+	v.query.Operation = "query"
+	v.query.Method = "predecessor"
+	v.query.Outputs = fileVersionOutput
+
+	return v
+}
+
+func (r fileVersionQueryPredecessorRelations) Link(
+	params FileVersionWhereParam,
+) fileVersionSetParam {
+	var fields []builder.Field
+
+	f := params.field()
+	if f.Fields == nil && f.Value == nil {
+		return fileVersionSetParam{}
+	}
+
+	fields = append(fields, f)
+
+	return fileVersionSetParam{
+		data: builder.Field{
+			Name: "predecessor",
+			Fields: []builder.Field{
+				{
+					Name:   "connect",
+					Fields: builder.TransformEquals(fields),
+				},
+			},
+		},
+	}
+}
+
+func (r fileVersionQueryPredecessorRelations) Unlink() fileVersionSetParam {
+	var v fileVersionSetParam
+
+	v = fileVersionSetParam{
+		data: builder.Field{
+			Name: "predecessor",
+			Fields: []builder.Field{
+				{
+					Name:  "disconnect",
+					Value: true,
+				},
+			},
+		},
+	}
+
+	return v
+}
+
+// base struct
+type fileVersionQueryPredecessorIDString struct{}
+
+// Set the optional value of PredecessorID
+func (r fileVersionQueryPredecessorIDString) Set(value string) fileVersionSetParam {
+
+	return fileVersionSetParam{
+		data: builder.Field{
+			Name:  "predecessorId",
+			Value: value,
+		},
+	}
+
+}
+
+// Set the optional value of PredecessorID dynamically
+func (r fileVersionQueryPredecessorIDString) SetIfPresent(value *string) fileVersionSetParam {
+	if value == nil {
+		return fileVersionSetParam{}
+	}
+
+	return r.Set(*value)
+}
+
+// Set the optional value of PredecessorID dynamically
+func (r fileVersionQueryPredecessorIDString) SetOptional(value *string) fileVersionSetParam {
+	if value == nil {
+
+		var v *string
+		return fileVersionSetParam{
+			data: builder.Field{
+				Name:  "predecessorId",
+				Value: v,
+			},
+		}
+	}
+
+	return r.Set(*value)
+}
+
+func (r fileVersionQueryPredecessorIDString) Equals(value string) fileVersionWithPrismaPredecessorIDEqualsParam {
+
+	return fileVersionWithPrismaPredecessorIDEqualsParam{
+		data: builder.Field{
+			Name: "predecessorId",
+			Fields: []builder.Field{
+				{
+					Name:  "equals",
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r fileVersionQueryPredecessorIDString) EqualsIfPresent(value *string) fileVersionWithPrismaPredecessorIDEqualsParam {
+	if value == nil {
+		return fileVersionWithPrismaPredecessorIDEqualsParam{}
+	}
+	return r.Equals(*value)
+}
+
+func (r fileVersionQueryPredecessorIDString) In(values []string) fileVersionDefaultParam {
+	var fields []builder.Field
+	for _, v := range values {
+		fields = append(fields, builder.Field{
+			Value: v,
+		})
+	}
+	return fileVersionDefaultParam{
+		data: builder.Field{
+			Name: "predecessorId",
+			Fields: []builder.Field{
+				{
+					Name:   "in",
+					List:   true,
+					Fields: fields,
+				},
+			},
+		},
+	}
+}
+
+func (r fileVersionQueryPredecessorIDString) EqualsOptional(value *string) fileVersionDefaultParam {
+	return fileVersionDefaultParam{
+		data: builder.Field{
+			Name: "predecessorId",
+			Fields: []builder.Field{
+				{
+					Name:  "equals",
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r fileVersionQueryPredecessorIDString) IsNull() fileVersionDefaultParam {
+	var str *string = nil
+	return fileVersionDefaultParam{
+		data: builder.Field{
+			Name: "predecessorId",
+			Fields: []builder.Field{
+				{
+					Name:  "equals",
+					Value: str,
+				},
+			},
+		},
+	}
+}
+
+func (r fileVersionQueryPredecessorIDString) Order(direction types.Direction) fileVersionDefaultParam {
+	return fileVersionDefaultParam{
+		data: builder.Field{
+			Name:  "predecessorId",
+			Value: direction,
+		},
+	}
+}
+
+func (r fileVersionQueryPredecessorIDString) Contains(value string) fileVersionDefaultParam {
+	return fileVersionDefaultParam{
+		data: builder.Field{
+			Name: "predecessorId",
+			Fields: []builder.Field{
+				{
+					Name:  "contains",
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r fileVersionQueryPredecessorIDString) ContainsIfPresent(value *string) fileVersionDefaultParam {
+	if value == nil {
+		return fileVersionDefaultParam{}
+	}
+	return r.Contains(*value)
+}
+
+func (r fileVersionQueryPredecessorIDString) HasPrefix(value string) fileVersionDefaultParam {
+	return fileVersionDefaultParam{
+		data: builder.Field{
+			Name: "predecessorId",
+			Fields: []builder.Field{
+				{
+					Name:  "starts_with",
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r fileVersionQueryPredecessorIDString) HasPrefixIfPresent(value *string) fileVersionDefaultParam {
+	if value == nil {
+		return fileVersionDefaultParam{}
+	}
+	return r.HasPrefix(*value)
+}
+
+func (r fileVersionQueryPredecessorIDString) HasSuffix(value string) fileVersionDefaultParam {
+	return fileVersionDefaultParam{
+		data: builder.Field{
+			Name: "predecessorId",
+			Fields: []builder.Field{
+				{
+					Name:  "ends_with",
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r fileVersionQueryPredecessorIDString) HasSuffixIfPresent(value *string) fileVersionDefaultParam {
+	if value == nil {
+		return fileVersionDefaultParam{}
 	}
 	return r.HasSuffix(*value)
 }
